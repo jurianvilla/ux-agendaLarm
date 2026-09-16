@@ -1,0 +1,70 @@
+:root {
+  --color-primario: #3F51B5;
+  --color-primario-oscuro: #303F9F;
+  --color-primario-claro: #C5CAE9;
+  --color-acento: #FF9800;
+  --color-texto-primario: #212121;
+  --color-texto-secundario: #757575;
+  --color-borde: #BDBDBD;
+  --color-fondo: #FFFFFF;
+
+  --radio-base: 8px;
+  --espaciado-base: 8px; /* módulo de 8px, ajustar si el diseño final usa otro */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-width: 320px; /* guarda mínima para que no se rompa en pantallas angostas */
+  max-width: 480px; /* guarda máxima: layout mobile-first, no responsive completo */
+  margin-inline: auto;
+  background: var(--color-fondo);
+  color: var(--color-texto-primario);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.pantalla {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: calc(var(--espaciado-base) * 2);
+}
+
+.pantalla__header {
+  margin-bottom: calc(var(--espaciado-base) * 2);
+}
+
+.pantalla__contenido {
+  flex: 1;
+}
+
+.pantalla__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaciado-base);
+  padding-top: calc(var(--espaciado-base) * 2);
+  border-top: 1px solid var(--color-borde);
+}
+
+.boton {
+  border: none;
+  border-radius: var(--radio-base);
+  padding: calc(var(--espaciado-base) * 1.5) calc(var(--espaciado-base) * 2);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.boton--primario {
+  background: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+.boton--secundario {
+  background: transparent;
+  color: var(--color-primario);
+  border: 1px solid var(--color-primario);
+}
