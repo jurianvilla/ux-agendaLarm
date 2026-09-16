@@ -1,3 +1,14 @@
+/* Transición entre pantallas (Figma: on click, smart animate, ease in and out, 220ms) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: ease-in-out;
+}
+
 :root {
   --color-superficie: #E8EAF2;
   --color-tarjeta: #FFFFFF;
@@ -42,6 +53,7 @@ body {
   width: min(64vw, 920px);
   pointer-events: none;
   z-index: 0;
+  view-transition-name: fondo-decorativo;
 }
 
 .pantalla__contenido {
