@@ -495,3 +495,159 @@ body {
 .boton--secundario {
   align-self: flex-start;
 }
+
+/* =============================================================================
+   Adiciones · W-09 Importar del calendario
+   -----------------------------------------------------------------------------
+   Se añade únicamente lo que las reglas anteriores todavía no cubren.
+   Reutilizan las variables, la paleta y la tipografía ya definidas arriba;
+   ningún fondo aquí es blanco: siempre --color-superficie o transparente.
+============================================================================= */
+
+:root {
+  --color-exito: #2E7D46;
+}
+
+.esta-oculto {
+  display: none !important;
+}
+
+/* Casilla de verificación interactiva (fila de .lista-verificacion) --------- */
+
+.lista-verificacion__fila {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaciado-base);
+  cursor: pointer;
+}
+
+.lista-verificacion__casilla {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lista-verificacion__marca {
+  transition: opacity 0.15s ease;
+}
+
+.lista-verificacion__casilla:not(:checked) ~ .lista-verificacion__check .lista-verificacion__marca {
+  opacity: 0;
+}
+
+.lista-verificacion__casilla:focus-visible ~ .lista-verificacion__check {
+  outline: 2px solid var(--color-icono);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* Icono grande centrado (confirmación de W-15) ------------------------------ */
+
+.icono-pantalla {
+  display: block;
+  margin: 0 auto calc(var(--espaciado-base) * 1.5);
+  color: var(--color-icono);
+}
+
+.icono-pantalla--exito {
+  color: var(--color-exito);
+}
+
+/* Mensaje de estado del sistema (Periodo sincronizado) ----------------------- */
+
+.mensaje-exito {
+  margin: 0 0 calc(var(--espaciado-base) * 1.5);
+  max-width: var(--ancho-contenido);
+  color: var(--color-exito);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Bloque de eventos importados, oculto hasta elegir un origen --------------- */
+
+.bloque-importado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: var(--ancho-contenido);
+}
+
+/* Selector de origen del calendario (popup) ---------------------------------- */
+
+.selector-calendario {
+  width: min(90vw, 420px);
+  padding: calc(var(--espaciado-base) * 3);
+  border: none;
+  border-radius: calc(var(--radio-base) * 1.2);
+  background: var(--color-superficie);
+  color: var(--color-texto-primario);
+  box-shadow: 0 20px 48px rgba(20, 20, 40, 0.28);
+  text-align: center;
+}
+
+.selector-calendario::backdrop {
+  background: rgba(20, 20, 40, 0.45);
+}
+
+.selector-calendario__opciones {
+  display: flex;
+  gap: calc(var(--espaciado-base) * 1.5);
+  justify-content: center;
+  margin-top: calc(var(--espaciado-base) * 2.5);
+}
+
+.selector-calendario__opcion {
+  display: flex;
+  flex: 1 1 100px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: calc(var(--espaciado-base) * 1.5) var(--espaciado-base);
+  border: none;
+  border-radius: var(--radio-base);
+  background: none;
+  color: var(--color-texto-primario);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.selector-calendario__opcion:hover,
+.selector-calendario__opcion:focus-visible {
+  background: rgba(38, 48, 80, 0.08);
+  outline: none;
+}
+
+.selector-calendario__icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.selector-calendario__icono--gmail {
+  background: #d93025;
+}
+
+.selector-calendario__icono--hotmail {
+  background: #0067b8;
+}
+
+.selector-calendario__icono--uniandes {
+  background: #00205b;
+}

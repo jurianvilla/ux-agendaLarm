@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgendaLarm — W-09 · Importar del calendario</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pantalla">
+  <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+
+  <!-- =====================================================================
+       W-09 · Importar del calendario
+       ===================================================================== -->
+  <section class="pantalla__contenido" id="importar-calendario" data-vista>
+    <h1 class="pantalla__titulo">Conecta tu calendario académico o laboral</h1>
+
+    <button type="button" class="boton boton--primario" data-abrir="#selector-calendario">
+      Conectar calendario
+    </button>
+
+    <div class="bloque-importado esta-oculto" id="bloque-importado">
+      <p class="pantalla__ayuda" id="titulo-eventos">Eventos importados:</p>
+
+      <ul class="lista-verificacion" aria-labelledby="titulo-eventos">
+        <li>
+          <label class="lista-verificacion__fila">
+            <span>Lun · 08:00 · Cálculo I</span>
+            <input type="checkbox" class="lista-verificacion__casilla" checked>
+            <svg class="lista-verificacion__check" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.5"></circle>
+              <path class="lista-verificacion__marca" d="M8 12.5 10.6 15 16 9.4"></path>
+            </svg>
+          </label>
+        </li>
+        <li>
+          <label class="lista-verificacion__fila">
+            <span>Mar · 10:00 · Reunión equipo</span>
+            <input type="checkbox" class="lista-verificacion__casilla" checked>
+            <svg class="lista-verificacion__check" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.5"></circle>
+              <path class="lista-verificacion__marca" d="M8 12.5 10.6 15 16 9.4"></path>
+            </svg>
+          </label>
+        </li>
+        <li>
+          <label class="lista-verificacion__fila">
+            <span>Mié · 14:00 · Clase Bases de Datos</span>
+            <input type="checkbox" class="lista-verificacion__casilla" checked>
+            <svg class="lista-verificacion__check" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.5"></circle>
+              <path class="lista-verificacion__marca" d="M8 12.5 10.6 15 16 9.4"></path>
+            </svg>
+          </label>
+        </li>
+      </ul>
+
+      <button type="button" class="boton boton--primario" data-mostrar-vista="periodo-sincronizado">
+        Procesar calendario
+      </button>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       Selector de origen del calendario (popup de W-09)
+       ===================================================================== -->
+  <dialog class="selector-calendario" id="selector-calendario" aria-labelledby="titulo-selector-origen">
+    <h2 class="pantalla__titulo" id="titulo-selector-origen">¿Desde dónde quieres importar?</h2>
+    <p class="pantalla__texto-ayuda">Elige la cuenta donde está tu horario</p>
+
+    <div class="selector-calendario__opciones">
+      <button type="button" class="selector-calendario__opcion" data-elegir-origen="Gmail">
+        <span class="selector-calendario__icono selector-calendario__icono--gmail" aria-hidden="true">G</span>
+        <span>Gmail</span>
+      </button>
+      <button type="button" class="selector-calendario__opcion" data-elegir-origen="Hotmail">
+        <span class="selector-calendario__icono selector-calendario__icono--hotmail" aria-hidden="true">H</span>
+        <span>Hotmail</span>
+      </button>
+      <button type="button" class="selector-calendario__opcion" data-elegir-origen="Uniandes">
+        <span class="selector-calendario__icono selector-calendario__icono--uniandes" aria-hidden="true">U</span>
+        <span>Uniandes</span>
+      </button>
+    </div>
+  </dialog>
+
+  <!-- =====================================================================
+       W-15 · Periodo sincronizado (estado del sistema)
+       ===================================================================== -->
+  <section class="pantalla__contenido esta-oculto" id="periodo-sincronizado" data-vista>
+    <svg class="icono-pantalla icono-pantalla--exito" width="52" height="52" viewBox="0 0 48 48"
+         fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+         stroke-linejoin="round" role="img" aria-label="Sincronización confirmada">
+      <circle cx="24" cy="24" r="21"></circle>
+      <path d="M14.4 24.6 21.2 31.2 33.4 17.8"></path>
+    </svg>
+
+    <p class="mensaje-exito">¡Tu periodo se sincronizó con tu celular!</p>
+
+    <button type="button" class="boton boton--primario" data-mostrar-vista="importar-calendario">
+      Ver revisión semanal
+    </button>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
