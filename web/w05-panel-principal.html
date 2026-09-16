@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel principal de AgendaLarm — accesos a configuración del periodo, alarmas, seguimiento y cuenta.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
+  <title>AgendaLarm — Panel principal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="pantalla">
+    <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+    <main class="pantalla__contenido">
+      <h1 class="pantalla__titulo">Panel principal</h1>
+
+      <div class="tarjeta-grid">
+        <a class="tarjeta-seccion" href="w07-cargar-horario.html">
+          <svg class="tarjeta-seccion__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <line x1="4" y1="5" x2="16" y2="5"/><line x1="4" y1="10" x2="16" y2="10"/><line x1="4" y1="15" x2="16" y2="15"/>
+          </svg>
+          Configuración del periodo
+        </a>
+
+        <div class="tarjeta-seccion">
+          <svg class="tarjeta-seccion__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M10 3a4 4 0 0 0-4 4v3l-1.7 3h11.4L14 10V7a4 4 0 0 0-4-4Z"/><path d="M8.4 16a1.7 1.7 0 0 0 3.2 0"/>
+          </svg>
+          Alarmas del periodo
+        </div>
+
+        <div class="tarjeta-seccion">
+          <svg class="tarjeta-seccion__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <line x1="5" y1="15" x2="5" y2="9"/><line x1="10" y1="15" x2="10" y2="5"/><line x1="15" y1="15" x2="15" y2="11"/>
+          </svg>
+          Seguimiento
+        </div>
+
+        <div class="tarjeta-seccion">
+          <svg class="tarjeta-seccion__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="10" cy="6.5" r="3"/><path d="M4 16c0-3 2.7-5 6-5s6 2 6 5"/>
+          </svg>
+          Cuenta
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
