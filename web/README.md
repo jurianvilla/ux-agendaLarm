@@ -6,7 +6,8 @@ Maquetación plana en HTML/CSS/JS (sin build ni dependencias).
 
 ```
 web/
-├── w05-panel-principal.html
+├── w05-panel-principal.html   # W-05 · Panel principal
+├── w07-cargar-horario.html   # W-07 · Cargar tu horario
 ├── W-09-importar-del-calendario.html   # W-09 · Importar del calendario
 ├── css/styles.css   # tokens de color/espaciado + estilos base compartidos
 ├── js/main.js
@@ -16,7 +17,19 @@ web/
 ## Pantallas
 
 - `w05-panel-principal.html` — Julio Cesar Urian Villamil
+- `w07-cargar-horario.html` — Julio Cesar Urian Villamil
 - `W-09-importar-del-calendario.html` — Sebastián Vega
+
+### W-05 · Panel principal
+
+Accesos a las cuatro secciones de la app: Configuración del periodo (lleva a
+W-07), Alarmas del periodo, Seguimiento y Cuenta.
+
+### W-07 · Cargar tu horario
+
+Paso 1 de configuración del periodo. Ofrece tres formas de cargar
+el horario — Registro manual (lleva a W-08), Importar desde calendario y Foto
+del horario —.
 
 ### W-09 · Importar del calendario
 

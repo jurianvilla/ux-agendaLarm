@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elige cómo cargar tu horario: registro manual, importar desde calendario o foto del horario.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
+  <title>AgendaLarm — Cargar tu horario</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="pantalla">
+    <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+    <main class="pantalla__contenido">
+      <ol class="stepper">
+        <li class="stepper__paso stepper__paso--activo"><span class="stepper__marca">1</span> Cargar horario</li>
+        <li class="stepper__paso"><span class="stepper__marca">2</span> Direcciones y margen</li>
+        <li class="stepper__paso"><span class="stepper__marca">3</span> Revisar propuesta</li>
+      </ol>
+
+      <h1 class="pantalla__titulo">Cargar tu horario</h1>
+      <p class="pantalla__subtitulo">Después de cargar tu horario te pedimos tus direcciones habituales.</p>
+
+      <div class="opciones-fila">
+        <a class="opcion-tile" href="w08-registro-manual.html">
+          <svg class="opcion-tile__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <line x1="4" y1="5" x2="16" y2="5"/><line x1="4" y1="10" x2="16" y2="10"/><line x1="4" y1="15" x2="16" y2="15"/>
+          </svg>
+          Registro manual
+        </a>
+
+        <div class="opcion-tile">
+          <svg class="opcion-tile__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <rect x="3.5" y="4.5" width="13" height="12" rx="1.5"/><line x1="3.5" y1="8" x2="16.5" y2="8"/><line x1="7" y1="3" x2="7" y2="5.5"/><line x1="13" y1="3" x2="13" y2="5.5"/>
+          </svg>
+          Importar desde calendario
+        </div>
+
+        <div class="opcion-tile">
+          <svg class="opcion-tile__icono" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 7h3l1.2-2h5.6L14 7h3v9H3Z"/><circle cx="10" cy="11.5" r="2.7"/>
+          </svg>
+          Foto del horario
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
