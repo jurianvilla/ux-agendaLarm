@@ -18,6 +18,7 @@
   --color-icono: #263050;
   --color-boton: #8F5A29;
   --color-boton-hover: #764A20;
+  --color-exito: #2E7D46;
 
   --radio-base: 10px;
   --espaciado-base: 8px;
@@ -505,8 +506,10 @@ body {
    ningún fondo aquí es blanco: siempre --color-superficie o transparente.
 ============================================================================= */
 
-:root {
-  --color-exito: #2E7D46;
+/* Landmark <main> transparente para el layout (envuelve las vistas que se
+   alternan con data-vista) — no debe alterar el flex de .pantalla. */
+.pantalla__vistas {
+  display: contents;
 }
 
 .esta-oculto {
@@ -611,6 +614,10 @@ body {
   border-radius: calc(var(--radio-base) * 1.2);
   background: var(--color-superficie);
   box-shadow: 0 2px 10px rgba(20, 20, 40, 0.12);
+}
+
+.pantalla__ayuda--centrada {
+  text-align: center;
 }
 
 [tabindex="-1"]:focus {
