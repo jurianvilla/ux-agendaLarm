@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgendaLarm — W-10 · Foto del horario</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pantalla">
+  <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+
+  <!-- =====================================================================
+       W-10 · Foto del horario
+       ===================================================================== -->
+  <section class="pantalla__contenido" id="vista-normal" data-vista>
+    <h1 class="pantalla__titulo">Foto del horario</h1>
+
+    <svg class="icono-pantalla" width="48" height="42" viewBox="0 0 48 42"
+         fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+         stroke-linejoin="round" role="img" aria-label="Fotografía del horario">
+      <path d="M17.2 8.8 20.4 2.6h8.6l3.2 6.2"></path>
+      <rect x="1.4" y="8.8" width="45.2" height="31.6" rx="6.2"></rect>
+      <circle cx="24" cy="24.6" r="10.2"></circle>
+    </svg>
+
+    <div class="fila-botones">
+      <button type="button" class="boton" id="boton-subir">Subir foto</button>
+      <button type="button" class="boton" id="boton-tomar">Tomar foto</button>
+    </div>
+
+    <p class="pantalla__ayuda esta-oculto" id="mensaje-tipo-invalido" role="alert">
+      Solo se admiten imágenes PNG o JPG.
+    </p>
+
+    <figure class="tarjeta-foto">
+      <img src="assets/horario-foto.png" width="431" height="266"
+           alt="Vista previa del horario cargado: tabla semanal de 6:00 a 22:00">
+    </figure>
+
+    <!-- Prototipo: el archivo elegido no se guarda ni se procesa. -->
+    <input type="file" accept="image/png, image/jpeg" id="entrada-archivo" hidden>
+  </section>
+
+  <!-- =====================================================================
+       Estado de carga tras subir o tomar la foto
+       ===================================================================== -->
+  <section class="pantalla__contenido esta-oculto" id="vista-cargando" data-vista>
+    <svg class="cargando__spinner" width="48" height="48" viewBox="0 0 48 48" fill="none"
+         role="img" aria-label="Cargando">
+      <circle class="cargando__pista" cx="24" cy="24" r="20" stroke-width="4"></circle>
+      <path class="cargando__arco" d="M24 4a20 20 0 0 1 20 20" stroke-width="4" stroke-linecap="round"></path>
+    </svg>
+    <p class="pantalla__texto-ayuda">Cargando tu horario…</p>
+  </section>
+
+  <!-- =====================================================================
+       Simulación de cámara
+       ===================================================================== -->
+  <dialog class="camara" id="camara-modal" aria-label="Tomar foto del horario">
+    <video class="camara__video esta-oculto" id="camara-video" autoplay playsinline muted></video>
+
+    <div class="camara__marco" id="camara-marco">
+      <svg class="icono-pantalla" width="40" height="35" viewBox="0 0 48 42"
+           fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="M17.2 8.8 20.4 2.6h8.6l3.2 6.2"></path>
+        <rect x="1.4" y="8.8" width="45.2" height="31.6" rx="6.2"></rect>
+        <circle cx="24" cy="24.6" r="10.2"></circle>
+      </svg>
+      <p class="pantalla__texto-ayuda">Apunta al horario y captura la foto</p>
+    </div>
+
+    <div class="camara__acciones">
+      <button type="button" class="boton boton--secundario" data-cerrar>Cancelar</button>
+      <button type="button" class="boton boton--primario" id="camara-capturar">Capturar</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

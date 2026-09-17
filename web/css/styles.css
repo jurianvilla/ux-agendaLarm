@@ -497,7 +497,8 @@ body {
 }
 
 /* =============================================================================
-   Adiciones · W-09 Importar del calendario
+   Adiciones · W-09 Importar del calendario · W-10 Foto del horario
+   W-11 Verificación de foto · W-15 Periodo sincronizado
    -----------------------------------------------------------------------------
    Se añade únicamente lo que las reglas anteriores todavía no cubren.
    Reutilizan las variables, la paleta y la tipografía ya definidas arriba;
@@ -549,7 +550,21 @@ body {
   border-radius: 50%;
 }
 
-/* Icono grande centrado (confirmación de W-15) ------------------------------ */
+/* Fila de botones lado a lado (Foto del horario) ---------------------------- */
+
+.fila-botones {
+  display: flex;
+  gap: calc(var(--espaciado-base) * 1.5);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: calc(var(--espaciado-base) * 2.5) 0;
+}
+
+.fila-botones .boton {
+  min-width: 136px;
+}
+
+/* Icono grande centrado (cámara, confirmación) ------------------------------ */
 
 .icono-pantalla {
   display: block;
@@ -559,6 +574,22 @@ body {
 
 .icono-pantalla--exito {
   color: var(--color-exito);
+}
+
+/* Vista previa de la foto del horario ---------------------------------------- */
+
+.tarjeta-foto {
+  width: min(100%, 431px);
+  margin: 0 auto;
+  border-radius: calc(var(--radio-base) * 0.6);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(20, 20, 40, 0.12);
+}
+
+.tarjeta-foto img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Mensaje de estado del sistema (Periodo sincronizado) ----------------------- */
@@ -571,7 +602,84 @@ body {
   font-size: 0.95rem;
 }
 
-/* Bloque de eventos importados, oculto hasta elegir un origen --------------- */
+/* Tarjeta centrada de verificación (W-11, página propia y pequeña) ----------- */
+
+.tarjeta-verificacion {
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: calc(var(--espaciado-base) * 3);
+  border-radius: calc(var(--radio-base) * 1.2);
+  background: var(--color-superficie);
+  box-shadow: 0 2px 10px rgba(20, 20, 40, 0.12);
+}
+
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Lista editable (filas con editar / descartar) en la verificación de foto -- */
+
+.lista-editable {
+  list-style: none;
+  margin: calc(var(--espaciado-base) * 2) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--espaciado-base) * 1.25);
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.lista-editable li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaciado-base);
+}
+
+.lista-editable__acciones {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.lista-editable__boton {
+  display: inline-flex;
+  padding: 4px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-texto-secundario);
+  cursor: pointer;
+}
+
+.lista-editable__boton:hover {
+  background: rgba(38, 48, 80, 0.08);
+  color: var(--color-icono);
+}
+
+.lista-editable__boton:focus-visible {
+  outline: 2px solid var(--color-icono);
+  outline-offset: 1px;
+}
+
+.lista-editable li.esta-descartada {
+  display: none;
+}
+
+/* Texto editable en línea (lápiz de .lista-editable) ------------------------- */
+
+.lista-editable__texto {
+  border-radius: 4px;
+  outline-offset: 2px;
+}
+
+.lista-editable__texto--activo {
+  outline: 1px dashed var(--color-icono);
+  cursor: text;
+}
+
+/* Bloque de eventos importados, oculto hasta elegir un origen (W-09) -------- */
 
 .bloque-importado {
   display: flex;
@@ -581,7 +689,7 @@ body {
   max-width: var(--ancho-contenido);
 }
 
-/* Selector de origen del calendario (popup) ---------------------------------- */
+/* Selector de origen del calendario (popup de W-09) -------------------------- */
 
 .selector-calendario {
   width: min(90vw, 420px);
@@ -650,4 +758,68 @@ body {
 
 .selector-calendario__icono--uniandes {
   background: #00205b;
+}
+
+/* Estado de carga tras subir/tomar la foto (W-10) --------------------------- */
+
+.cargando__spinner {
+  display: block;
+  margin: 0 auto calc(var(--espaciado-base) * 2);
+  animation: agendalarm-girar 0.9s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.cargando__pista {
+  stroke: var(--color-borde);
+}
+
+.cargando__arco {
+  stroke: var(--color-icono);
+}
+
+@keyframes agendalarm-girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Simulación de cámara (W-10) ------------------------------------------------ */
+
+.camara {
+  width: min(90vw, 420px);
+  padding: calc(var(--espaciado-base) * 3);
+  border: none;
+  border-radius: calc(var(--radio-base) * 1.2);
+  background: var(--color-superficie);
+  color: var(--color-texto-primario);
+  box-shadow: 0 20px 48px rgba(20, 20, 40, 0.28);
+  text-align: center;
+}
+
+.camara::backdrop {
+  background: rgba(20, 20, 40, 0.45);
+}
+
+.camara__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto calc(var(--espaciado-base) * 1.5);
+  border-radius: calc(var(--radio-base) * 0.6);
+  background: #14161f;
+  object-fit: cover;
+}
+
+.camara__marco {
+  margin-bottom: calc(var(--espaciado-base) * 1.5);
+}
+
+.camara__acciones {
+  display: flex;
+  gap: calc(var(--espaciado-base) * 1.5);
+  justify-content: center;
+}
+
+.camara__acciones .boton {
+  flex: 1 1 auto;
 }
