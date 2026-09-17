@@ -10,6 +10,7 @@ web/
 ├── w07-cargar-horario.html   # W-07 · Cargar tu horario
 ├── W-09-importar-del-calendario.html   # W-09 · Importar del calendario
 ├── W-10-foto-del-horario.html   # W-10 · Foto del horario
+├── W-11-verificacion-de-foto.html   # W-11 · Verificación de foto
 ├── css/styles.css   # tokens de color/espaciado + estilos base compartidos
 ├── js/main.js
 └── assets/           # imágenes/íconos
@@ -21,6 +22,7 @@ web/
 - `w07-cargar-horario.html` — Julio Cesar Urian Villamil
 - `W-09-importar-del-calendario.html` — Sebastián Vega
 - `W-10-foto-del-horario.html` — Sebastián Vega
+- `W-11-verificacion-de-foto.html` — Sebastián Vega
 
 ### W-05 · Panel principal
 
@@ -77,4 +79,20 @@ prototipo (sólo front, no se guarda ni procesa ningún archivo):
   segundos y navega automáticamente a `W-11-verificacion-de-foto.html`.
 - Reutiliza la misma transición del resto de la app (`@view-transition`) para
   el cambio interno a la vista de carga y para la navegación final.
+
+### W-11 · Verificación de foto
+
+Revisión de lo que el sistema interpretó de la imagen. Cada evento se puede
+corregir o descartar antes de continuar (sólo front, nada se persiste: al
+refrescar la página todo vuelve a los valores iniciales).
+
+- El lápiz de cada fila activa edición en línea (`contenteditable`) sobre el
+  texto del evento; Enter, Escape o quitar el foco confirman visualmente el
+  cambio, sin guardarlo en ningún lado.
+- La `X` descarta la fila (se oculta con `display: none`); no hay forma de
+  recuperarla salvo refrescando la página.
+- **Todo correcto, continuar** navega a la vista de éxito de
+  `W-09-importar-del-calendario.html` (W-15 · Periodo sincronizado).
+- No tiene botón "Atrás": es el último paso de la verificación antes de
+  confirmar.
 

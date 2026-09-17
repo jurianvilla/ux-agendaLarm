@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgendaLarm — W-11 · Verificación de foto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pantalla">
+  <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+
+  <!-- =====================================================================
+       W-11 · Verificación de foto
+       ===================================================================== -->
+  <section class="pantalla__contenido">
+    <div class="tarjeta-verificacion">
+      <h1 class="pantalla__titulo" tabindex="-1" autofocus>Verificación de foto</h1>
+
+      <p class="pantalla__texto-ayuda">Revisa lo que interpretamos de tu horario</p>
+
+      <ul class="lista-editable">
+        <li>
+          <span class="lista-editable__texto">Lun · 08:00 · Cálculo I</span>
+          <span class="lista-editable__acciones">
+            <button type="button" class="lista-editable__boton" data-editar aria-label="Editar Lun · 08:00 · Cálculo I">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 19.5h4L20 8a2.5 2.5 0 0 0-3.5-3.5L5 16v3.5z"></path>
+              </svg>
+            </button>
+            <button type="button" class="lista-editable__boton" data-quitar-fila
+                    aria-label="Descartar Lun · 08:00 · Cálculo I">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li>
+          <span class="lista-editable__texto">Mar · 10:00 · Reunión equipo</span>
+          <span class="lista-editable__acciones">
+            <button type="button" class="lista-editable__boton" data-editar aria-label="Editar Mar · 10:00 · Reunión equipo">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 19.5h4L20 8a2.5 2.5 0 0 0-3.5-3.5L5 16v3.5z"></path>
+              </svg>
+            </button>
+            <button type="button" class="lista-editable__boton" data-quitar-fila
+                    aria-label="Descartar Mar · 10:00 · Reunión equipo">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li>
+          <span class="lista-editable__texto">Mié · 14:00 · Clase Bases de Datos</span>
+          <span class="lista-editable__acciones">
+            <button type="button" class="lista-editable__boton" data-editar aria-label="Editar Mié · 14:00 · Clase Bases de Datos">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 19.5h4L20 8a2.5 2.5 0 0 0-3.5-3.5L5 16v3.5z"></path>
+              </svg>
+            </button>
+            <button type="button" class="lista-editable__boton" data-quitar-fila
+                    aria-label="Descartar Mié · 14:00 · Clase Bases de Datos">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+              </svg>
+            </button>
+          </span>
+        </li>
+        <li>
+          <span class="lista-editable__texto">Jue · 16:00 · Entrenamiento</span>
+          <span class="lista-editable__acciones">
+            <button type="button" class="lista-editable__boton" data-editar aria-label="Editar Jue · 16:00 · Entrenamiento">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 19.5h4L20 8a2.5 2.5 0 0 0-3.5-3.5L5 16v3.5z"></path>
+              </svg>
+            </button>
+            <button type="button" class="lista-editable__boton" data-quitar-fila
+                    aria-label="Descartar Jue · 16:00 · Entrenamiento">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+              </svg>
+            </button>
+          </span>
+        </li>
+      </ul>
+
+      <button type="button" class="boton boton--primario"
+              data-nav="W-09-importar-del-calendario.html#periodo-sincronizado">
+        Todo correcto, continuar
+      </button>
+
+      <p class="pantalla__ayuda" style="text-align:center">
+        ¿Algo no coincide? Corrígelo aquí antes de continuar.
+      </p>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
