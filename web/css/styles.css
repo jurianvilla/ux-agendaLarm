@@ -13,7 +13,7 @@
   --color-superficie: #E8EAF2;
   --color-tarjeta: #FFFFFF;
   --color-texto-primario: #212121;
-  --color-texto-secundario: #757575;
+  --color-texto-secundario: #616161;
   --color-borde: #D8DCE6;
   --color-icono: #263050;
   --color-boton: #8F5A29;
@@ -737,10 +737,14 @@ body {
   cursor: pointer;
 }
 
-.selector-calendario__opcion:hover,
+.selector-calendario__opcion:hover {
+  background: rgba(38, 48, 80, 0.08);
+}
+
 .selector-calendario__opcion:focus-visible {
   background: rgba(38, 48, 80, 0.08);
-  outline: none;
+  outline: 2px solid var(--color-icono);
+  outline-offset: 2px;
 }
 
 .selector-calendario__icono {

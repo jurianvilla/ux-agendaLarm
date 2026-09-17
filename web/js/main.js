@@ -16,6 +16,7 @@
      [data-nav="archivo.html"]   → navega a otra pantalla
      [data-vista]                → sección que representa una vista (usa su id)
      [data-mostrar-vista="id"]   → muestra esa vista y oculta las demás
+     [data-foco-vista]           → recibe el foco al mostrarse su vista (data-vista)
      [data-abrir="#id"]          → abre el <dialog> indicado
      [data-cerrar]               → cierra el <dialog> que lo contiene
      [data-quitar-fila]          → descarta el <li> que lo contiene
@@ -65,6 +66,15 @@
     vistas.forEach((vista) => vista.classList.toggle(CLASE_OCULTO, vista !== destino));
     // El hash permite enlazar directamente a una vista desde otra pantalla.
     history.replaceState(null, '', `#${id}`);
+
+    // Mueve el foco al mensaje de la vista mostrada: el cambio ocurre dentro
+    // de la misma página (no es una navegación real), así que sin esto un
+    // lector de pantalla no se entera de que el contenido cambió.
+    const foco = destino.querySelector('[data-foco-vista]');
+    if (foco) {
+      if (!foco.hasAttribute('tabindex')) foco.setAttribute('tabindex', '-1');
+      foco.focus();
+    }
   }
 
   function activarVistas() {
