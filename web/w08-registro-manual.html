@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Registra tu horario compromiso por compromiso en AgendaLarm.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
+  <title>AgendaLarm — Registro manual</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="pantalla">
+    <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+    <main class="pantalla__contenido">
+      <h1 class="pantalla__titulo">Registro manual</h1>
+
+      <form class="formulario">
+        <div class="fila-campos">
+          <div class="campo">
+            <label for="dia">Día</label>
+            <input type="text" id="dia" value="Lunes">
+          </div>
+          <div class="campo">
+            <label for="hora">Hora</label>
+            <input type="text" id="hora" value="08:00">
+          </div>
+          <div class="campo">
+            <label for="actividad">Actividad</label>
+            <input type="text" id="actividad" placeholder="Nueva actividad">
+          </div>
+        </div>
+
+        <button type="button" class="boton boton--secundario">+ Agregar compromiso</button>
+      </form>
+
+      <ul class="lista-verificacion">
+        <li><span>Lun · 08:00 · Cálculo I</span> <span class="lista-verificacion__check">&#10003;</span></li>
+        <li><span>Mar · 10:00 · Reunión equipo</span> <span class="lista-verificacion__check">&#10003;</span></li>
+        <li><span>Mié · 14:00 · Clase Bases de Datos</span> <span class="lista-verificacion__check">&#10003;</span></li>
+      </ul>
+
+      <div class="formulario">
+        <a class="boton boton--secundario" href="w12-direcciones-margen.html">Guardar y continuar</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -8,6 +8,7 @@ Maquetación plana en HTML/CSS/JS (sin build ni dependencias).
 web/
 ├── w05-panel-principal.html   # W-05 · Panel principal
 ├── w07-cargar-horario.html   # W-07 · Cargar tu horario
+├── w08-registro-manual.html   # W-08 · Registro manual
 ├── W-09-importar-del-calendario.html   # W-09 · Importar del calendario
 ├── W-10-foto-del-horario.html   # W-10 · Foto del horario
 ├── W-11-verificacion-de-foto.html   # W-11 · Verificación de foto
@@ -20,6 +21,7 @@ web/
 
 - `w05-panel-principal.html` — Julio Cesar Urian Villamil
 - `w07-cargar-horario.html` — Julio Cesar Urian Villamil
+- `w08-registro-manual.html` — Julio Cesar Urian Villamil
 - `W-09-importar-del-calendario.html` — Sebastián Vega
 - `W-10-foto-del-horario.html` — Sebastián Vega
 - `W-11-verificacion-de-foto.html` — Sebastián Vega
@@ -34,6 +36,13 @@ W-07), Alarmas del periodo, Seguimiento y Cuenta.
 Paso 1 de configuración del periodo. Ofrece tres formas de cargar
 el horario — Registro manual (lleva a W-08), Importar desde calendario y Foto
 del horario —.
+
+### W-08 · Registro manual
+
+Alta de compromisos uno por uno (día, hora, actividad) para quien prefiere
+capturar el horario a mano en vez de importarlo o fotografiarlo. Muestra la
+lista de lo ya registrado y **Guardar y continuar** lleva a
+`w12-direcciones-margen.html`.
 
 ### W-09 · Importar del calendario
 
