@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margen_pantalla">24dp</dimen>
+    <!-- Guarda de ancho (regla (d) de S7): el contenido nunca se estira más allá de esto. -->
+    <dimen name="ancho_max_contenido">420dp</dimen>
+</resources>

@@ -15,6 +15,6 @@ Un repo con dos carpetas, una por plataforma:
 ```
 ux-agendaLarm/
 ├── web/       # HTML + CSS + JS plano
-└── mobile/    # tecnología pendiente de decisión
+└── mobile/    # Android nativo (Kotlin + XML, Material 3) — ver mobile/README.md
 ```
 

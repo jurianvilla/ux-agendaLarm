@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tokens muestreados de los mockups S6 (mismos valores que web/css/styles.css). -->
+<resources>
+    <color name="superficie">#E8EAF2</color>
+    <color name="tarjeta">#FFFFFF</color>
+    <color name="texto_primario">#212121</color>
+    <color name="texto_secundario">#757575</color>
+    <color name="borde">#D8DCE6</color>
+    <color name="icono">#263050</color>
+    <color name="boton">#8F5A29</color>
+    <color name="exito">#2E7D46</color>
+    <color name="blanco">#FFFFFF</color>
+</resources>
