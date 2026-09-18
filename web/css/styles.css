@@ -18,7 +18,6 @@
   --color-icono: #263050;
   --color-boton: #8F5A29;
   --color-boton-hover: #764A20;
-  --color-exito: #2E7D46;
 
   --radio-base: 10px;
   --espaciado-base: 8px;
@@ -497,9 +496,16 @@ body {
   align-self: flex-start;
 }
 
+/* Botón de ancho ajustado al texto (no ocupa el 100% de .boton--primario),
+   para igualar el tamaño de referencia de W-12-direcciones-margen. */
+.boton--compacta {
+  width: auto;
+  max-width: none;
+}
+
 /* =============================================================================
    Adiciones · W-09 Importar del calendario · W-10 Foto del horario
-   W-11 Verificación de foto · W-15 Periodo sincronizado
+   W-11 Verificación de foto
    -----------------------------------------------------------------------------
    Se añade únicamente lo que las reglas anteriores todavía no cubren.
    Reutilizan las variables, la paleta y la tipografía ya definidas arriba;
@@ -575,10 +581,6 @@ body {
   color: var(--color-icono);
 }
 
-.icono-pantalla--exito {
-  color: var(--color-exito);
-}
-
 /* Vista previa de la foto del horario ---------------------------------------- */
 
 .tarjeta-foto {
@@ -593,16 +595,6 @@ body {
   display: block;
   width: 100%;
   height: auto;
-}
-
-/* Mensaje de estado del sistema (Periodo sincronizado) ----------------------- */
-
-.mensaje-exito {
-  margin: 0 0 calc(var(--espaciado-base) * 1.5);
-  max-width: var(--ancho-contenido);
-  color: var(--color-exito);
-  font-weight: 600;
-  font-size: 0.95rem;
 }
 
 /* Tarjeta centrada de verificación (W-11, página propia y pequeña) ----------- */
@@ -832,5 +824,5 @@ body {
 }
 
 .camara__acciones .boton {
-  flex: 1 1 auto;
+  flex: 1;
 }

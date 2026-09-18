@@ -18,7 +18,7 @@
   <section class="pantalla__contenido" id="importar-calendario" data-vista>
     <h1 class="pantalla__titulo" data-foco-vista>Conecta tu calendario académico o laboral</h1>
 
-    <button type="button" class="boton boton--primario" data-abrir="#selector-calendario">
+    <button type="button" class="boton boton--primario boton--compacta" data-abrir="#selector-calendario">
       Conectar calendario
     </button>
 
@@ -64,7 +64,7 @@
         </li>
       </ul>
 
-      <button type="button" class="boton boton--primario" data-mostrar-vista="periodo-sincronizado">
+      <button type="button" class="boton boton--primario boton--compacta" data-nav="W-13-excepciones-periodo.html">
         Procesar calendario
       </button>
     </div>
@@ -92,24 +92,6 @@
       </button>
     </div>
   </dialog>
-
-  <!-- =====================================================================
-       W-15 · Periodo sincronizado (estado del sistema)
-       ===================================================================== -->
-  <section class="pantalla__contenido esta-oculto" id="periodo-sincronizado" data-vista>
-    <svg class="icono-pantalla icono-pantalla--exito" width="52" height="52" viewBox="0 0 48 48"
-         fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
-         stroke-linejoin="round" role="img" aria-label="Sincronización confirmada">
-      <circle cx="24" cy="24" r="21"></circle>
-      <path d="M14.4 24.6 21.2 31.2 33.4 17.8"></path>
-    </svg>
-
-    <p class="mensaje-exito" data-foco-vista>¡Tu periodo se sincronizó con tu celular!</p>
-
-    <button type="button" class="boton boton--primario" data-mostrar-vista="importar-calendario">
-      Ver revisión semanal
-    </button>
-  </section>
   </main>
 
   <script src="js/main.js"></script>
