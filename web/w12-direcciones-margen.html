@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Configura direcciones de origen y destino, y el margen de preparación de tus alarmas.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
+  <title>AgendaLarm — Direcciones y margen</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="pantalla">
+    <img class="fondo-decorativo" src="assets/fondo-z3.svg" alt="" aria-hidden="true">
+    <main class="pantalla__contenido">
+      <ol class="stepper">
+        <li class="stepper__paso stepper__paso--hecho"><span class="stepper__marca">&#10003;</span> Cargar horario</li>
+        <li class="stepper__paso stepper__paso--activo"><span class="stepper__marca">2</span> Direcciones y margen</li>
+        <li class="stepper__paso"><span class="stepper__marca">3</span> Revisar propuesta</li>
+      </ol>
+
+      <h1 class="pantalla__titulo">Direcciones y margen</h1>
+
+      <form class="formulario">
+        <div class="campo-con-icono">
+          <div class="campo">
+            <label for="origen">Dirección de origen</label>
+            <input type="text" id="origen" value="Calle 45 #12-30">
+          </div>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 17.5s6-5.2 6-9.7a6 6 0 0 0-12 0c0 4.5 6 9.7 6 9.7Z"/><circle cx="10" cy="7.8" r="2"/>
+          </svg>
+        </div>
+
+        <div class="campo-con-icono">
+          <div class="campo">
+            <label for="destino">Dirección de destino</label>
+            <input type="text" id="destino" value="Universidad · Bloque C">
+          </div>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 17.5s6-5.2 6-9.7a6 6 0 0 0-12 0c0 4.5 6 9.7 6 9.7Z"/><circle cx="10" cy="7.8" r="2"/>
+          </svg>
+        </div>
+
+        <div class="deslizador-fila">
+          <div class="deslizador-fila__etiqueta">
+            <span>Margen de preparación (minutos)</span>
+            <strong>15 min</strong>
+          </div>
+          <input type="range" class="deslizador" min="0" max="60" step="5" value="15">
+        </div>
+
+        <a class="boton boton--secundario" href="w13-excepciones-periodo.html">Guardar y continuar</a>
+      </form>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

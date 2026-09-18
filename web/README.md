@@ -12,6 +12,7 @@ web/
 ├── W-09-importar-del-calendario.html   # W-09 · Importar del calendario
 ├── W-10-foto-del-horario.html   # W-10 · Foto del horario
 ├── W-11-verificacion-de-foto.html   # W-11 · Verificación de foto
+├── w12-direcciones-margen.html   # W-12 · Direcciones y margen
 ├── css/styles.css   # tokens de color/espaciado + estilos base compartidos
 ├── js/main.js
 └── assets/           # imágenes/íconos
@@ -25,6 +26,7 @@ web/
 - `W-09-importar-del-calendario.html` — Sebastián Vega
 - `W-10-foto-del-horario.html` — Sebastián Vega
 - `W-11-verificacion-de-foto.html` — Sebastián Vega
+- `w12-direcciones-margen.html` — Julio Cesar Urian Villamil
 
 ### W-05 · Panel principal
 
@@ -104,4 +106,11 @@ refrescar la página todo vuelve a los valores iniciales).
   `W-09-importar-del-calendario.html` (W-15 · Periodo sincronizado).
 - No tiene botón "Atrás": es el último paso de la verificación antes de
   confirmar.
+
+### W-12 · Direcciones y margen
+
+Paso 2 de configuración del periodo. Captura
+dirección de origen, dirección de destino y el margen de preparación en
+minutos. **Guardar y continuar** lleva a
+`w13-excepciones-periodo.html`.
 
