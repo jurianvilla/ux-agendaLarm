@@ -13,6 +13,7 @@ web/
 ├── W-10-foto-del-horario.html   # W-10 · Foto del horario
 ├── W-11-verificacion-de-foto.html   # W-11 · Verificación de foto
 ├── w12-direcciones-margen.html   # W-12 · Direcciones y margen
+├── w13-excepciones-periodo.html   # W-13 · Excepciones del periodo
 ├── css/styles.css   # tokens de color/espaciado + estilos base compartidos
 ├── js/main.js
 └── assets/           # imágenes/íconos
@@ -27,6 +28,7 @@ web/
 - `W-10-foto-del-horario.html` — Sebastián Vega
 - `W-11-verificacion-de-foto.html` — Sebastián Vega
 - `w12-direcciones-margen.html` — Julio Cesar Urian Villamil
+- `w13-excepciones-periodo.html` — Julio Cesar Urian Villamil
 
 ### W-05 · Panel principal
 
@@ -113,4 +115,10 @@ Paso 2 de configuración del periodo. Captura
 dirección de origen, dirección de destino y el margen de preparación en
 minutos. **Guardar y continuar** lleva a
 `w13-excepciones-periodo.html`.
+
+### W-13 · Excepciones del periodo
+
+Paso 3 de configuración del periodo. Muestra festivos
+precargados automáticamente que se pueden desactivar y una lista de
+excepciones propias del usuario, un botón **+ Agregar excepción**.
 
