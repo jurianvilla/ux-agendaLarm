@@ -22,6 +22,7 @@
      [data-quitar-fila]          → descarta el <li> que lo contiene
      [data-editar]               → alterna edición en línea del texto del <li>
      [data-elegir-origen]        → opción del selector de calendario (W-09)
+     [data-agregar-compromiso]   → agrega #dia/#hora/#actividad a la lista indicada (W-08)
 ============================================================================= */
 
 (() => {
@@ -88,13 +89,15 @@
     if (idInicial) mostrarVista(idInicial);
   }
 
-  /* --- Filas descartables (Verificación de foto) --------------------------- */
+  /* --- Filas descartables (Verificación de foto, Registro manual) ---------- */
+
+  function descartarFila(li) {
+    conTransicion(() => li?.classList.add('esta-descartada'));
+  }
 
   function activarFilasDescartables() {
     document.querySelectorAll('[data-quitar-fila]').forEach((boton) => {
-      boton.addEventListener('click', () => {
-        conTransicion(() => boton.closest('li')?.classList.add('esta-descartada'));
-      });
+      boton.addEventListener('click', () => descartarFila(boton.closest('li')));
     });
   }
 
@@ -152,6 +155,46 @@
       },
       true
     );
+  }
+
+  /* --- Registro manual: agregar compromiso a la lista (W-08) --------------- */
+
+  function activarAgregarCompromiso() {
+    document.querySelectorAll('[data-agregar-compromiso]').forEach((boton) => {
+      const lista = document.querySelector(boton.dataset.agregarCompromiso);
+      const campoDia = document.getElementById('dia');
+      const campoHora = document.getElementById('hora');
+      const campoActividad = document.getElementById('actividad');
+      if (!lista || !campoDia || !campoHora || !campoActividad) return;
+
+      boton.addEventListener('click', () => {
+        const dia = campoDia.value.trim();
+        const hora = campoHora.value.trim();
+        const actividad = campoActividad.value.trim();
+        if (!dia || !hora || !actividad) return;
+
+        const fila = document.createElement('li');
+        const texto = document.createElement('span');
+        texto.textContent = `${dia} · ${hora} · ${actividad}`;
+
+        const botonQuitar = document.createElement('button');
+        botonQuitar.type = 'button';
+        botonQuitar.className = 'lista-editable__boton';
+        botonQuitar.setAttribute('aria-label', 'Eliminar compromiso');
+        botonQuitar.innerHTML =
+          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+          'stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+          '<path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path></svg>';
+        botonQuitar.addEventListener('click', () => descartarFila(fila));
+
+        fila.append(texto, botonQuitar);
+
+        conTransicion(() => lista.appendChild(fila));
+
+        campoActividad.value = '';
+        campoActividad.focus();
+      });
+    });
   }
 
   /* --- Ventanas modales --------------------------------------------------- */
@@ -289,6 +332,7 @@
     activarVistas();
     activarFilasDescartables();
     activarEdicionInline();
+    activarAgregarCompromiso();
     activarModales();
     activarSelectorCalendario();
     activarSubirFoto();

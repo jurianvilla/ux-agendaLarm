@@ -30,13 +30,34 @@
           </div>
         </div>
 
-        <button type="button" class="boton boton--secundario">+ Agregar compromiso</button>
+        <button type="button" class="boton boton--secundario" data-agregar-compromiso="#lista-compromisos">+ Agregar compromiso</button>
       </form>
 
-      <ul class="lista-verificacion">
-        <li><span>Lun · 08:00 · Cálculo I</span> <span class="lista-verificacion__check">&#10003;</span></li>
-        <li><span>Mar · 10:00 · Reunión equipo</span> <span class="lista-verificacion__check">&#10003;</span></li>
-        <li><span>Mié · 14:00 · Clase Bases de Datos</span> <span class="lista-verificacion__check">&#10003;</span></li>
+      <ul class="lista-verificacion" id="lista-compromisos">
+        <li>
+          <span>Lun · 08:00 · Cálculo I</span>
+          <button type="button" class="lista-editable__boton" data-quitar-fila aria-label="Eliminar compromiso">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <span>Mar · 10:00 · Reunión equipo</span>
+          <button type="button" class="lista-editable__boton" data-quitar-fila aria-label="Eliminar compromiso">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <span>Mié · 14:00 · Clase Bases de Datos</span>
+          <button type="button" class="lista-editable__boton" data-quitar-fila aria-label="Eliminar compromiso">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"></path>
+            </svg>
+          </button>
+        </li>
       </ul>
 
       <div class="formulario">

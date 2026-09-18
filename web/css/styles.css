@@ -662,7 +662,8 @@ body {
   outline-offset: 1px;
 }
 
-.lista-editable li.esta-descartada {
+.lista-editable li.esta-descartada,
+.lista-verificacion li.esta-descartada {
   display: none;
 }
 

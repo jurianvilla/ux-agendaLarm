@@ -48,7 +48,12 @@ del horario —.
 ### W-08 · Registro manual
 
 Alta de compromisos uno por uno (día, hora, actividad) para quien prefiere
-capturar el horario a mano en vez de importarlo o fotografiarlo. Muestra la
+capturar el horario a mano en vez de importarlo o fotografiarlo. 
+
+- **+ Agregar compromiso** toma el valor de los campos Día, Hora y Actividad
+  y agrega una fila nueva al final de la lista 
+
+Muestra la
 lista de lo ya registrado y **Guardar y continuar** lleva a
 `W-12-direcciones-margen.html`.
 
