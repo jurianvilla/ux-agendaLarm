@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Pista del interruptor: cápsula de 44 × 24 dp con borde de 1 dp.
+  El relleno entre estados se funde en 150 ms (.interruptor__pista { transition: background 0.15s } en web).
+  El padding de cada capa fija el recorrido del pulgar: queda a 3 dp del borde en los dos extremos.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="@integer/duracion_interruptor"
+    android:exitFadeDuration="@integer/duracion_interruptor">
+
+    <item android:state_checked="true">
+        <layer-list
+            android:paddingLeft="@dimen/interruptor_margen_pulgar"
+            android:paddingRight="@dimen/interruptor_margen_pulgar">
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/interruptor_pista_encendida" />
+                    <stroke
+                        android:width="@dimen/borde_fino"
+                        android:color="@color/interruptor_pista_encendida" />
+                    <corners android:radius="@dimen/interruptor_alto" />
+                    <size
+                        android:width="@dimen/interruptor_ancho"
+                        android:height="@dimen/interruptor_alto" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item>
+        <layer-list
+            android:paddingLeft="@dimen/interruptor_margen_pulgar"
+            android:paddingRight="@dimen/interruptor_margen_pulgar">
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/interruptor_pista_apagada" />
+                    <stroke
+                        android:width="@dimen/borde_fino"
+                        android:color="@color/interruptor_borde_apagado" />
+                    <corners android:radius="@dimen/interruptor_alto" />
+                    <size
+                        android:width="@dimen/interruptor_ancho"
+                        android:height="@dimen/interruptor_alto" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

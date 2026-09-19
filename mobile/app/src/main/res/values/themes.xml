@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.AgendaLarm" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Color (tokens semánticos de colors.xml) -->
         <item name="colorPrimary">@color/boton</item>
         <item name="colorOnPrimary">@color/blanco</item>
         <item name="colorSecondary">@color/icono</item>
         <item name="colorOnSecondary">@color/blanco</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/blanco</item>
         <item name="colorSurface">@color/tarjeta</item>
         <item name="colorOnSurface">@color/texto_primario</item>
         <item name="colorOnSurfaceVariant">@color/texto_secundario</item>
         <item name="colorOutline">@color/borde</item>
         <item name="android:colorBackground">@color/superficie</item>
+        <item name="android:windowBackground">@color/superficie</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
+
+        <!--
+          Tipografía y estilos por defecto de los componentes. La fuente Inter NO se fija aquí con
+          android:fontFamily: a nivel de tema pisa el fontFamily de cada TextAppearance y todo saldría en
+          peso Regular. Cada TextAppearance.AgendaLarm.* trae su propio peso (res/font/inter_*.ttf).
+        -->
+        <item name="android:textViewStyle">@style/Widget.AgendaLarm.Texto</item>
+        <item name="materialButtonStyle">@style/Widget.AgendaLarm.Boton.Primario</item>
+        <item name="materialCardViewStyle">@style/Widget.AgendaLarm.Tarjeta</item>
+        <item name="switchStyle">@style/Widget.AgendaLarm.Interruptor</item>
+        <item name="editTextStyle">@style/Widget.AgendaLarm.Campo</item>
+
+        <!-- Movimiento: transición entre pantallas -->
+        <item name="android:windowAnimationStyle">@style/Animacion.AgendaLarm.Ventana</item>
+
+        <!-- Barras del sistema: transparentes (la app dibuja debajo, ver BaseActivity) -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="29">false</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
     </style>
 
 </resources>

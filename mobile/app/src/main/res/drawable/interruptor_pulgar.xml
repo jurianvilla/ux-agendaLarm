@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Pulgar del interruptor: círculo blanco de 18 dp, igual encendido y apagado (M-04, M-09).
+  SwitchCompat estira el pulgar a la altura de la pista (24 dp); el inset vertical de 3 dp deja el círculo
+  de 18 × 18 dp centrado en lugar de una elipse.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="@dimen/interruptor_margen_pulgar"
+        android:top="@dimen/interruptor_margen_pulgar">
+        <shape android:shape="oval">
+            <solid android:color="@color/interruptor_pulgar" />
+            <size
+                android:width="@dimen/interruptor_pulgar"
+                android:height="@dimen/interruptor_pulgar" />
+        </shape>
+    </item>
+</layer-list>

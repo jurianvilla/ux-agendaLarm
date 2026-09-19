@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Transición estándar para cambios DENTRO de una misma pantalla (mostrar/ocultar bloques, agregar o quitar
+  filas). Se dispara con conTransicion() de Animaciones.kt, igual que conTransicion() en web/js/main.js.
+-->
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/duracion_transicion"
+    android:interpolator="@interpolator/ease_in_out"
+    android:transitionOrdering="together">
+    <fade />
+    <changeBounds />
+</transitionSet>

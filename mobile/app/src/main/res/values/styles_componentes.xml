@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Hoja de estilos de componentes (equivale a web/css/styles.css). Nombres en la misma línea que las clases
+  BEM de web: boton primario → Widget.AgendaLarm.Boton.Primario, tarjeta-alarma → Widget.AgendaLarm.Tarjeta,
+  interruptor → Widget.AgendaLarm.Interruptor.
+
+  Verificados en pantalla contra los mockups: Tarjeta e Interruptor (M-04); Boton.Primario, Boton.Destructivo
+  y Campo (tamaños, colores de relleno y posición del texto contra los mockups del PDF).
+  Por verificar al construir su pantalla: Boton.Secundario, estado deshabilitado y borde del campo enfocado.
+
+  Los estilos de esta hoja se aplican solos por el tema (themes.xml): un Button, una MaterialCardView,
+  un SwitchCompat o un TextView sin estilo ya salen con la apariencia del Design System.
+-->
+<resources>
+
+    <!-- Texto: sin relleno de fuente, para que la caja del texto mida lo mismo que en Figma -->
+    <style name="Widget.AgendaLarm.Texto" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.AgendaLarm.Cuerpo</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Botones: 48 dp de alto, radio 10 dp, borde de 1 dp, texto 14 sp SemiBold -->
+    <style name="Widget.AgendaLarm.Boton.Primario" parent="Widget.Material3.Button">
+        <item name="android:textAppearance">@style/TextAppearance.AgendaLarm.Boton</item>
+        <item name="android:textColor">@color/sel_boton_texto</item>
+        <item name="android:minHeight">@dimen/boton_altura</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="backgroundTint">@color/sel_boton_fondo</item>
+        <item name="strokeColor">@color/sel_boton_borde</item>
+        <item name="strokeWidth">@dimen/borde_fino</item>
+        <item name="cornerRadius">@dimen/radio_boton</item>
+        <item name="rippleColor">@color/pulsacion</item>
+    </style>
+
+    <style name="Widget.AgendaLarm.Boton.Secundario" parent="Widget.AgendaLarm.Boton.Primario">
+        <item name="android:textColor">@color/sel_secundario_texto</item>
+        <item name="backgroundTint">@color/tarjeta</item>
+        <item name="strokeColor">@color/sel_secundario_borde</item>
+    </style>
+
+    <style name="Widget.AgendaLarm.Boton.Destructivo" parent="Widget.AgendaLarm.Boton.Primario">
+        <item name="backgroundTint">@color/sel_destructivo_fondo</item>
+        <item name="strokeColor">@color/sel_destructivo_borde</item>
+    </style>
+
+    <!-- Tarjeta: fondo blanco, borde de 1 dp, radio 12 dp, sin sombra -->
+    <style name="Widget.AgendaLarm.Tarjeta" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">@color/tarjeta</item>
+        <item name="cardCornerRadius">@dimen/radio_tarjeta</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/borde_tarjeta</item>
+        <item name="strokeWidth">@dimen/borde_fino</item>
+        <item name="rippleColor">@color/pulsacion</item>
+    </style>
+
+    <!--
+      Interruptor: pista 44 × 24 dp y pulgar de 18 dp (drawables interruptor_pista / interruptor_pulgar).
+      El relleno de padding y minHeight sólo agrandan el área táctil a 60 × 48 dp. minHeight es necesario: sin él
+      SwitchCompat mide la altura de su texto vacío (≈ 41 dp) y centra la pista ahí, unos 2,5 dp más arriba.
+    -->
+    <style name="Widget.AgendaLarm.Interruptor" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumb">@drawable/interruptor_pulgar</item>
+        <item name="track">@drawable/interruptor_pista</item>
+        <item name="thumbTint">@null</item>
+        <item name="trackTint">@null</item>
+        <item name="showText">false</item>
+        <item name="switchPadding">0dp</item>
+        <item name="switchMinWidth">@dimen/interruptor_ancho</item>
+        <item name="android:minHeight">@dimen/interruptor_zona_tactil_alto</item>
+        <item name="android:paddingStart">@dimen/interruptor_zona_tactil_horizontal</item>
+        <item name="android:paddingEnd">@dimen/interruptor_zona_tactil_horizontal</item>
+        <item name="android:paddingTop">@dimen/interruptor_zona_tactil_vertical</item>
+        <item name="android:paddingBottom">@dimen/interruptor_zona_tactil_vertical</item>
+    </style>
+
+    <!-- Campo de texto: 52 dp de alto, radio 10 dp, sangría de 16 dp, placeholder 14 sp -->
+    <style name="Widget.AgendaLarm.Campo" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/campo_fondo</item>
+        <item name="android:minHeight">@dimen/campo_altura</item>
+        <item name="android:paddingStart">@dimen/campo_relleno_horizontal</item>
+        <item name="android:paddingEnd">@dimen/campo_relleno_horizontal</item>
+        <item name="android:textAppearance">@style/TextAppearance.AgendaLarm.Cuerpo</item>
+        <item name="android:textColor">@color/texto_primario</item>
+        <item name="android:textColorHint">@color/texto_secundario</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Ventana: transición entre pantallas (fundido cruzado de 220 ms, ease-in-out) -->
+    <style name="Animacion.AgendaLarm.Ventana" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/transicion_entrar</item>
+        <item name="android:activityOpenExitAnimation">@anim/transicion_quedar</item>
+        <item name="android:activityCloseEnterAnimation">@anim/transicion_quedar</item>
+        <item name="android:activityCloseExitAnimation">@anim/transicion_salir</item>
+        <item name="android:taskOpenEnterAnimation">@anim/transicion_entrar</item>
+        <item name="android:taskOpenExitAnimation">@anim/transicion_quedar</item>
+        <item name="android:taskCloseEnterAnimation">@anim/transicion_quedar</item>
+        <item name="android:taskCloseExitAnimation">@anim/transicion_salir</item>
+    </style>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Duraciones de movimiento (ms). Única fuente: las animaciones XML, los estilos y Animaciones.kt las leen de aquí.
+  Figma: al hacer clic, smart animate, ease in and out, 220 ms (igual que ::view-transition-* en web).
+-->
+<resources>
+    <integer name="duracion_transicion">220</integer>   <!-- cambio de pantalla y cambios dentro de una pantalla -->
+    <integer name="duracion_interruptor">150</integer>  <!-- .interruptor__pista { transition: 0.15s } en web -->
+</resources>

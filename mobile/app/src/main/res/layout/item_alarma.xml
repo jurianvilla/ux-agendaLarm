@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de alarma: compromiso que la origina + interruptor (350 × 78 dp en el mockup de 390 dp). -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="alarma"
+            type="com.agendalarm.app.ui.alarmasdia.AlarmaUi" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margen_tarjeta"
+        android:layout_marginEnd="@dimen/margen_tarjeta"
+        android:layout_marginBottom="@dimen/espaciado_tarjetas"
+        style="@style/Widget.AgendaLarm.Tarjeta">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/tarjeta_alarma_altura">
+
+            <TextView
+                android:id="@+id/texto_titulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tarjeta_alarma_padding_inicio"
+                android:layout_marginTop="@dimen/tarjeta_alarma_margen_superior"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{alarma.titulo}"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.TarjetaTitulo"
+                app:layout_constraintEnd_toStartOf="@id/interruptor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Despertar" />
+
+            <TextView
+                android:id="@+id/texto_detalle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tarjeta_alarma_espacio_detalle"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{alarma.detalle}"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.Detalle"
+                app:layout_constraintEnd_toEndOf="@id/texto_titulo"
+                app:layout_constraintStart_toStartOf="@id/texto_titulo"
+                app:layout_constraintTop_toBottomOf="@id/texto_titulo"
+                tools:text="07:00 · Hora de inicio" />
+
+            <!-- Zona táctil de 60 × 48 dp; lo dibujado mide 44 × 24 dp (ver Widget.AgendaLarm.Interruptor) -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/interruptor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/interruptor_margen_final"
+                android:contentDescription="@{@string/alarma_interruptor_descripcion(alarma.titulo)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/Widget.AgendaLarm.Interruptor"
+                tools:checked="true" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

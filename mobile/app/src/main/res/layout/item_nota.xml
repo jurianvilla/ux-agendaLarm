@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nota al pie de la lista: «Cada alarma se origina en un compromiso de tu horario.» -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margen_pantalla"
+        android:paddingTop="@dimen/nota_margen_superior"
+        android:paddingEnd="@dimen/margen_pantalla"
+        android:paddingBottom="@dimen/nota_margen_inferior"
+        android:text="@string/alarmas_dia_nota"
+        android:textAppearance="@style/TextAppearance.AgendaLarm.Detalle" />
+</layout>

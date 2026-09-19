@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  La pantalla que queda debajo se mantiene opaca mientras la otra se funde encima: es un fundido cruzado
+  sin el «hueco» de brillo que aparece si las dos ventanas bajan de opacidad a la vez.
+-->
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/duracion_transicion"
+    android:fromAlpha="1"
+    android:toAlpha="1" />

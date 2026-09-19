@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla que aparece: fundido de entrada sobre la anterior (::view-transition-new(root)). -->
+<alpha xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/duracion_transicion"
+    android:fromAlpha="0"
+    android:interpolator="@interpolator/ease_in_out"
+    android:toAlpha="1" />

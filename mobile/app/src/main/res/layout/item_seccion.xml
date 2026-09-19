@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Título de sección de la lista: «Hoy, martes 12 · 4 compromisos». -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="texto"
+            type="String" />
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:accessibilityHeading="true"
+        android:paddingStart="@dimen/margen_pantalla"
+        android:paddingTop="@dimen/seccion_margen_superior"
+        android:paddingEnd="@dimen/margen_pantalla"
+        android:paddingBottom="@dimen/seccion_margen_inferior"
+        android:text="@{texto}"
+        android:textAppearance="@style/TextAppearance.AgendaLarm.Seccion"
+        tools:targetApi="28"
+        tools:text="Hoy, martes 12 · 4 compromisos" />
+</layout>

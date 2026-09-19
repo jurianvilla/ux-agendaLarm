@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AgendaLarm</string>
-    <string name="main_titulo">AgendaLarm</string>
-    <string name="main_subtitulo">Andamio del proyecto móvil</string>
+
+    <!-- M-04 · Alarmas del día (los textos de las tarjetas son datos de muestra: ver AlarmasMuestra.kt) -->
+    <string name="m04_titulo">Alarmas del día</string>
+    <string name="m04_acceso">Requiere autenticación</string>
+    <string name="m04_codigo">M4</string>
+    <string name="alarmas_dia_seccion">Hoy, %1$s · %2$s</string>
+    <plurals name="compromisos">
+        <item quantity="one">%d compromiso</item>
+        <item quantity="other">%d compromisos</item>
+    </plurals>
+    <string name="alarmas_dia_nota">Cada alarma se origina en un compromiso de tu horario.</string>
+    <string name="alarma_interruptor_descripcion">Alarma %1$s</string>
 </resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Recursos de la base del Design System que las pantallas futuras irán usando: la paleta completa (96 pasos),
+  los tokens semánticos y las hojas de estilos de texto y componentes. No son basura, así que se excluyen
+  del aviso de recursos sin uso. Los layouts, drawables y demás recursos de pantalla siguen vigilados.
+-->
+<lint>
+    <issue id="UnusedResources">
+        <ignore path="src/main/res/values/colors_paleta.xml" />
+        <ignore path="src/main/res/values/colors.xml" />
+        <ignore path="src/main/res/values/styles_texto.xml" />
+        <ignore path="src/main/res/values/styles_componentes.xml" />
+        <ignore path="src/main/res/color/*" />
+        <ignore path="src/main/res/font/inter.xml" />
+    </issue>
+</lint>

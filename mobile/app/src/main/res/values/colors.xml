@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Tokens muestreados de los mockups S6 (mismos valores que web/css/styles.css). -->
+<!--
+  Tokens semánticos de color (equivalen a las variables de :root en web/css/styles.css).
+  Los layouts, estilos y drawables usan SÓLO estos nombres; cada uno apunta a un paso de la paleta
+  primitiva de colors_paleta.xml. Los que no tienen paso equivalente están muestreados del mockup
+  y se marcan como tales.
+-->
 <resources>
-    <color name="superficie">#E8EAF2</color>
-    <color name="tarjeta">#FFFFFF</color>
-    <color name="texto_primario">#212121</color>
-    <color name="texto_secundario">#757575</color>
-    <color name="borde">#D8DCE6</color>
-    <color name="icono">#263050</color>
-    <color name="boton">#8F5A29</color>
-    <color name="exito">#2E7D46</color>
+
+    <!-- Superficies -->
+    <color name="superficie">@color/primario_50</color>          <!-- fondo de pantalla -->
+    <color name="tarjeta">@color/neutros_50</color>              <!-- tarjetas, campos y franja del encabezado -->
     <color name="blanco">#FFFFFF</color>
+
+    <!-- Texto -->
+    <color name="texto_primario">@color/primario_990</color>     <!-- títulos y contenido principal -->
+    <color name="texto_secundario">@color/neutros_700</color>    <!-- detalles, ayudas, microcopia -->
+    <color name="texto_etiqueta">@color/primario_600</color>     <!-- etiquetas de campos -->
+    <color name="texto_marca">@color/primario_500</color>        <!-- texto introductorio y enlaces -->
+
+    <!-- Bordes e iconos -->
+    <color name="borde">@color/neutros_300</color>               <!-- divisores y bordes discretos -->
+    <color name="borde_tarjeta">@color/informativo_800</color>   <!-- contorno de tarjetas y campos (mockups) -->
+    <color name="icono">@color/primario_600</color>
+
+    <!-- Acción principal (ámbar en mockups: relleno 900, borde primario 990) -->
+    <color name="boton">@color/acento_900</color>
+    <color name="boton_pulsado">@color/acento_990</color>        <!-- «Interacción oscurece un paso» -->
+    <color name="boton_borde">@color/primario_990</color>
+    <color name="boton_deshabilitado">@color/neutros_100</color>
+    <color name="boton_texto_deshabilitado">@color/neutros_500</color>
+    <color name="boton_borde_deshabilitado">@color/neutros_200</color>
+
+    <!-- Acción destructiva (rojo en mockups) -->
+    <color name="destructivo_fondo">@color/error_200</color>
+    <color name="destructivo_borde">@color/error_800</color>
+
+    <!-- Estados semánticos -->
+    <color name="exito">@color/confirmacion_700</color>
+    <color name="error">@color/error_500</color>
+    <color name="advertencia_fondo">@color/atencion_100</color>
+    <color name="advertencia_texto">@color/atencion_900</color>
+
+    <!-- Interruptor (pista apagada y su borde: muestreados de M-04 / M-09) -->
+    <color name="interruptor_pista_encendida">@color/primario_990</color>
+    <color name="interruptor_pista_apagada">#E6E5EA</color>
+    <color name="interruptor_borde_apagado">#C0BFC4</color>
+    <color name="interruptor_pulgar">@color/neutros_50</color>
+
+    <!-- Fondo del ícono de la app -->
+    <color name="ic_launcher_background">@color/superficie</color>
+
+    <!-- Pulsación (ripple): primario_990 al 12 % -->
+    <color name="pulsacion">#1F0B0F1A</color>
 </resources>

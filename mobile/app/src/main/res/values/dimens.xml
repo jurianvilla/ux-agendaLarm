@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Medidas de la app. Salen de los mockups S6 (390 × 844 dp); equivalen a las variables espaciado-base,
+  radio-base y ancho-contenido de :root en web/css/styles.css.
+-->
 <resources>
-    <dimen name="margen_pantalla">24dp</dimen>
+
+    <!-- Márgenes -->
+    <dimen name="margen_pantalla">24dp</dimen>                   <!-- texto: encabezado, secciones, notas -->
+    <dimen name="margen_tarjeta">20dp</dimen>                    <!-- tarjetas: 4 dp más hacia el borde que el texto -->
+    <dimen name="espaciado_tarjetas">16dp</dimen>
     <!-- Guarda de ancho (regla (d) de S7): el contenido nunca se estira más allá de esto. -->
     <dimen name="ancho_max_contenido">420dp</dimen>
+
+    <!-- Radios y bordes -->
+    <dimen name="radio_tarjeta">12dp</dimen>
+    <dimen name="radio_boton">10dp</dimen>
+    <dimen name="radio_campo">10dp</dimen>
+    <dimen name="borde_fino">1dp</dimen>
+
+    <!-- Encabezado de pantalla (franja blanca de los mockups): posiciones medidas por línea base -->
+    <dimen name="encabezado_altura">70dp</dimen>
+    <dimen name="encabezado_titulo_margen_superior">18.5dp</dimen>
+    <dimen name="encabezado_acceso_margen_superior">7.5dp</dimen>   <!-- bajo el título -->
+    <dimen name="encabezado_codigo_margen_superior">20.5dp</dimen>
+    <dimen name="encabezado_codigo_margen_final">41.5dp</dimen>
+    <dimen name="encabezado_relleno_inferior">8dp</dimen>            <!-- sólo actúa con fuente grande: a 70 dp manda la altura mínima -->
+
+    <!-- Secciones y notas dentro de la lista -->
+    <dimen name="seccion_margen_superior">25dp</dimen>
+    <dimen name="seccion_margen_inferior">27dp</dimen>
+    <dimen name="nota_margen_superior">26dp</dimen>                 <!-- se suma a espaciado_tarjetas -->
+    <dimen name="nota_margen_inferior">24dp</dimen>
+
+    <!-- Tarjeta de alarma -->
+    <dimen name="tarjeta_alarma_altura">78dp</dimen>
+    <dimen name="tarjeta_alarma_padding_inicio">16dp</dimen>
+    <dimen name="tarjeta_alarma_margen_superior">14dp</dimen>    <!-- hasta la caja del título -->
+    <dimen name="tarjeta_alarma_espacio_detalle">9dp</dimen>     <!-- entre título y detalle -->
+
+    <!-- Interruptor: pista 44 × 24 dp, pulgar de 18 dp a 3 dp del borde -->
+    <dimen name="interruptor_ancho">44dp</dimen>
+    <dimen name="interruptor_alto">24dp</dimen>
+    <dimen name="interruptor_pulgar">18dp</dimen>
+    <dimen name="interruptor_margen_pulgar">3dp</dimen>
+    <dimen name="interruptor_zona_tactil_horizontal">8dp</dimen> <!-- amplía el área táctil a 60 × 48 dp -->
+    <dimen name="interruptor_zona_tactil_vertical">12dp</dimen>
+    <dimen name="interruptor_zona_tactil_alto">48dp</dimen>       <!-- 24 dp de pista + 12 dp arriba y abajo -->
+    <dimen name="interruptor_margen_final">12dp</dimen>          <!-- + 8 dp de zona táctil = 20 dp al borde de la tarjeta -->
+
+    <!-- Botones y campos -->
+    <dimen name="boton_altura">48dp</dimen>
+    <dimen name="campo_altura">52dp</dimen>
+    <dimen name="campo_relleno_horizontal">16dp</dimen>
+
+    <!-- Fondo decorativo z3: se estira a 405 × 301 dp (ajustado por correlación contra M-04 y M-05),
+         a 2 dp del borde y 208 dp bajo el encabezado -->
+    <dimen name="fondo_z3_ancho">405dp</dimen>
+    <dimen name="fondo_z3_alto">301dp</dimen>
+    <dimen name="fondo_z3_desfase_inicio">2dp</dimen>
+    <dimen name="fondo_z3_desfase_superior">208dp</dimen>
 </resources>

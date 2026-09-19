@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Fondo del campo de texto de cualquier formulario: 52 dp de alto, radio 10 dp, borde de 1,5 dp
+  (medidas tomadas de los campos del PDF).
+  Estados del DS: reposo → borde de tarjeta; enfocado («interacción») → borde más grueso y oscuro;
+  deshabilitado («no disponible») → gris claro.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/boton_deshabilitado" />
+            <stroke
+                android:width="1.5dp"
+                android:color="@color/boton_borde_deshabilitado" />
+            <corners android:radius="@dimen/radio_campo" />
+        </shape>
+    </item>
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/tarjeta" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/boton_borde" />
+            <corners android:radius="@dimen/radio_campo" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/tarjeta" />
+            <stroke
+                android:width="1.5dp"
+                android:color="@color/borde_tarjeta" />
+            <corners android:radius="@dimen/radio_campo" />
+        </shape>
+    </item>
+</selector>

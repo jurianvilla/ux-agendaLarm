@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Escala tipográfica (Inter). Tamaños y pesos medidos sobre los mockups S6 de 390 dp; la lámina
+  «07 · Tipografía» del PDF trae «pt» de otra escala y no se usa como dp. Cada estilo fija fuente, tamaño,
+  peso y color por defecto; si un layout necesita otro color usa android:textColor sobre el mismo estilo.
+
+  Se aplican con android:textAppearance="@style/TextAppearance.AgendaLarm.<Nombre>".
+-->
+<resources>
+
+    <style name="TextAppearance.AgendaLarm" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/texto_primario</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Títulos -->
+    <style name="TextAppearance.AgendaLarm.TituloApp" parent="TextAppearance.AgendaLarm">   <!-- M-07 «Mañana» -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Titulo" parent="TextAppearance.AgendaLarm">       <!-- H1: nombre del estado o de la pantalla -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Subtitulo" parent="TextAppearance.AgendaLarm">    <!-- H2: sección dentro de la pantalla -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <!-- Encabezado de pantalla (franja blanca) -->
+    <style name="TextAppearance.AgendaLarm.Encabezado" parent="TextAppearance.AgendaLarm">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Micro" parent="TextAppearance.AgendaLarm">        <!-- acceso y código «M#» del encabezado -->
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+    </style>
+
+    <!-- Contenido -->
+    <style name="TextAppearance.AgendaLarm.Seccion" parent="TextAppearance.AgendaLarm">      <!-- H3: «Hoy, martes 12 · 4 compromisos» -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.TarjetaTitulo" parent="TextAppearance.AgendaLarm">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.CuerpoGrande" parent="TextAppearance.AgendaLarm">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Cuerpo" parent="TextAppearance.AgendaLarm">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Etiqueta" parent="TextAppearance.AgendaLarm">     <!-- etiquetas de campos y notas -->
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/texto_etiqueta</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.EtiquetaDestacada" parent="TextAppearance.AgendaLarm">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Detalle" parent="TextAppearance.AgendaLarm">      <!-- «07:00 · Hora de inicio», nota al pie -->
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+    </style>
+
+    <!-- Botones -->
+    <style name="TextAppearance.AgendaLarm.Boton" parent="TextAppearance.AgendaLarm">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blanco</item>
+    </style>
+
+    <!-- Cifras -->
+    <style name="TextAppearance.AgendaLarm.Reloj" parent="TextAppearance.AgendaLarm">        <!-- M-10 «07:00» -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">66sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.Valor" parent="TextAppearance.AgendaLarm">        <!-- M-06 «07:52», «22 min» -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.ValorGrande" parent="TextAppearance.AgendaLarm"> <!-- M-06 «08:30» -->
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">34sp</item>
+    </style>
+
+</resources>

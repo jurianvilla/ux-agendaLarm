@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Paleta primitiva de AgendaLarm: 8 roles × 12 pasos (990 más oscuro → 25 casi blanco; el 500 es la base).
+  Valores muestreados de la lámina «06 · Paleta de colores» de mobile/S6_Mockups_Movil_AgendaLarm.pdf
+  (colección de variables «Colores · Marca»). Las pantallas no usan estos nombres directamente:
+  pasan por los tokens semánticos de colors.xml, igual que web usa variables CSS de :root.
+
+  Nota: en la lámina del PDF, confirmacion_300 aparece más claro que confirmacion_200; se conserva tal cual.
+-->
+<resources>
+
+    <!-- Primario · Índigo — botón de avance, títulos, texto, enlaces -->
+    <color name="primario_990">#0B0F1A</color>
+    <color name="primario_900">#161C34</color>
+    <color name="primario_800">#1C2340</color>
+    <color name="primario_700">#212B4E</color>
+    <color name="primario_600">#253358</color>
+    <color name="primario_500">#293A66</color>
+    <color name="primario_400">#495683</color>
+    <color name="primario_300">#6B77A1</color>
+    <color name="primario_200">#9AA3C0</color>
+    <color name="primario_100">#CED4E4</color>
+    <color name="primario_50">#E8EBF2</color>
+    <color name="primario_25">#F8F8F8</color>
+
+    <!-- Secundario · Violeta-azul — botón de baja importancia (Regresar, Cancelar) -->
+    <color name="secundario_990">#0E0A19</color>
+    <color name="secundario_900">#1B1634</color>
+    <color name="secundario_800">#211D42</color>
+    <color name="secundario_700">#28214D</color>
+    <color name="secundario_600">#2F275A</color>
+    <color name="secundario_500">#342A67</color>
+    <color name="secundario_400">#524982</color>
+    <color name="secundario_300">#756BA0</color>
+    <color name="secundario_200">#A09ABE</color>
+    <color name="secundario_100">#D3D0E5</color>
+    <color name="secundario_50">#EBEAF2</color>
+    <color name="secundario_25">#F8F8F8</color>
+
+    <!-- Acento / acción · Ámbar — botón que llama la atención (Confirmar, Guardar); 1 énfasis por pantalla -->
+    <color name="acento_990">#211306</color>
+    <color name="acento_900">#8E4F19</color>
+    <color name="acento_800">#A55E1C</color>
+    <color name="acento_700">#BC6D22</color>
+    <color name="acento_600">#DB7920</color>
+    <color name="acento_500">#E8852A</color>
+    <color name="acento_400">#EE9A42</color>
+    <color name="acento_300">#F1AE5F</color>
+    <color name="acento_200">#F3C685</color>
+    <color name="acento_100">#F9E2C0</color>
+    <color name="acento_50">#FCEFDE</color>
+    <color name="acento_25">#FAF9F5</color>
+
+    <!-- Grises / neutros — fondos, superficies, bordes, divisores, texto secundario -->
+    <color name="neutros_990">#101116</color>
+    <color name="neutros_900">#2D3444</color>
+    <color name="neutros_800">#454D62</color>
+    <color name="neutros_700">#5D6780</color>
+    <color name="neutros_600">#77829E</color>
+    <color name="neutros_500">#97A2B8</color>
+    <color name="neutros_400">#B8BED4</color>
+    <color name="neutros_300">#D2D8E8</color>
+    <color name="neutros_200">#E8EBF4</color>
+    <color name="neutros_100">#F9F9FB</color>
+    <color name="neutros_50">#FFFFFF</color>
+    <color name="neutros_25">#FFFFFF</color>
+
+    <!-- Error · Rojo — validación fallida, sin conexión, acción destructiva -->
+    <color name="error_990">#1C0A0A</color>
+    <color name="error_900">#782827</color>
+    <color name="error_800">#8D2F2F</color>
+    <color name="error_700">#A03636</color>
+    <color name="error_600">#B83837</color>
+    <color name="error_500">#C84241</color>
+    <color name="error_400">#D45E5E</color>
+    <color name="error_300">#DF7D7C</color>
+    <color name="error_200">#E9A1A2</color>
+    <color name="error_100">#F5D1D1</color>
+    <color name="error_50">#FBE9E9</color>
+    <color name="error_25">#FAF6F5</color>
+
+    <!-- Confirmación / éxito · Verde — periodo sincronizado, dispositivo vinculado, compromiso cumplido -->
+    <color name="confirmacion_990">#081C13</color>
+    <color name="confirmacion_900">#1F603E</color>
+    <color name="confirmacion_800">#24704A</color>
+    <color name="confirmacion_700">#298056</color>
+    <color name="confirmacion_600">#2F9160</color>
+    <color name="confirmacion_500">#36A16B</color>
+    <color name="confirmacion_400">#4BB881</color>
+    <color name="confirmacion_300">#C7E6D7</color>
+    <color name="confirmacion_200">#99D4B8</color>
+    <color name="confirmacion_100">#C9E8D9</color>
+    <color name="confirmacion_50">#E4F4EA</color>
+    <color name="confirmacion_25">#F5F9FA</color>
+
+    <!-- Atención / advertencia · Amarillo — conflictos y avisos, permisos, aviso irreversible -->
+    <color name="atencion_990">#211B05</color>
+    <color name="atencion_900">#8F7016</color>
+    <color name="atencion_800">#A88319</color>
+    <color name="atencion_700">#C1941D</color>
+    <color name="atencion_600">#DEAA19</color>
+    <color name="atencion_500">#ECB826</color>
+    <color name="atencion_400">#F0C13D</color>
+    <color name="atencion_300">#F4CC5B</color>
+    <color name="atencion_200">#F8D883</color>
+    <color name="atencion_100">#FCEBBD</color>
+    <color name="atencion_50">#FCF4DD</color>
+    <color name="atencion_25">#FAF9F5</color>
+
+    <!-- Informativo · Azul cielo — ayudas y explicaciones neutras (ni error ni éxito) -->
+    <color name="informativo_990">#08151D</color>
+    <color name="informativo_900">#112838</color>
+    <color name="informativo_800">#153147</color>
+    <color name="informativo_700">#183D57</color>
+    <color name="informativo_600">#1D4664</color>
+    <color name="informativo_500">#1F5071</color>
+    <color name="informativo_400">#3C6D8E</color>
+    <color name="informativo_300">#638CAA</color>
+    <color name="informativo_200">#92B1C6</color>
+    <color name="informativo_100">#CDDBE6</color>
+    <color name="informativo_50">#E7EEF4</color>
+    <color name="informativo_25">#F8FAF9</color>
+</resources>
