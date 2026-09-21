@@ -49,6 +49,7 @@ dependencies {
     // Arquitectura (MVVM)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
     implementation(libs.androidx.lifecycle.livedata)
     // Pruebas
     testImplementation(libs.junit)

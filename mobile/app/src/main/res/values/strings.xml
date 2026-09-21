@@ -13,4 +13,15 @@
     </plurals>
     <string name="alarmas_dia_nota">Cada alarma se origina en un compromiso de tu horario.</string>
     <string name="alarma_interruptor_descripcion">Alarma %1$s</string>
+    <string name="alarma_ver_detalle">Ver detalle de la alarma</string>
+
+    <!-- M-06 · Detalle de la alarma (los datos son de muestra: ver DetalleAlarmaMuestra.kt) -->
+    <string name="m06_titulo">Detalle de la alarma</string>
+    <string name="m06_acceso">Requiere autenticación</string>
+    <string name="m06_codigo">M6</string>
+    <string name="detalle_alarma_salida">Hora de salida estimada</string>
+    <string name="detalle_alarma_margen">Margen calculado</string>
+    <string name="detalle_alarma_margen_valor">%1$d min</string>
+    <string name="detalle_alarma_editar">Editar Alarma</string>
+    <string name="detalle_alarma_eliminar">Eliminar Alarma</string>
 </resources>

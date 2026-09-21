@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Ilustración de M-06: campana amarilla con arcos de vibración. No existe en web, así que se reconstruyó sobre la
+  figura del PDF: formas simples (círculos, arcos y curvas) ajustadas por solapamiento con el mockup (silueta 98,9 %,
+  amarillo 98,1 %, naranja 97,5 %). Origen en el borde izquierdo y en la parte alta de los arcos de la figura.
+  Los dos tonos son tokens propios (campana_clara, campana_oscura), muestreados del mockup.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="85dp"
+    android:height="92.5dp"
+    android:viewportWidth="85"
+    android:viewportHeight="92.5">
+
+    <!-- Arcos de vibración: en el PDF son un punteado casi invisible, aquí trazos muy tenues -->
+    <path
+        android:pathData="M7.5,6Q1.5,12.5 2.5,21.5M18.5,7Q10,12.5 8.5,29M77,6Q83,12.5 82,21.5M66,7Q74.5,12.5 76,29"
+        android:strokeAlpha="0.06"
+        android:strokeColor="@color/campana_oscura"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.5" />
+
+    <!-- Sombra de la campana: perilla, cuerpo, badajo y aro (lado oscuro) -->
+    <path
+        android:fillColor="@color/campana_oscura"
+        android:pathData="M36.5,6.38a5.75,5.75 0 1,0 11.5,0a5.75,5.75 0 1,0 -11.5,0z" />
+    <path
+        android:fillColor="@color/campana_oscura"
+        android:pathData="M14.75,52.75L15.25,31.62A24.12,24.12 0 0 1 39.38,7.5H44.62A24.12,24.12 0 0 1 68.75,31.62L69.5,52.75Q69.5,64.25 79,66H5.25Q14.75,64.25 14.75,52.75Z" />
+    <path
+        android:fillColor="@color/campana_oscura"
+        android:pathData="M29.5,78.62a12.25,12.25 0 1,0 24.5,0a12.25,12.25 0 1,0 -24.5,0z" />
+    <path
+        android:fillColor="@color/campana_oscura"
+        android:pathData="M7.69,64H76.56A6.69,6.69 0 0 1 76.56,77.38H7.69A6.69,6.69 0 0 1 7.69,64Z" />
+
+    <!-- Cara iluminada: frente del cuerpo, frente del aro y brillo del badajo -->
+    <path
+        android:fillColor="@color/campana_clara"
+        android:pathData="M28.25,53.5V32.5C28.25,22 31,11.75 38.38,7.75H44.62A24.12,24.12 0 0 1 68.75,31.62L69.5,59.5H34.25A6,6 0 0 1 28.25,53.5Z" />
+    <path
+        android:fillColor="@color/campana_clara"
+        android:pathData="M26.94,64H76.31A6.69,6.69 0 0 1 76.31,77.38H26.94A6.69,6.69 0 0 1 26.94,64Z" />
+    <path
+        android:fillColor="@color/campana_clara"
+        android:pathData="M53.69,81.38H42Q38.5,81.38 38.5,84.5C38.5,87.5 42.5,89.25 45.5,90A12.25,12.25 0 0 0 53.69,81.38Z" />
+
+</vector>

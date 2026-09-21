@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Punto que antecede al lugar del compromiso en M-06: círculo en el color de marca (12 dp, lo fija el layout). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/texto_marca" />
+</shape>

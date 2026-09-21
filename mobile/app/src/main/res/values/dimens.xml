@@ -59,4 +59,33 @@
     <dimen name="fondo_z3_alto">301dp</dimen>
     <dimen name="fondo_z3_desfase_inicio">2dp</dimen>
     <dimen name="fondo_z3_desfase_superior">208dp</dimen>
+
+    <!--
+      Detalle de la alarma (M-06). Distancias entre cajas de texto (sin relleno de fuente), calculadas desde la
+      línea base medida en el mockup de 390 dp y afinadas contra el emulador (±0,5 dp); cada bloque cuelga del
+      anterior, así que el texto grande o varias líneas empujan lo que sigue en vez de solaparlo.
+    -->
+    <dimen name="detalle_fondo_desfase_inicio">1dp</dimen>           <!-- el fondo z3 de M-06 va 1 dp a la izquierda y 8 dp más arriba que en M-04 -->
+    <dimen name="detalle_fondo_desfase_superior">200dp</dimen>
+    <dimen name="detalle_margen_texto">32dp</dimen>                  <!-- sangría de título, lugar y datos (los botones usan margen_pantalla) -->
+    <item name="detalle_ilustracion_sesgo" format="float" type="dimen">0.475</item> <!-- campana a 145 dp del borde: 8 dp a la izquierda del centro -->
+    <dimen name="detalle_ilustracion_margen_superior">20dp</dimen>   <!-- bajo el encabezado -->
+    <dimen name="detalle_titulo_margen_superior">46dp</dimen>        <!-- bajo la campana -->
+    <dimen name="detalle_titulo_margen_final">16dp</dimen>           <!-- hasta los tres puntos -->
+    <dimen name="detalle_menu_margen_superior">12.4dp</dimen>        <!-- desde lo alto de la caja del título -->
+    <dimen name="detalle_menu_margen_final">31.5dp</dimen>
+    <dimen name="detalle_hora_margen_superior">12.8dp</dimen>
+    <dimen name="detalle_lugar_margen_superior">19.9dp</dimen>
+    <dimen name="detalle_punto_tamano">11dp</dimen>
+    <dimen name="detalle_punto_margen_inicio">33.25dp</dimen>        <!-- centra el punto en x = 39 dp -->
+    <dimen name="detalle_punto_margen_superior">3.5dp</dimen>        <!-- lo centra en la primera línea del lugar -->
+    <dimen name="detalle_punto_separacion">9.5dp</dimen>             <!-- hasta el texto del lugar -->
+    <dimen name="detalle_divisor_margen_superior">28.25dp</dimen>
+    <dimen name="detalle_divisor_margen_final">15.5dp</dimen>        <!-- la línea del mockup llega 16 dp más allá del texto por la derecha -->
+    <dimen name="detalle_dato_margen_superior">35.25dp</dimen>       <!-- bajo el divisor -->
+    <dimen name="detalle_dato_espacio">25.75dp</dimen>               <!-- entre un dato y el siguiente -->
+    <dimen name="dato_espacio_valor">5.5dp</dimen>                   <!-- entre etiqueta y valor de un dato -->
+    <dimen name="detalle_boton_margen_superior">57dp</dimen>
+    <dimen name="detalle_boton_espacio">41dp</dimen>
+    <dimen name="detalle_margen_inferior">24dp</dimen>
 </resources>

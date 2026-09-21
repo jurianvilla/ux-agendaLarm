@@ -7,10 +7,12 @@ import com.agendalarm.app.R
 import com.agendalarm.app.databinding.ActivityM04AlarmasDelDiaBinding
 import com.agendalarm.app.ui.animacion.usarAnimacionesAgendaLarm
 import com.agendalarm.app.ui.base.BaseActivity
+import com.agendalarm.app.ui.detallealarma.M06DetalleAlarmaActivity
 
 /**
  * M-04 · Alarmas del día. Pantalla principal de consulta diaria: fecha y número de compromisos, y una tarjeta
- * por alarma con su interruptor. (M-05, el estado vacío, se sumará como otro estado de esta misma pantalla.)
+ * por alarma con su interruptor; tocar la tarjeta abre su detalle (M-06). (M-05, el estado vacío, se sumará como
+ * otro estado de esta misma pantalla.)
  */
 class M04AlarmasDelDiaActivity : BaseActivity() {
 
@@ -29,9 +31,13 @@ class M04AlarmasDelDiaActivity : BaseActivity() {
     }
 
     private fun activarLista(binding: ActivityM04AlarmasDelDiaBinding) {
-        val adaptador = AlarmasAdapter(alAlternar = viewModel::alternarAlarma)
+        val adaptador = AlarmasAdapter(alAlternar = viewModel::alternarAlarma, alPulsar = ::abrirDetalle)
         binding.listaAlarmas.adapter = adaptador
         binding.listaAlarmas.usarAnimacionesAgendaLarm()
         viewModel.estado.observe(this) { estado -> adaptador.submitList(estado.elementos()) }
+    }
+
+    private fun abrirDetalle(alarmaId: Long) {
+        startActivity(M06DetalleAlarmaActivity.intent(this, alarmaId))
     }
 }

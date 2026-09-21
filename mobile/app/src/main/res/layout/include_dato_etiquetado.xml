@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Bloque de datos del Design System: una etiqueta y, debajo, su valor grande («Hora de salida estimada» / «07:52»).
+  Se incluye con:
+
+      <include
+          android:id="@+id/dato_salida"
+          layout="@layout/include_dato_etiquetado"
+          app:etiqueta="@{@string/detalle_alarma_salida}"
+          app:valor="@{detalle.horaSalida}" />
+
+  El bloque es una sola parada para lectores de pantalla, que anuncian etiqueta y valor juntos.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="etiqueta"
+            type="String" />
+
+        <variable
+            name="valor"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:screenReaderFocusable="true"
+        tools:targetApi="28">
+
+        <TextView
+            android:id="@+id/texto_etiqueta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{etiqueta}"
+            android:textAppearance="@style/TextAppearance.AgendaLarm.EtiquetaDato"
+            tools:text="Hora de salida estimada" />
+
+        <TextView
+            android:id="@+id/texto_valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dato_espacio_valor"
+            android:text="@{valor}"
+            android:textAppearance="@style/TextAppearance.AgendaLarm.Valor"
+            tools:text="07:52" />
+
+    </LinearLayout>
+</layout>

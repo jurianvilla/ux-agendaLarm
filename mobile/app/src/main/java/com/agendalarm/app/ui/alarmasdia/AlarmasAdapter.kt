@@ -2,6 +2,8 @@ package com.agendalarm.app.ui.alarmasdia
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,7 @@ private const val TIPO_NOTA = 2
 /** Lista de M-04: una sola lista con tres tipos de fila, para que título, tarjetas y nota se desplacen juntos. */
 class AlarmasAdapter(
     private val alAlternar: (id: Long, activa: Boolean) -> Unit,
+    private val alPulsar: (id: Long) -> Unit,
 ) : ListAdapter<ElementoLista, RecyclerView.ViewHolder>(Comparador) {
 
     override fun getItemViewType(position: Int) = when (getItem(position)) {
@@ -29,7 +32,7 @@ class AlarmasAdapter(
         val inflador = LayoutInflater.from(parent.context)
         return when (viewType) {
             TIPO_SECCION -> SeccionHolder(ItemSeccionBinding.inflate(inflador, parent, false))
-            TIPO_ALARMA -> AlarmaHolder(ItemAlarmaBinding.inflate(inflador, parent, false), alAlternar)
+            TIPO_ALARMA -> AlarmaHolder(ItemAlarmaBinding.inflate(inflador, parent, false), alAlternar, alPulsar)
             else -> NotaHolder(ItemNotaBinding.inflate(inflador, parent, false))
         }
     }
@@ -59,9 +62,23 @@ class AlarmasAdapter(
     private class AlarmaHolder(
         private val binding: ItemAlarmaBinding,
         private val alAlternar: (id: Long, activa: Boolean) -> Unit,
+        private val alPulsar: (id: Long) -> Unit,
     ) : RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            // TalkBack anuncia «doble toque para ver el detalle de la alarma» en vez del genérico «para activar».
+            ViewCompat.replaceAccessibilityAction(
+                binding.root,
+                AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK,
+                itemView.resources.getString(R.string.alarma_ver_detalle),
+                null,
+            )
+        }
+
         fun enlazar(alarma: AlarmaUi) {
             binding.alarma = alarma
+            // La tarjeta abre el detalle; el interruptor sigue siendo un control aparte dentro de ella.
+            binding.root.setOnClickListener { alPulsar(alarma.id) }
             // Sin oyente mientras se fija el estado: reciclar la fila no debe contar como un toque del usuario.
             binding.interruptor.setOnCheckedChangeListener(null)
             binding.interruptor.isChecked = alarma.activa

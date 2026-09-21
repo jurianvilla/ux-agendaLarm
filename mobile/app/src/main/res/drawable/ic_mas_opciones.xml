@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tres puntos horizontales del título de M-06 («⋯»): tres círculos de 3 dp con paso de 8 dp, 19 × 3 dp en total
+  (medidos sobre el mockup). Es un adorno del PDF, no un componente: la pantalla no define ningún menú.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="19dp"
+    android:height="3dp"
+    android:viewportWidth="19"
+    android:viewportHeight="3">
+
+    <path
+        android:fillColor="@color/icono"
+        android:pathData="M1.5,1.5m-1.5,0a1.5,1.5 0 1,0 3,0a1.5,1.5 0 1,0 -3,0" />
+    <path
+        android:fillColor="@color/icono"
+        android:pathData="M9.5,1.5m-1.5,0a1.5,1.5 0 1,0 3,0a1.5,1.5 0 1,0 -3,0" />
+    <path
+        android:fillColor="@color/icono"
+        android:pathData="M17.5,1.5m-1.5,0a1.5,1.5 0 1,0 3,0a1.5,1.5 0 1,0 -3,0" />
+
+</vector>

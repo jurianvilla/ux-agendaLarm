@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-06 · Detalle de la alarma (una pantalla = un layout, igual que M-04). -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detalle"
+            type="com.agendalarm.app.ui.detallealarma.DetalleAlarmaUi" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/raiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/superficie">
+
+        <!-- Fondo decorativo z3 (mismo arte que en M-04, pero 8 dp más arriba y 1 dp a la izquierda) -->
+        <ImageView
+            android:id="@+id/fondo_decorativo"
+            android:layout_width="@dimen/fondo_z3_ancho"
+            android:layout_height="@dimen/fondo_z3_alto"
+            android:layout_marginStart="@dimen/detalle_fondo_desfase_inicio"
+            android:layout_marginTop="@dimen/detalle_fondo_desfase_superior"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:src="@drawable/fondo_z3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/include_encabezado_pantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:acceso="@{@string/m06_acceso}"
+            app:codigo="@{@string/m06_codigo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titulo="@{@string/m06_titulo}" />
+
+        <!-- El contenido se desplaza si no cabe (pantallas bajas, horizontal, texto grande) -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/contenido"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado"
+            app:layout_constraintWidth_max="@dimen/ancho_max_contenido">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/detalle_margen_inferior">
+
+                <ImageView
+                    android:id="@+id/ilustracion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/detalle_ilustracion_margen_superior"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ilustracion_campana"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="@dimen/detalle_ilustracion_sesgo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/texto_nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/detalle_margen_texto"
+                    android:layout_marginTop="@dimen/detalle_titulo_margen_superior"
+                    android:layout_marginEnd="@dimen/detalle_titulo_margen_final"
+                    android:accessibilityHeading="true"
+                    android:text="@{detalle.titulo}"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.Subtitulo"
+                    app:layout_constraintEnd_toStartOf="@id/icono_mas_opciones"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ilustracion"
+                    tools:targetApi="28"
+                    tools:text="Clase Bases de Datos" />
+
+                <!-- Adorno del mockup: no es un control (ver ic_mas_opciones.xml) -->
+                <ImageView
+                    android:id="@+id/icono_mas_opciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/detalle_menu_margen_superior"
+                    android:layout_marginEnd="@dimen/detalle_menu_margen_final"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_mas_opciones"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/texto_nombre" />
+
+                <TextView
+                    android:id="@+id/texto_hora"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/detalle_margen_texto"
+                    android:layout_marginTop="@dimen/detalle_hora_margen_superior"
+                    android:layout_marginEnd="@dimen/detalle_margen_texto"
+                    android:text="@{detalle.hora}"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.ValorGrande"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/texto_nombre"
+                    tools:text="08:30" />
+
+                <!-- Tamaño explícito: un View simple con wrap_content llena todo el ancho disponible -->
+                <View
+                    android:id="@+id/punto_lugar"
+                    android:layout_width="@dimen/detalle_punto_tamano"
+                    android:layout_height="@dimen/detalle_punto_tamano"
+                    android:layout_marginStart="@dimen/detalle_punto_margen_inicio"
+                    android:layout_marginTop="@dimen/detalle_punto_margen_superior"
+                    android:background="@drawable/punto_lugar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/texto_lugar" />
+
+                <TextView
+                    android:id="@+id/texto_lugar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/detalle_punto_separacion"
+                    android:layout_marginTop="@dimen/detalle_lugar_margen_superior"
+                    android:layout_marginEnd="@dimen/detalle_margen_texto"
+                    android:text="@{detalle.lugar}"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.CuerpoMarca"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/punto_lugar"
+                    app:layout_constraintTop_toBottomOf="@id/texto_hora"
+                    tools:text="Universidad : Aula 302 - Edificio 3" />
+
+                <View
+                    android:id="@+id/divisor"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/borde_fino"
+                    android:layout_marginStart="@dimen/detalle_margen_texto"
+                    android:layout_marginTop="@dimen/detalle_divisor_margen_superior"
+                    android:layout_marginEnd="@dimen/detalle_divisor_margen_final"
+                    android:background="@color/divisor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/texto_lugar" />
+
+                <include
+                    android:id="@+id/dato_salida"
+                    layout="@layout/include_dato_etiquetado"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/detalle_margen_texto"
+                    android:layout_marginTop="@dimen/detalle_dato_margen_superior"
+                    android:layout_marginEnd="@dimen/detalle_margen_texto"
+                    app:etiqueta="@{@string/detalle_alarma_salida}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divisor"
+                    app:valor="@{detalle.horaSalida}" />
+
+                <include
+                    android:id="@+id/dato_margen"
+                    layout="@layout/include_dato_etiquetado"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/detalle_margen_texto"
+                    android:layout_marginTop="@dimen/detalle_dato_espacio"
+                    android:layout_marginEnd="@dimen/detalle_margen_texto"
+                    app:etiqueta="@{@string/detalle_alarma_margen}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dato_salida"
+                    app:valor="@{@string/detalle_alarma_margen_valor(detalle.margenMinutos)}" />
+
+                <!-- Botón primario (estilo del tema): sin acción todavía, no hay pantalla de edición en los mockups -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_editar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margen_pantalla"
+                    android:layout_marginTop="@dimen/detalle_boton_margen_superior"
+                    android:layout_marginEnd="@dimen/margen_pantalla"
+                    android:text="@string/detalle_alarma_editar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dato_margen" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/boton_eliminar"
+                    style="@style/Widget.AgendaLarm.Boton.Destructivo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margen_pantalla"
+                    android:layout_marginTop="@dimen/detalle_boton_espacio"
+                    android:layout_marginEnd="@dimen/margen_pantalla"
+                    android:text="@string/detalle_alarma_eliminar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/boton_editar" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -64,6 +64,13 @@
         <item name="android:fontFamily">@font/inter_medium</item>
         <item name="android:textSize">13sp</item>
     </style>
+    <style name="TextAppearance.AgendaLarm.EtiquetaDato" parent="TextAppearance.AgendaLarm.Etiqueta">   <!-- M-06 «Hora de salida estimada» -->
+        <item name="android:textColor">@color/texto_secundario</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.CuerpoMarca" parent="TextAppearance.AgendaLarm">   <!-- M-06 lugar del compromiso -->
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/texto_marca</item>
+    </style>
     <style name="TextAppearance.AgendaLarm.Detalle" parent="TextAppearance.AgendaLarm">      <!-- «07:00 · Hora de inicio», nota al pie -->
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/texto_secundario</item>

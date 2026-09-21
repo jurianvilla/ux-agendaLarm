@@ -20,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- M-06 · Detalle de la alarma: se abre desde las tarjetas de M-04 (no es un punto de entrada). -->
+        <activity
+            android:name=".ui.detallealarma.M06DetalleAlarmaActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.alarmasdia.M04AlarmasDelDiaActivity" />
     </application>
 
 </manifest>
