@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Sólo en compilaciones debug: las pantallas que ninguna otra abre (o que piden un dato) se pueden abrir directo,
+  para revisarlas contra su mockup, con
+      adb shell am start -n com.agendalarm.app/.ui.metodoconfirmacion.M09MetodoConfirmacionActivity
+  o desde Android Studio (Run > Edit Configurations > Launch: Specified Activity). En release siguen sin exportarse.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+
+        <activity
+            android:name=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity"
+            android:exported="true"
+            tools:ignore="ExportedActivity"
+            tools:replace="android:exported" />
+
+    </application>
+</manifest>

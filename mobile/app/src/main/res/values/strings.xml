@@ -24,4 +24,14 @@
     <string name="detalle_alarma_margen_valor">%1$d min</string>
     <string name="detalle_alarma_editar">Editar Alarma</string>
     <string name="detalle_alarma_eliminar">Eliminar Alarma</string>
+
+    <!-- M-09 · ¿Cómo quieres confirmar que despertaste? (los dos métodos son fijos, no datos de muestra) -->
+    <string name="m09_titulo">¿Cómo quieres confirmar que despertaste?</string>
+    <string name="m09_acceso">Requiere autenticación</string>
+    <string name="m09_codigo">M9</string>
+    <string name="metodo_introduccion">Elige el método por tipo de alarma</string>
+    <string name="metodo_de_pie">Ponerte de pie y sostener el teléfono</string>
+    <string name="metodo_foto">Registro fotográfico</string>
+    <string name="metodo_activo">Activo</string>
+    <string name="metodo_elegir">Elegir este método</string>
 </resources>

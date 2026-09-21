@@ -10,6 +10,10 @@
           app:codigo="@{@string/m04_codigo}"
           app:titulo="@{@string/m04_titulo}" />
 
+  Variante de título de dos líneas (M-09): app:tituloDoble="@{true}". El título sube y se corre a la izquierda y el
+  acceso se le pega, como en ese mockup. Las distancias van como relleno de los propios textos (no como margen)
+  porque data binding sólo puede elegirlas así sin adaptadores propios.
+
   Dos capas: la exterior es la franja blanca, que llega hasta el borde superior y recibe como relleno la altura
   de la barra de estado (BaseActivity.aplicarInsets); la interior mide 70 dp aparte de ese relleno, porque
   minHeight cuenta el relleno y la franja saldría más baja de lo dibujado.
@@ -31,6 +35,10 @@
         <variable
             name="codigo"
             type="String" />
+
+        <variable
+            name="tituloDoble"
+            type="boolean" />
     </data>
 
     <FrameLayout
@@ -42,16 +50,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/encabezado_altura"
-            android:paddingBottom="@dimen/encabezado_relleno_inferior">
+            android:paddingBottom="@{tituloDoble ? @dimen/encabezado_relleno_inferior_doble : @dimen/encabezado_relleno_inferior}">
 
             <TextView
                 android:id="@+id/texto_titulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:accessibilityHeading="true"
-                android:layout_marginStart="@dimen/margen_pantalla"
-                android:layout_marginTop="@dimen/encabezado_titulo_margen_superior"
                 android:layout_marginEnd="@dimen/margen_pantalla"
+                android:paddingStart="@{tituloDoble ? @dimen/encabezado_titulo_doble_margen_inicio : @dimen/margen_pantalla}"
+                android:paddingEnd="0dp"
+                android:paddingTop="@{tituloDoble ? @dimen/encabezado_titulo_doble_margen_superior : @dimen/encabezado_titulo_margen_superior}"
                 android:text="@{titulo}"
                 android:textAppearance="@style/TextAppearance.AgendaLarm.Encabezado"
                 app:layout_constraintEnd_toStartOf="@id/texto_codigo"
@@ -64,11 +73,12 @@
                 android:id="@+id/texto_acceso"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/encabezado_acceso_margen_superior"
+                android:layout_marginStart="@dimen/margen_pantalla"
+                android:paddingTop="@{tituloDoble ? @dimen/encabezado_acceso_doble_margen_superior : @dimen/encabezado_acceso_margen_superior}"
                 android:text="@{acceso}"
                 android:textAppearance="@style/TextAppearance.AgendaLarm.Micro"
                 app:layout_constraintEnd_toEndOf="@id/texto_titulo"
-                app:layout_constraintStart_toStartOf="@id/texto_titulo"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/texto_titulo"
                 tools:text="Requiere autenticación" />
 

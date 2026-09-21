@@ -25,6 +25,11 @@
     <dimen name="encabezado_codigo_margen_superior">20.5dp</dimen>
     <dimen name="encabezado_codigo_margen_final">41.5dp</dimen>
     <dimen name="encabezado_relleno_inferior">8dp</dimen>            <!-- sólo actúa con fuente grande: a 70 dp manda la altura mínima -->
+    <!-- Variante con título de dos líneas (M-09): título más arriba y a la izquierda, acceso más pegado al título -->
+    <dimen name="encabezado_titulo_doble_margen_inicio">20.25dp</dimen>
+    <dimen name="encabezado_titulo_doble_margen_superior">3dp</dimen>
+    <dimen name="encabezado_acceso_doble_margen_superior">3.9dp</dimen>
+    <dimen name="encabezado_relleno_inferior_doble">6dp</dimen>
 
     <!-- Secciones y notas dentro de la lista -->
     <dimen name="seccion_margen_superior">25dp</dimen>
@@ -88,4 +93,29 @@
     <dimen name="detalle_boton_margen_superior">57dp</dimen>
     <dimen name="detalle_boton_espacio">41dp</dimen>
     <dimen name="detalle_margen_inferior">24dp</dimen>
+
+    <!--
+      Método de confirmación (M-09). Posiciones medidas sobre el mockup de 390 dp. Las tarjetas tienen dos variantes:
+      la activa (muestra «Activo») y la en reposo, que lleva el contenido 8 dp más abajo y el icono 2 dp a la derecha.
+      Esas distancias van como relleno de los propios textos e iconos para poder elegirlas con data binding.
+    -->
+    <dimen name="metodo_fondo_desfase_superior">200dp</dimen>        <!-- el fondo z3 de M-09 va 8 dp más arriba que en M-04 (mismo desfase horizontal) -->
+    <dimen name="introduccion_margen_superior">32.5dp</dimen>
+    <dimen name="introduccion_margen_inferior">32.5dp</dimen>
+    <dimen name="espaciado_opciones">24dp</dimen>
+    <dimen name="opcion_altura">164dp</dimen>
+    <dimen name="radio_opcion">13dp</dimen>                           <!-- las tarjetas de M-09 son 1 dp más redondas que las de M-04 (12 dp) -->
+    <dimen name="opcion_titulo_margen_inicio">108dp</dimen>
+    <dimen name="opcion_titulo_margen_final">20dp</dimen>
+    <dimen name="opcion_titulo_margen_superior_activa">43.2dp</dimen>
+    <dimen name="opcion_titulo_margen_superior_reposo">51.2dp</dimen>
+    <dimen name="opcion_icono_tamano">35dp</dimen>
+    <dimen name="opcion_icono_borde">5.75dp</dimen>
+    <dimen name="opcion_icono_margen_inicio_activa">36.5dp</dimen>
+    <dimen name="opcion_icono_margen_inicio_reposo">38.5dp</dimen>
+    <dimen name="opcion_icono_margen_superior_activa">47dp</dimen>   <!-- 4,4 dp bajo la caja del título -->
+    <dimen name="opcion_icono_margen_superior_reposo">55dp</dimen>
+    <dimen name="opcion_estado_margen_final">26dp</dimen>            <!-- entre «Activo» y el interruptor -->
+    <dimen name="opcion_estado_margen_inferior">31.5dp</dimen>
+    <dimen name="opcion_interruptor_margen_inferior">19dp</dimen>    <!-- + 12 dp de zona táctil = 31 dp al borde de la tarjeta -->
 </resources>

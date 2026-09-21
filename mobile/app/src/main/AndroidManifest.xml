@@ -26,6 +26,11 @@
             android:name=".ui.detallealarma.M06DetalleAlarmaActivity"
             android:exported="false"
             android:parentActivityName=".ui.alarmasdia.M04AlarmasDelDiaActivity" />
+
+        <!-- M-09 · ¿Cómo quieres confirmar que despertaste?: aún no lo abre ninguna pantalla (ver src/debug). -->
+        <activity
+            android:name=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

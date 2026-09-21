@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Selector de opción de M-09 (350 × 164 dp en el mockup de 390 dp): icono, título del método, interruptor y, si es el
+  método activo, el indicador «Activo». Dos variantes según `opcion.activa`: la activa lleva el contenido 8 dp más
+  arriba y el icono 2 dp a la izquierda que la que está en reposo. Sus distancias son relleno del texto y del icono
+  (ver dimens.xml), que data binding puede elegir sin adaptadores propios.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="opcion"
+            type="com.agendalarm.app.ui.metodoconfirmacion.OpcionUi" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/tarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margen_tarjeta"
+        android:layout_marginEnd="@dimen/margen_tarjeta"
+        android:layout_marginBottom="@dimen/espaciado_opciones"
+        app:cardCornerRadius="@dimen/radio_opcion"
+        style="@style/Widget.AgendaLarm.Tarjeta">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/opcion_altura">
+
+            <!-- Marcador del mockup, sin significado para lectores de pantalla (ver icono_metodo.xml) -->
+            <ImageView
+                android:id="@+id/icono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
+                android:paddingStart="@{opcion.activa ? @dimen/opcion_icono_margen_inicio_activa : @dimen/opcion_icono_margen_inicio_reposo}"
+                android:paddingEnd="0dp"
+                android:paddingTop="@{opcion.activa ? @dimen/opcion_icono_margen_superior_activa : @dimen/opcion_icono_margen_superior_reposo}"
+                android:src="@drawable/icono_metodo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/texto_titulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/opcion_titulo_margen_inicio"
+                android:layout_marginEnd="@dimen/opcion_titulo_margen_final"
+                android:paddingTop="@{opcion.activa ? @dimen/opcion_titulo_margen_superior_activa : @dimen/opcion_titulo_margen_superior_reposo}"
+                android:text="@{opcion.metodo.titulo}"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.OpcionTitulo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Ponerte de pie y sostener el teléfono" />
+
+            <TextView
+                android:id="@+id/texto_activo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/opcion_estado_margen_final"
+                android:layout_marginBottom="@dimen/opcion_estado_margen_inferior"
+                android:text="@string/metodo_activo"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.EstadoActivo"
+                android:visibility="@{opcion.activa ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/interruptor" />
+
+            <!-- Zona táctil de 60 × 48 dp; lo dibujado mide 44 × 24 dp (ver Widget.AgendaLarm.Interruptor) -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/interruptor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/interruptor_margen_final"
+                android:layout_marginBottom="@dimen/opcion_interruptor_margen_inferior"
+                android:contentDescription="@{context.getString(opcion.metodo.titulo)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/Widget.AgendaLarm.Interruptor"
+                tools:checked="true" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

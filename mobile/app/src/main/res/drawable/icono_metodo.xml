@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Marcador de icono de las tarjetas de M-09: cuadrado de 35 dp con borde de 5,75 dp en el color de marca y el
+  centro vacío, tal como está dibujado en el mockup (ocupa el lugar de un icono por definir). El borde se dibuja
+  hacia dentro, así que el cuadrado mide 35 dp en total.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <stroke
+        android:width="@dimen/opcion_icono_borde"
+        android:color="@color/texto_marca" />
+    <size
+        android:width="@dimen/opcion_icono_tamano"
+        android:height="@dimen/opcion_icono_tamano" />
+</shape>

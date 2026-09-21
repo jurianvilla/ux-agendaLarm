@@ -71,6 +71,15 @@
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/texto_marca</item>
     </style>
+    <style name="TextAppearance.AgendaLarm.OpcionTitulo" parent="TextAppearance.AgendaLarm">   <!-- M-09 título de un selector de opción -->
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.AgendaLarm.EstadoActivo" parent="TextAppearance.AgendaLarm">   <!-- M-09 indicador «Activo» -->
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/exito</item>
+    </style>
     <style name="TextAppearance.AgendaLarm.Detalle" parent="TextAppearance.AgendaLarm">      <!-- «07:00 · Hora de inicio», nota al pie -->
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/texto_secundario</item>
