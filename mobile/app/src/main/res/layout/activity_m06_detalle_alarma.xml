@@ -179,7 +179,7 @@
                     app:layout_constraintTop_toBottomOf="@id/dato_salida"
                     app:valor="@{@string/detalle_alarma_margen_valor(detalle.margenMinutos)}" />
 
-                <!-- Botón primario (estilo del tema): sin acción todavía, no hay pantalla de edición en los mockups -->
+                <!-- Botón primario (estilo del tema): abre M-09 para elegir el método de confirmación -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/boton_editar"
                     android:layout_width="0dp"

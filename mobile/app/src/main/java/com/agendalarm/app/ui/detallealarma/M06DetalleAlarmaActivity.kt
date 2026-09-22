@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import com.agendalarm.app.R
 import com.agendalarm.app.databinding.ActivityM06DetalleAlarmaBinding
 import com.agendalarm.app.ui.base.BaseActivity
+import com.agendalarm.app.ui.metodoconfirmacion.M09MetodoConfirmacionActivity
 
 /**
  * M-06 · Detalle de la alarma. Información completa del compromiso que origina la alarma (lugar, hora de salida
- * estimada y margen calculado) con las acciones de editar y eliminar. Se abre desde las tarjetas de M-04.
+ * estimada y margen calculado) con las acciones de editar y eliminar. Se abre desde las tarjetas de M-04;
+ * Editar Alarma abre M-09 (elegir método de confirmación).
  */
 class M06DetalleAlarmaActivity : BaseActivity() {
 
@@ -27,6 +29,9 @@ class M06DetalleAlarmaActivity : BaseActivity() {
         setTitle(R.string.m06_titulo)
         aplicarInsets(encabezado = binding.encabezado.root, contenido = binding.contenido)
         observarDetalle(binding)
+        binding.botonEditar.setOnClickListener {
+            startActivity(Intent(this, M09MetodoConfirmacionActivity::class.java))
+        }
     }
 
     private fun observarDetalle(binding: ActivityM06DetalleAlarmaBinding) {

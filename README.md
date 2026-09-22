@@ -25,14 +25,14 @@ AgendaLarm convierte el horario de una persona en alarmas con sentido. Cada alar
 El repositorio reúne dos prototipos que comparten identidad visual (paleta, tipografía Inter, componentes y movimiento):
 
 - **Web:** configuración del periodo académico o laboral. La persona carga su horario (a mano, desde un calendario o con una foto), indica sus direcciones y su margen de preparación, y define las excepciones del periodo.
-- **Móvil:** uso diario de las alarmas. Consulta de las alarmas del día, detalle de cada una, elección del método de confirmación del despertar y confirmación de pie con barra de progreso.
+- **Móvil:** uso diario de las alarmas. Consulta de las alarmas del día (con o sin compromisos), resumen del día siguiente, detalle de cada alarma, elección del método de confirmación del despertar y confirmación de pie con barra de progreso.
 
 ## Plataformas
 
 | Plataforma | Carpeta | Tecnología | Pantallas | Documentación |
 | --- | --- | --- | --- | --- |
 | Web | [`web/`](web/) | HTML5, CSS3 y JavaScript (ECMAScript 2020), sin dependencias | 8 (W-05, W-07 a W-13) | [`web/README.md`](web/README.md) |
-| Móvil | [`mobile/`](mobile/) | Android nativo: Kotlin 2.2.10 + XML, Material 3 | 4 (M-04, M-06, M-09, M-11) | [`mobile/README.md`](mobile/README.md) |
+| Móvil | [`mobile/`](mobile/) | Android nativo: Kotlin 2.2.10 + XML, Material 3 | 6 (M-04, M-05, M-06, M-07, M-09, M-11) | [`mobile/README.md`](mobile/README.md) |
 
 ## Estructura del repositorio
 

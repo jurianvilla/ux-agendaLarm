@@ -1,6 +1,6 @@
 # AgendaLarm — Móvil
 
-Aplicación Android nativa de **AgendaLarm · Servicio de gestión de alarmas**, escrita en Kotlin con layouts XML y Material 3. Reúne las pantallas de uso diario de las alarmas: consulta del día, detalle de una alarma, elección del método para confirmar el despertar y confirmación de pie con barra de progreso.
+Aplicación Android nativa de **AgendaLarm · Servicio de gestión de alarmas**, escrita en Kotlin con layouts XML y Material 3. Reúne las pantallas de uso diario de las alarmas: consulta del día (con o sin compromisos), resumen de mañana, detalle de una alarma, elección del método para confirmar el despertar y confirmación de pie con barra de progreso.
 
 ## Datos del proyecto
 
@@ -27,39 +27,61 @@ Las pantallas reproducen los mockups de `S6_Mockups_Movil_AgendaLarm.pdf` (390 �
 | Código | Pantalla | Clase | Acceso | Responsable |
 | --- | --- | --- | --- | --- |
 | M-04 | Alarmas del día | `M04AlarmasDelDiaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
+| M-05 | Alarmas del día · estado vacío | `M05AlarmasDiaVacioActivity` | Estado vacío | Juan Sebastián Vega Guarín |
 | M-06 | Detalle de la alarma | `M06DetalleAlarmaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
+| M-07 | Resumen de mañana | `M07ResumenMananaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
 | M-09 | ¿Cómo quieres confirmar que despertaste? | `M09MetodoConfirmacionActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
 | M-11 | Levántate para apagar la alarma | `M11LevantateApagarActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
 
 Cada pantalla lleva en su franja superior el nombre, el tipo de acceso y el código del mockup (por ejemplo «M11»), tal como aparece en el documento de diseño.
 
+**Flujo de navegación:** M-05 (pantalla de arranque) → toca la mitad derecha de la pantalla («día siguiente») → M-07 → botón «Ver alarmas» → M-04 → toca una tarjeta → M-06 → botón «Editar Alarma» → M-09 → elige «Ponerte de pie y sostener el teléfono» → M-11 (Atrás va devolviendo: M-11 a M-09, M-09 a M-06 y M-06 a M-04). La mitad izquierda de M-05 («día anterior») no navega: el mockup no tiene una pantalla para ese caso. Con esto, las seis pantallas quedan enlazadas entre sí.
+
 ### M-04 · Alarmas del día
 
-Pantalla principal de consulta diaria y pantalla de arranque de la aplicación. El encabezado indica la fecha y el número de compromisos («Hoy, martes 12 · 4 compromisos»). Debajo hay una tarjeta por alarma con el compromiso que la origina (título, hora y lugar) y un interruptor para activarla o desactivarla, y al final la nota «Cada alarma se origina en un compromiso de tu horario.».
+Pantalla principal de consulta diaria, con compromisos para el día. El encabezado indica la fecha y el número de compromisos («Hoy, martes 12 · 4 compromisos»). Debajo hay una tarjeta por alarma con el compromiso que la origina (título, hora y lugar) y un interruptor para activarla o desactivarla, y al final la nota «Cada alarma se origina en un compromiso de tu horario.».
 
 - Alarmas de muestra: *Despertar* (07:00), *Clase Bases de Datos* (08:30, Universidad), *Reunión equipo* (11:00, Trabajo) y *Tutoría* (15:30, Universidad, desactivada).
-- Tocar una tarjeta abre el detalle de esa alarma (M-06); tocar el interruptor sólo cambia el estado de la alarma.
+- Se abre desde el botón «Ver alarmas» de M-07. Tocar una tarjeta abre el detalle de esa alarma (M-06); tocar el interruptor sólo cambia el estado de la alarma.
 - Título, tarjetas y nota forman una sola lista que se desplaza junta. El estado de los interruptores se conserva al rotar el dispositivo y al volver desde M-06.
+
+### M-05 · Alarmas del día · estado vacío
+
+Pantalla de arranque de la aplicación: mismo encabezado que M-04 pero sin compromisos para el día consultado. Muestra una ilustración de una cama y los mensajes «No tienes compromisos hoy.» y «¡Buen descanso!».
+
+- Dos zonas táctiles invisibles a los lados del contenido cambian de día: la izquierda («día anterior») no navega, el mockup no tiene una pantalla para ese caso; la derecha («día siguiente») abre M-07.
+- Es la única `Activity` exportada como `LAUNCHER` en el manifiesto; M-04 dejó de ser la pantalla de arranque al construir esta pantalla.
 
 ### M-06 · Detalle de la alarma
 
 Información completa del compromiso que origina una alarma: ilustración de una campana, nombre del compromiso, hora, lugar, *Hora de salida estimada* y *Margen calculado*, con las acciones **Editar Alarma** y **Eliminar Alarma**.
 
-- Se abre al tocar una tarjeta de M-04; cada una de las cuatro alarmas muestra su propio detalle, y Atrás vuelve a M-04.
+- Se abre al tocar una tarjeta de M-04; cada una de las cuatro alarmas muestra su propio detalle, y Atrás vuelve a M-04. El botón «Editar Alarma» abre M-09; «Eliminar Alarma» sigue sin acción en los mockups.
 - El identificador de la alarma viaja en el `Intent` y el ViewModel lo lee de `SavedStateHandle`, de modo que la pantalla se restaura igual tras rotar o si el sistema cierra el proceso.
 - El contenido está en un `NestedScrollView`: se desplaza en pantallas bajas, en horizontal o con texto grande.
+
+### M-07 · Resumen de mañana
+
+Adelanto de los compromisos del día siguiente: una lista de tarjetas (título, hora y lugar de cada compromiso) y, debajo, un botón con la cantidad programada («3 compromisos programados»).
+
+- Se abre al tocar la mitad derecha de M-05 («día siguiente»); el botón «Ver alarmas» lleva a M-04.
+- Compromisos de muestra: *Clase Bases de Datos* (08:30, Universidad), *Reunión equipo* (11:00, Trabajo) y *Tutoría* (15:30, Universidad).
+- Primera pantalla que separa los datos de muestra detrás de una interfaz (`ResumenMananaRepositorio` / `ResumenMananaRepositorioMuestra`), sustituible por una fuente real sin tocar el ViewModel.
 
 ### M-09 · ¿Cómo quieres confirmar que despertaste?
 
 Selección del método con el que se confirma el despertar: **Ponerte de pie y sostener el teléfono** o **Registro fotográfico**. Cada método es una tarjeta con su interruptor; el método activo muestra el indicador «Activo».
 
+- Se abre al tocar «Editar Alarma» en M-06; Atrás vuelve a M-06.
 - Sólo un método puede estar activo: tocar una tarjeta o encender su interruptor la activa y desactiva la otra. Siempre hay un método elegido, y la pantalla arranca con «Ponerte de pie y sostener el teléfono».
 - Las dos tarjetas tienen una variante activa y otra en reposo (posición del icono y del título) y, al cambiar de método, sólo se anima la tarjeta que cambia.
+- Elegir «Ponerte de pie y sostener el teléfono» (tocar su tarjeta o encender su interruptor) abre M-11; elegir «Registro fotográfico» sólo cambia el método activo, no tiene pantalla propia.
 
 ### M-11 · Levántate para apagar la alarma
 
 Confirmación del despertar mediante un movimiento sostenido: la pantalla pide «Mantente de pie unos segundos para confirmar que despertaste», ilustra el gesto con una persona caminando y muestra el avance con una barra de progreso y su porcentaje (50 % en el prototipo).
 
+- Se abre al elegir «Ponerte de pie y sostener el teléfono» en M-09; Atrás vuelve a M-09.
 - La barra es un `ProgressBar` con extremos redondos; el relleno se dibuja dentro de un `<scale>` para que conserve su forma redondeada por ambos lados. La barra y el texto «50%» salen del mismo valor del estado (`LevantateApagarUiState.progreso`, de 0 a 100).
 - La ilustración es un `VectorDrawable` propio (`ilustracion_gesto.xml`: cuerpo, cabeza y cuatro rayas de velocidad).
 - El contenido (ilustración, instrucción, barra y porcentaje) ocupa una columna de 342 dp de ancho, tal como está en el mockup, y se desplaza si no cabe en pantalla.
@@ -105,25 +127,27 @@ mobile/
         │   │   ├── base/                     # BaseActivity: modo borde a borde y márgenes de las barras del sistema
         │   │   ├── animacion/                # Animaciones.kt: transición estándar y animaciones de lista
         │   │   ├── alarmasdia/               # M-04: Activity, ViewModel, UiState, Adapter, datos de muestra
+        │   │   ├── alarmasdiavacio/          # M-05: Activity, ViewModel, UiState (pantalla de arranque)
         │   │   ├── detallealarma/            # M-06: Activity, ViewModel, UiState, datos de muestra
+        │   │   ├── resumenmanana/            # M-07: Activity, ViewModel, UiState, Adapter, repositorio de muestra
         │   │   ├── metodoconfirmacion/       # M-09: Activity, ViewModel, UiState, Adapter
         │   │   └── levantateapagar/          # M-11: Activity, ViewModel, UiState
         │   └── res/
-        │       ├── layout/                   # activity_m04… · activity_m06… · activity_m09… · activity_m11…
+        │       ├── layout/                   # activity_m04… · activity_m05… · activity_m06… · activity_m07…
+        │       │                             # activity_m09… · activity_m11…
         │       │                             # include_encabezado_pantalla · include_dato_etiquetado
-        │       │                             # item_alarma · item_seccion · item_nota · item_introduccion · item_opcion_metodo
+        │       │                             # item_alarma · item_compromiso · item_seccion · item_nota
+        │       │                             # item_introduccion · item_opcion_metodo
         │       ├── values/                   # colors_paleta · colors · dimens · styles_texto · styles_componentes
         │       │                             # themes · animaciones · strings
-        │       ├── drawable/                 # fondo_z3 · ilustracion_campana · ilustracion_gesto · barra_progreso
-        │       │                             # ic_mas_opciones · punto_lugar · icono_metodo · interruptor_pista
-        │       │                             # interruptor_pulgar · campo_fondo
+        │       ├── drawable/                 # fondo_z3 · ilustracion_cama · ilustracion_campana · ilustracion_gesto
+        │       │                             # barra_progreso · ic_mas_opciones · punto_lugar · icono_metodo
+        │       │                             # interruptor_pista · interruptor_pulgar · campo_fondo
         │       ├── drawable-nodpi/           # ic_launcher_foreground.png
         │       ├── mipmap-anydpi/            # ic_launcher.xml (ícono adaptable)
         │       ├── color/                    # colores por estado de los botones (sel_*)
         │       ├── font/                     # Inter Regular, Medium, SemiBold, Bold e inter.xml
         │       ├── anim/ · interpolator/ · transition/   # movimiento entre pantallas y dentro de ellas
-        ├── debug/
-        │   └── AndroidManifest.xml           # exporta M-09 y M-11 en compilaciones debug
         └── test/java/com/agendalarm/app/ui/  # pruebas unitarias: detallealarma · metodoconfirmacion · levantateapagar
 ```
 
@@ -131,8 +155,9 @@ mobile/
 
 - **Una pantalla = una `Activity` + un layout + un ViewModel**, en su paquete bajo `ui/`. Toda `Activity` extiende `BaseActivity`, que activa el modo borde a borde y suma los márgenes de las barras del sistema.
 - **MVVM.** El ViewModel expone un estado inmutable (`…UiState`) en un `LiveData`; la vista sólo lo dibuja mediante data binding y los eventos suben al ViewModel con funciones como `alternarAlarma(…)` o `seleccionar(…)`. Las reglas (por ejemplo «un solo método activo» o «el avance va de 0 a 100») viven en el estado y se prueban en la JVM, sin emulador.
-- **Listas.** M-04 y M-09 usan `RecyclerView` con `ListAdapter` y `DiffUtil`; las animaciones de altas, bajas y cambios duran lo mismo que el resto de la app.
+- **Listas.** M-04, M-07 y M-09 usan `RecyclerView` con `ListAdapter` y `DiffUtil`; las animaciones de altas, bajas y cambios duran lo mismo que el resto de la app.
 - **Datos entre pantallas.** Una pantalla que recibe un dato lo recibe en el `Intent`, con una fábrica en su `Activity` (`M06DetalleAlarmaActivity.intent(contexto, id)`), y su ViewModel lo lee de `SavedStateHandle`.
+- **Datos de muestra.** M-07 es la primera pantalla que los separa detrás de una interfaz (`ResumenMananaRepositorio` / `ResumenMananaRepositorioMuestra`), sustituible por una fuente real sin tocar el ViewModel; las demás los tienen en un objeto directo (`AlarmasMuestra`, `DetalleAlarmaMuestra`).
 - **Recursos sin valores fijos.** Los layouts usan `@color/` (tokens), `@dimen/`, `@string/` y los estilos de la hoja; las medidas salen de los mockups y llevan un comentario en `dimens.xml`.
 - **Nombres.** Todo en español; layouts, ids y recursos en `snake_case`, clases en `PascalCase` y funciones en `camelCase`. El nombre de cada pantalla lleva el código del mockup: `M04AlarmasDelDiaActivity` ↔ `activity_m04_alarmas_del_dia.xml`.
 - **Accesibilidad.** Los títulos son encabezados para TalkBack, los interruptores se anuncian con su nombre y tienen una zona táctil de 60 × 48 dp, las imágenes decorativas se ocultan a los lectores de pantalla y el texto respeta el tamaño de fuente del sistema.
@@ -150,7 +175,7 @@ Los estilos viven en `app/src/main/res/values/` y se aplican solos por el tema.
 | `TituloApp` · `Titulo` · `Subtitulo` | 28 · 24 · 22 sp, SemiBold | Títulos |
 | `Encabezado` | 18 sp, SemiBold | Título de la franja superior |
 | `Seccion` · `TarjetaTitulo` | 15 · 14 sp, SemiBold | Sección y título de tarjeta |
-| `CuerpoGrande` · `Cuerpo` · `CuerpoMarca` | 16 · 14 · 15 sp, Regular | Párrafos, lugar del compromiso (M-06) e instrucción (M-11) |
+| `CuerpoGrande` · `Cuerpo` · `CuerpoMarca` | 16 · 14 · 15 sp, Regular | Párrafos, mensaje secundario (M-05), lugar del compromiso (M-06) e instrucción (M-11) |
 | `OpcionTitulo` · `EstadoActivo` | 16 sp SemiBold · 22 sp Medium | Selector de opción (M-09) |
 | `Etiqueta` · `EtiquetaDestacada` · `EtiquetaDato` | 13 sp | Etiquetas de datos y campos |
 | `Progreso` | 13 sp, Regular | Porcentaje bajo la barra (M-11) |
@@ -201,7 +226,7 @@ until [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1 ]; do sleep 2
 cd mobile && ./gradlew installDebug
 
 # 4. Abrir la aplicación (o tocar el ícono del reloj en el lanzador)
-adb shell am start -n com.agendalarm.app/.ui.alarmasdia.M04AlarmasDelDiaActivity
+adb shell am start -n com.agendalarm.app/.ui.alarmasdiavacio.M05AlarmasDiaVacioActivity
 
 # 5. Al terminar
 adb emu kill
@@ -211,12 +236,12 @@ adb emu kill
 
 | Pantalla | Cómo llegar |
 | --- | --- |
-| M-04 · Alarmas del día | Es la pantalla de arranque: abrir la aplicación desde el lanzador |
+| M-05 · Alarmas del día · estado vacío | Es la pantalla de arranque: abrir la aplicación desde el lanzador |
+| M-07 · Resumen de mañana | Tocar la mitad derecha de la pantalla en M-05 («día siguiente») |
+| M-04 · Alarmas del día | Tocar «Ver alarmas» en M-07 |
 | M-06 · Detalle de la alarma | Tocar una tarjeta de M-04 |
-| M-09 · Método de confirmación | `adb shell am start -n com.agendalarm.app/.ui.metodoconfirmacion.M09MetodoConfirmacionActivity` |
-| M-11 · Levántate para apagar la alarma | `adb shell am start -n com.agendalarm.app/.ui.levantateapagar.M11LevantateApagarActivity` |
-
-M-09 y M-11 se abren directamente en las compilaciones **debug** (sus `Activity` se exportan sólo en `app/src/debug/AndroidManifest.xml`). También se pueden lanzar desde Android Studio con *Run > Edit Configurations > Launch: Specified Activity*.
+| M-09 · Método de confirmación | Tocar «Editar Alarma» en M-06 |
+| M-11 · Levántate para apagar la alarma | Elegir «Ponerte de pie y sostener el teléfono» en M-09 |
 
 ### Ver las pantallas en el tamaño del diseño (390 × 844 dp)
 

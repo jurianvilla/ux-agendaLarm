@@ -38,15 +38,17 @@
             android:exported="false"
             android:parentActivityName=".ui.alarmasdia.M04AlarmasDelDiaActivity" />
 
-        <!-- M-09 · ¿Cómo quieres confirmar que despertaste?: aún no lo abre ninguna pantalla (ver src/debug). -->
+        <!-- M-09 · ¿Cómo quieres confirmar que despertaste?: se abre desde «Editar Alarma» en M-06. -->
         <activity
             android:name=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.detallealarma.M06DetalleAlarmaActivity" />
 
-        <!-- M-11 · Levántate para apagar la alarma: aún no la abre ninguna pantalla (ver src/debug). -->
+        <!-- M-11 · Levántate para apagar la alarma: se abre al elegir «Ponerte de pie y sostener el teléfono» en M-09. -->
         <activity
             android:name=".ui.levantateapagar.M11LevantateApagarActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity" />
     </application>
 
 </manifest>

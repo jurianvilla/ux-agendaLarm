@@ -1,5 +1,6 @@
 package com.agendalarm.app.ui.metodoconfirmacion
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -7,10 +8,12 @@ import com.agendalarm.app.R
 import com.agendalarm.app.databinding.ActivityM09MetodoConfirmacionBinding
 import com.agendalarm.app.ui.animacion.usarAnimacionesAgendaLarm
 import com.agendalarm.app.ui.base.BaseActivity
+import com.agendalarm.app.ui.levantateapagar.M11LevantateApagarActivity
 
 /**
  * M-09 · ¿Cómo quieres confirmar que despertaste? Selección del método de confirmación entre ponerse de pie
  * sosteniendo el teléfono o registrar una fotografía: una tarjeta por método, con un solo método activo.
+ * Elegir «Ponerte de pie y sostener el teléfono» abre M-11.
  */
 class M09MetodoConfirmacionActivity : BaseActivity() {
 
@@ -29,9 +32,16 @@ class M09MetodoConfirmacionActivity : BaseActivity() {
     }
 
     private fun activarLista(binding: ActivityM09MetodoConfirmacionBinding) {
-        val adaptador = OpcionesAdapter(alSeleccionar = viewModel::seleccionar)
+        val adaptador = OpcionesAdapter(alSeleccionar = ::seleccionar)
         binding.listaOpciones.adapter = adaptador
         binding.listaOpciones.usarAnimacionesAgendaLarm()
         viewModel.estado.observe(this) { estado -> adaptador.submitList(estado.elementos()) }
+    }
+
+    private fun seleccionar(metodo: MetodoConfirmacion) {
+        viewModel.seleccionar(metodo)
+        if (metodo == MetodoConfirmacion.DE_PIE) {
+            startActivity(Intent(this, M11LevantateApagarActivity::class.java))
+        }
     }
 }
