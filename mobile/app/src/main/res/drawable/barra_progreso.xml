@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Barra de progreso de M-11 (16 dp de alto, extremos redondos): pista clara y, encima, el relleno oscuro. Es el
+  progressDrawable de un ProgressBar, que fija el nivel de la capa "progress" según su avance.
+
+  El relleno va dentro de un <scale>, no de un <clip>: <scale> cambia el ANCHO del dibujo interior (que conserva su
+  radio de esquina y por eso termina redondo por los dos lados, como en el mockup), mientras que <clip> lo recorta y
+  dejaría el extremo derecho plano.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/progreso_pista" />
+            <corners android:radius="@dimen/radio_barra_progreso" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <scale
+            android:scaleGravity="start"
+            android:scaleWidth="100%">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/progreso_relleno" />
+                <corners android:radius="@dimen/radio_barra_progreso" />
+            </shape>
+        </scale>
+    </item>
+
+</layer-list>

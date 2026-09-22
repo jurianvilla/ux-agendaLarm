@@ -23,7 +23,7 @@
     <dimen name="encabezado_titulo_margen_superior">18.5dp</dimen>
     <dimen name="encabezado_acceso_margen_superior">7.5dp</dimen>   <!-- bajo el título -->
     <dimen name="encabezado_codigo_margen_superior">20.5dp</dimen>
-    <dimen name="encabezado_codigo_margen_final">41.5dp</dimen>
+    <item name="encabezado_codigo_posicion" format="float" type="dimen">0.8515</item> <!-- inicio del código: 332,1 dp de 390, y su tinta arranca en x = 333 dp en todos los mockups -->
     <dimen name="encabezado_relleno_inferior">8dp</dimen>            <!-- sólo actúa con fuente grande: a 70 dp manda la altura mínima -->
     <!-- Variante con título de dos líneas (M-09): título más arriba y a la izquierda, acceso más pegado al título -->
     <dimen name="encabezado_titulo_doble_margen_inicio">20.25dp</dimen>
@@ -118,4 +118,22 @@
     <dimen name="opcion_estado_margen_final">26dp</dimen>            <!-- entre «Activo» y el interruptor -->
     <dimen name="opcion_estado_margen_inferior">31.5dp</dimen>
     <dimen name="opcion_interruptor_margen_inferior">19dp</dimen>    <!-- + 12 dp de zona táctil = 31 dp al borde de la tarjeta -->
+
+    <!--
+      Levántate para apagar la alarma (M-11). Posiciones medidas sobre el mockup de 390 dp. Todo el grupo (ilustración,
+      instrucción, barra y porcentaje) queda 13 dp a la izquierda del centro: ocupa la columna de x = 11 a 353 dp.
+      Cada bloque cuelga del anterior, así que una fuente mayor o una instrucción de más líneas empujan lo que sigue.
+    -->
+    <dimen name="levantate_fondo_desfase_inicio">1dp</dimen>         <!-- el fondo z3 de M-11 va 1 dp a la izquierda y 8 dp más arriba que en M-04 (como en M-06) -->
+    <dimen name="levantate_fondo_desfase_superior">200dp</dimen>
+    <dimen name="levantate_margen_inicio">11dp</dimen>               <!-- columna del grupo: 342 dp de ancho en el mockup -->
+    <dimen name="levantate_margen_final">37dp</dimen>
+    <item name="levantate_ilustracion_sesgo" format="float" type="dimen">0.5094</item> <!-- ilustración a 146 dp del borde: 135 dp de los 265 libres de la columna -->
+    <dimen name="levantate_ilustracion_margen_superior">117dp</dimen>  <!-- bajo el encabezado -->
+    <dimen name="levantate_instruccion_margen_superior">85.2dp</dimen> <!-- bajo la ilustración -->
+    <dimen name="levantate_barra_altura">16dp</dimen>
+    <dimen name="radio_barra_progreso">8dp</dimen>                   <!-- mitad de la altura: extremos redondos, también en el relleno -->
+    <dimen name="levantate_barra_margen_superior">36dp</dimen>       <!-- bajo la instrucción -->
+    <dimen name="levantate_progreso_margen_superior">22.6dp</dimen>  <!-- bajo la barra -->
+    <dimen name="levantate_margen_inferior">24dp</dimen>
 </resources>

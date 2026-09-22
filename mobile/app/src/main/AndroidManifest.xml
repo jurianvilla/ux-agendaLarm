@@ -31,6 +31,11 @@
         <activity
             android:name=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity"
             android:exported="false" />
+
+        <!-- M-11 · Levántate para apagar la alarma: aún no la abre ninguna pantalla (ver src/debug). -->
+        <activity
+            android:name=".ui.levantateapagar.M11LevantateApagarActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

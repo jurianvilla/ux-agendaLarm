@@ -34,4 +34,12 @@
     <string name="metodo_foto">Registro fotográfico</string>
     <string name="metodo_activo">Activo</string>
     <string name="metodo_elegir">Elegir este método</string>
+
+    <!-- M-11 · Levántate para apagar la alarma (el porcentaje es un dato de muestra: ver LevantateApagarViewModel) -->
+    <string name="m11_titulo">Levántate para apagar la alarma</string>
+    <string name="m11_acceso">Requiere autenticación</string>
+    <string name="m11_codigo">M11</string>
+    <string name="levantate_instruccion">Mantente de pie unos segundos para confirmar que despertaste</string>
+    <string name="levantate_progreso">%1$d%%</string>
+    <string name="levantate_progreso_descripcion">Progreso para apagar la alarma</string>
 </resources>

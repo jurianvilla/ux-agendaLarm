@@ -54,6 +54,14 @@
     <color name="campana_clara">#F7D460</color>
     <color name="campana_oscura">#E58E14</color>
 
+    <!-- Barra de progreso (M-11): pista y relleno -->
+    <color name="progreso_pista">@color/neutros_100</color>
+    <color name="progreso_relleno">@color/primario_990</color>
+
+    <!-- Ilustración del gesto de M-11 (muestreados del mockup: no tienen paso equivalente en la paleta) -->
+    <color name="gesto_cuerpo">#3D4753</color>
+    <color name="gesto_estela">#2A77C1</color>
+
     <!-- Fondo del ícono de la app -->
     <color name="ic_launcher_background">@color/superficie</color>
 
