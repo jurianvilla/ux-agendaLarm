@@ -11,8 +11,8 @@ import com.agendalarm.app.ui.detallealarma.M06DetalleAlarmaActivity
 
 /**
  * M-04 · Alarmas del día. Pantalla principal de consulta diaria: fecha y número de compromisos, y una tarjeta
- * por alarma con su interruptor; tocar la tarjeta abre su detalle (M-06). (M-05, el estado vacío, se sumará como
- * otro estado de esta misma pantalla.)
+ * por alarma con su interruptor; tocar la tarjeta abre su detalle (M-06). M-05 (el estado vacío) es una pantalla
+ * propia, no un estado de esta Activity.
  */
 class M04AlarmasDelDiaActivity : BaseActivity() {
 

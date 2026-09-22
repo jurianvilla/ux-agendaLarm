@@ -11,15 +11,20 @@
         android:theme="@style/Theme.AgendaLarm"
         tools:targetApi="33">
 
-        <!-- M-04 · Alarmas del día: pantalla de arranque de la app. -->
+        <!-- M-05 · Alarmas del día · estado vacío: pantalla de arranque de la app. -->
         <activity
-            android:name=".ui.alarmasdia.M04AlarmasDelDiaActivity"
+            android:name=".ui.alarmasdiavacio.M05AlarmasDiaVacioActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- M-04 · Alarmas del día: aún no la abre ninguna pantalla (llega desde M-07, ver src/debug). -->
+        <activity
+            android:name=".ui.alarmasdia.M04AlarmasDelDiaActivity"
+            android:exported="false" />
 
         <!-- M-06 · Detalle de la alarma: se abre desde las tarjetas de M-04 (no es un punto de entrada). -->
         <activity

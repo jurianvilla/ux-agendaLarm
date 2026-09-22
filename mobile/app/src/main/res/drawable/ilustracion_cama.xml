@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ilustración de M-05: cama con «zzz», reconstruida sobre la imagen del mockup. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="109dp"
+    android:height="109dp"
+    android:viewportWidth="109"
+    android:viewportHeight="109">
+
+    <!-- Cabecera (poste) y repisa hacia la base -->
+    <path
+        android:fillColor="@color/texto_primario"
+        android:pathData="M0,34.5Q0,31.5 3,31.5Q6,31.5 6,34.5L6,70L41,70Q48,70 48,77L48,83L0,83Z" />
+
+    <!-- Base: barra completa bajo el colchón -->
+    <path
+        android:fillColor="@color/texto_primario"
+        android:pathData="M0,83H109V95H0Z" />
+
+    <!-- Patas -->
+    <path
+        android:fillColor="@color/texto_primario"
+        android:pathData="M0,95H6.5V101Q6.5,104 3.25,104Q0,104 0,101Z" />
+    <path
+        android:fillColor="@color/texto_primario"
+        android:pathData="M102.5,95H109V101Q109,104 105.75,104Q102.5,104 102.5,101Z" />
+
+    <!-- Colchón -->
+    <path
+        android:fillColor="@color/texto_primario"
+        android:pathData="M44,59Q44,51 52,51L101,51Q109,51 109,59L109,76.5L48,76.5Q44,76.5 44,72.5Z" />
+
+    <!-- Cabeza -->
+    <path
+        android:fillColor="@color/texto_primario"
+        android:pathData="M28.75,44.25a9.75,9.75 0 1,0 0.01,0z" />
+
+    <!-- «zzz»: dos trazos en zigzag, extremos y uniones redondeados -->
+    <group android:translateX="57.5">
+        <path
+            android:pathData="M2.5,3.5H15.5L3.5,16.5H16.5"
+            android:strokeColor="@color/texto_primario"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="5" />
+    </group>
+    <group
+        android:translateX="32"
+        android:translateY="19">
+        <path
+            android:pathData="M2.5,3.5H15.5L3.5,16.5H16.5"
+            android:strokeColor="@color/texto_primario"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="5" />
+    </group>
+
+</vector>

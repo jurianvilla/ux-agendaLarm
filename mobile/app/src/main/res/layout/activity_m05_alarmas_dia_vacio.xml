@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-05 · Alarmas del día · estado vacío (una pantalla = un layout, igual que M-04). -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/raiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/superficie">
+
+        <!-- Fondo decorativo z3 (mismo arte y desfase que en M-04) -->
+        <ImageView
+            android:id="@+id/fondo_decorativo"
+            android:layout_width="@dimen/fondo_z3_ancho"
+            android:layout_height="@dimen/fondo_z3_alto"
+            android:layout_marginStart="@dimen/fondo_z3_desfase_inicio"
+            android:layout_marginTop="@dimen/fondo_z3_desfase_superior"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:src="@drawable/fondo_z3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/include_encabezado_pantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:acceso="@{@string/m05_acceso}"
+            app:codigo="@{@string/m05_codigo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titulo="@{@string/m05_titulo}" />
+
+        <!-- Grupo anclado bajo el encabezado (no centrado en la pantalla): ilustración, mensaje y mensaje secundario -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contenido"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado"
+            app:layout_constraintWidth_max="@dimen/ancho_max_contenido">
+
+            <ImageView
+                android:id="@+id/ilustracion"
+                android:layout_width="@dimen/dia_vacio_ilustracion_tamano"
+                android:layout_height="@dimen/dia_vacio_ilustracion_tamano"
+                android:layout_marginTop="@dimen/dia_vacio_ilustracion_margen_superior"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ilustracion_cama"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/mensaje"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margen_pantalla"
+                android:layout_marginTop="@dimen/dia_vacio_espacio_mensaje"
+                android:layout_marginEnd="@dimen/margen_pantalla"
+                android:gravity="center"
+                android:text="@string/dia_vacio_mensaje"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.Titulo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ilustracion" />
+
+            <TextView
+                android:id="@+id/mensaje_secundario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margen_pantalla"
+                android:layout_marginTop="@dimen/dia_vacio_espacio_mensaje_secundario"
+                android:layout_marginEnd="@dimen/margen_pantalla"
+                android:gravity="center"
+                android:text="@string/dia_vacio_mensaje_secundario"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.CuerpoGrande"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mensaje" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Zonas táctiles invisibles: izquierda retrocede un día (no navega), derecha avanza. -->
+        <View
+            android:id="@+id/zona_dia_anterior"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:contentDescription="@string/dia_anterior_descripcion"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/zona_dia_siguiente"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+        <View
+            android:id="@+id/zona_dia_siguiente"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:contentDescription="@string/dia_siguiente_descripcion"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/zona_dia_anterior"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

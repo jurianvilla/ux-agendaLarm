@@ -2,6 +2,7 @@
 <!--
   Sólo en compilaciones debug: las pantallas que ninguna otra abre (o que piden un dato) se pueden abrir directo,
   para revisarlas contra su mockup, con
+      adb shell am start -n com.agendalarm.app/.ui.alarmasdia.M04AlarmasDelDiaActivity
       adb shell am start -n com.agendalarm.app/.ui.metodoconfirmacion.M09MetodoConfirmacionActivity
       adb shell am start -n com.agendalarm.app/.ui.levantateapagar.M11LevantateApagarActivity
   o desde Android Studio (Run > Edit Configurations > Launch: Specified Activity). En release siguen sin exportarse.
@@ -10,6 +11,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application>
+
+        <activity
+            android:name=".ui.alarmasdia.M04AlarmasDelDiaActivity"
+            android:exported="true"
+            tools:ignore="ExportedActivity"
+            tools:replace="android:exported" />
 
         <activity
             android:name=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity"

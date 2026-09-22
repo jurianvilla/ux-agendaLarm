@@ -15,6 +15,15 @@
     <string name="alarma_interruptor_descripcion">Alarma %1$s</string>
     <string name="alarma_ver_detalle">Ver detalle de la alarma</string>
 
+    <!-- M-05 · Alarmas del día · estado vacío -->
+    <string name="m05_titulo">Alarmas del día</string>
+    <string name="m05_acceso">Estado vacío</string>
+    <string name="m05_codigo">M5</string>
+    <string name="dia_vacio_mensaje">No tienes compromisos hoy.</string>
+    <string name="dia_vacio_mensaje_secundario">¡Buen descanso!</string>
+    <string name="dia_anterior_descripcion">Día anterior</string>
+    <string name="dia_siguiente_descripcion">Día siguiente</string>
+
     <!-- M-06 · Detalle de la alarma (los datos son de muestra: ver DetalleAlarmaMuestra.kt) -->
     <string name="m06_titulo">Detalle de la alarma</string>
     <string name="m06_acceso">Requiere autenticación</string>

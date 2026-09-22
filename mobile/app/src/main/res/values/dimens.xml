@@ -65,6 +65,12 @@
     <dimen name="fondo_z3_desfase_inicio">2dp</dimen>
     <dimen name="fondo_z3_desfase_superior">208dp</dimen>
 
+    <!-- Alarmas del día · estado vacío (M-05): posiciones medidas sobre el mockup Figma (frame 29:1097) -->
+    <dimen name="dia_vacio_ilustracion_tamano">109dp</dimen>
+    <dimen name="dia_vacio_ilustracion_margen_superior">56dp</dimen>  <!-- bajo el encabezado -->
+    <dimen name="dia_vacio_espacio_mensaje">104dp</dimen>             <!-- bajo la ilustración -->
+    <dimen name="dia_vacio_espacio_mensaje_secundario">8dp</dimen>    <!-- bajo el mensaje principal -->
+
     <!--
       Detalle de la alarma (M-06). Distancias entre cajas de texto (sin relleno de fuente), calculadas desde la
       línea base medida en el mockup de 390 dp y afinadas contra el emulador (±0,5 dp); cada bloque cuelga del
