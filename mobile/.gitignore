@@ -1,11 +1,67 @@
+# Archivos de proyecto IDE
 *.iml
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/shakeCase
+.idea/httpRequests
+.idea/dictionaries
+.idea/deploymentTargetDropDown.xml
+.idea/deploymentTargetSelector.xml
+
+# Gradle
 .gradle/
-.kotlin/
-/local.properties
-/.idea/
-.DS_Store
 build/
-/captures
-.externalNativeBuild
-.cxx
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Configuración local (contiene rutas del SDK, credenciales, etc.)
+local.properties
+
+# Salidas de compilación
 *.apk
+*.aab
+*.ap_
+*.aar
+*.dex
+*.class
+bin/
+gen/
+out/
+release/
+
+# Builds nativos (C/C++)
+.externalNativeBuild/
+.cxx/
+
+# Capturas y logs
+captures/
+/*/build/
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Firmas / claves (nunca deben subirse al repo)
+*.jks
+*.keystore
+keystore.properties
+
+# Kotlin
+.kotlin/
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+# Cache de anotaciones de Freeline
+freeline.py
+freeline/
+freeline_project_description.json
+
+# Google Services (si manejas configuración sensible por entorno)
+# google-services.json
