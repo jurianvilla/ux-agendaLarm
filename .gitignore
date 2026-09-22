@@ -2,6 +2,12 @@
 node_modules/
 *.log
 
+# Archivos de IDE / editor
+.idea/
+
+# Gradle
+.gradle/
+
 # builds de mobile (ajustar según la tecnología que elijan)
 build/
 dist/

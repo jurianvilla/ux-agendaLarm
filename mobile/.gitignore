@@ -1,16 +1,6 @@
 # Archivos de proyecto IDE
 *.iml
-.idea/caches
-.idea/libraries
-.idea/modules.xml
-.idea/workspace.xml
-.idea/navEditor.xml
-.idea/assetWizardSettings.xml
-.idea/shakeCase
-.idea/httpRequests
-.idea/dictionaries
-.idea/deploymentTargetDropDown.xml
-.idea/deploymentTargetSelector.xml
+.idea/
 
 # Gradle
 .gradle/
@@ -18,6 +8,12 @@ build/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
+
+# Caché de usuario de Gradle filtrado dentro del proyecto (debería vivir en ~/.gradle)
+/caches/
+/daemon/
+/native/
+/wrapper/
 
 # Configuración local (contiene rutas del SDK, credenciales, etc.)
 local.properties
@@ -42,6 +38,10 @@ release/
 captures/
 /*/build/
 *.log
+
+.gradle/
+**/build/
+
 
 # Sistema operativo
 .DS_Store
