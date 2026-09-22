@@ -14,6 +14,10 @@
   acceso se le pega, como en ese mockup. Las distancias van como relleno de los propios textos (no como margen)
   porque data binding sólo puede elegirlas así sin adaptadores propios.
 
+  Código «M#»: los 15 mockups lo alinean a la izquierda (su tinta empieza en x = 333 dp tenga uno o dos dígitos),
+  así que se ancla a una guía vertical por porcentaje del ancho y no al borde derecho (con dos dígitos, «M11»,
+  el anclaje a la derecha lo dejaba 3 dp fuera de lugar, y hasta 6 dp con «M10»).
+
   Dos capas: la exterior es la franja blanca, que llega hasta el borde superior y recibe como relleno la altura
   de la barra de estado (BaseActivity.aplicarInsets); la interior mide 70 dp aparte de ese relleno, porque
   minHeight cuenta el relleno y la franja saldría más baja de lo dibujado.
@@ -82,15 +86,22 @@
                 app:layout_constraintTop_toBottomOf="@id/texto_titulo"
                 tools:text="Requiere autenticación" />
 
+            <!-- El código empieza siempre en el mismo punto (los 15 mockups lo alinean a la izquierda): tenga uno o dos dígitos -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guia_codigo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/encabezado_codigo_posicion" />
+
             <TextView
                 android:id="@+id/texto_codigo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/encabezado_codigo_margen_superior"
-                android:layout_marginEnd="@dimen/encabezado_codigo_margen_final"
                 android:text="@{codigo}"
                 android:textAppearance="@style/TextAppearance.AgendaLarm.Micro"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guia_codigo"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="M4" />
 

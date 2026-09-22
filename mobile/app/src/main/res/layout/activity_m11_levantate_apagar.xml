@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-11 · Levántate para apagar la alarma (una pantalla = un layout, igual que M-04). -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="estado"
+            type="com.agendalarm.app.ui.levantateapagar.LevantateApagarUiState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/raiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/superficie">
+
+        <!-- Fondo decorativo z3 (mismo arte que en M-04, pero 8 dp más arriba y 1 dp a la izquierda, como en M-06) -->
+        <ImageView
+            android:id="@+id/fondo_decorativo"
+            android:layout_width="@dimen/fondo_z3_ancho"
+            android:layout_height="@dimen/fondo_z3_alto"
+            android:layout_marginStart="@dimen/levantate_fondo_desfase_inicio"
+            android:layout_marginTop="@dimen/levantate_fondo_desfase_superior"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:src="@drawable/fondo_z3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/include_encabezado_pantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:acceso="@{@string/m11_acceso}"
+            app:codigo="@{@string/m11_codigo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titulo="@{@string/m11_titulo}" />
+
+        <!-- El contenido se desplaza si no cabe (pantallas bajas, horizontal, texto grande) -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/contenido"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado"
+            app:layout_constraintWidth_max="@dimen/ancho_max_contenido">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/levantate_margen_inferior">
+
+                <!-- Adorno del gesto: decorativo para lectores de pantalla, la instrucción ya lo dice con palabras -->
+                <ImageView
+                    android:id="@+id/ilustracion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/levantate_margen_inicio"
+                    android:layout_marginTop="@dimen/levantate_ilustracion_margen_superior"
+                    android:layout_marginEnd="@dimen/levantate_margen_final"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ilustracion_gesto"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="@dimen/levantate_ilustracion_sesgo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/texto_instruccion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/levantate_margen_inicio"
+                    android:layout_marginTop="@dimen/levantate_instruccion_margen_superior"
+                    android:layout_marginEnd="@dimen/levantate_margen_final"
+                    android:gravity="center_horizontal"
+                    android:text="@string/levantate_instruccion"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.CuerpoMarca"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ilustracion" />
+
+                <!-- ProgressBar de verdad: TalkBack anuncia su avance en porcentaje sin código adicional -->
+                <ProgressBar
+                    android:id="@+id/barra"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/levantate_barra_altura"
+                    android:layout_marginStart="@dimen/levantate_margen_inicio"
+                    android:layout_marginTop="@dimen/levantate_barra_margen_superior"
+                    android:layout_marginEnd="@dimen/levantate_margen_final"
+                    android:contentDescription="@string/levantate_progreso_descripcion"
+                    android:max="100"
+                    android:maxHeight="@dimen/levantate_barra_altura"
+                    android:minHeight="@dimen/levantate_barra_altura"
+                    android:progress="@{estado.progreso}"
+                    android:progressDrawable="@drawable/barra_progreso"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/texto_instruccion"
+                    tools:progress="50" />
+
+                <!-- El avance ya lo anuncia la barra: leerlo también aquí lo repetiría -->
+                <TextView
+                    android:id="@+id/texto_progreso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/levantate_margen_inicio"
+                    android:layout_marginTop="@dimen/levantate_progreso_margen_superior"
+                    android:layout_marginEnd="@dimen/levantate_margen_final"
+                    android:gravity="center_horizontal"
+                    android:importantForAccessibility="no"
+                    android:text="@{@string/levantate_progreso(estado.progreso)}"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.Progreso"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/barra"
+                    tools:text="50%" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

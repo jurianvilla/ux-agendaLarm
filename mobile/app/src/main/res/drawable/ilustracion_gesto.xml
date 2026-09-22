@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Ilustración de M-11: persona caminando con cuatro rayas de velocidad. No existe en web (el PDF la trae como imagen
+  de un banco de imágenes, sin archivo fuente), así que se vectorizó sobre la figura del mockup: los contornos se
+  extrajeron de la cobertura de color (2 px por dp) y se ajustaron con curvas cúbicas (38 segmentos); la cabeza es
+  un círculo de 7,57 dp de radio y las rayas son cuatro trazos de 4,37 dp con extremos redondos, medidos por
+  luminancia (el JPEG del PDF difumina el color de las líneas finas). Se omitió la marca de agua tenue que la figura
+  del PDF trae sobre el torso. Origen en la esquina superior izquierda de la caja que contiene a las rayas y al
+  cuerpo. Medido sobre lo dibujado en el emulador: silueta del cuerpo 97 % (IoU) y misma cantidad de tinta en las
+  rayas. Los dos colores son tokens propios (gesto_cuerpo, gesto_estela), muestreados del mockup.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="77dp"
+    android:height="84dp"
+    android:viewportWidth="77"
+    android:viewportHeight="84">
+
+    <!-- Rayas de velocidad: cuatro líneas de 4,37 dp con extremos redondos -->
+    <path
+        android:pathData="M11.52,21.86H23.82M2.59,34.46H17.30M2.57,47.13H14.71M8.23,59.90H23.81"
+        android:strokeColor="@color/gesto_estela"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.37" />
+
+    <!-- Cabeza -->
+    <path
+        android:fillColor="@color/gesto_cuerpo"
+        android:pathData="M39.25,7.94a7.57,7.57 0 1,0 15.15,0a7.57,7.57 0 1,0 -15.15,0z" />
+
+    <!-- Torso, brazos y pierna delantera -->
+    <path
+        android:fillColor="@color/gesto_cuerpo"
+        android:pathData="M50.88,35.41C50.27,35.69 50.47,36.90 50.23,37.50C49.84,38.48 48.30,44.93 48.57,45.62C48.99,46.71 50.47,47.73 51.25,48.59C52.73,50.24 53.87,52.23 55.25,53.98C58.99,58.69 60.76,65.51 61.54,71.38C61.93,74.33 61.88,77.27 61.88,80.25C61.88,81.39 61.90,83.03 60.50,83.39C59.24,83.71 53.15,83.75 52.44,82.75C51.50,81.42 52.09,78.69 52.04,77.12C51.93,73.51 51.55,70.14 50.31,66.75C48.44,61.65 44.11,55.90 40.36,52.00C39.24,50.83 35.87,47.16 35.53,45.75C35.27,44.71 36.10,42.58 36.32,41.50C36.95,38.44 38.81,31.81 38.92,29.12C38.16,28.03 34.04,32.96 33.50,33.86C31.79,36.73 30.70,39.66 30.16,43.00C29.92,44.51 30.42,46.78 29.79,48.12C28.96,49.91 26.28,51.76 24.33,50.25C20.89,47.61 22.31,41.88 23.29,38.25C26.01,28.12 33.67,19.83 44.50,18.56C46.38,18.34 48.52,18.52 50.11,19.62C51.42,20.53 51.75,21.99 52.62,23.20C55.24,26.80 57.10,31.21 60.88,33.78C63.03,35.24 65.64,36.14 68.25,36.38C69.97,36.54 72.37,36.06 73.88,37.07C75.88,38.41 76.33,42.31 73.75,43.41C68.80,45.51 59.11,42.67 55.12,39.37C54.25,38.65 51.64,35.51 50.88,35.41Z" />
+
+    <!-- Pierna trasera (separada del resto por un hueco de la figura) -->
+    <path
+        android:fillColor="@color/gesto_cuerpo"
+        android:pathData="M35.25,49.92C37.28,51.62 38.81,54.24 40.50,56.27C41.19,57.10 42.56,58.12 42.78,59.25C43.05,60.67 41.16,64.24 40.55,65.62C38.11,71.19 34.14,76.03 29.08,79.50C27.83,80.36 26.22,82.10 24.75,82.47C23.05,82.89 18.34,76.75 18.95,75.12C19.47,73.77 21.84,73.15 22.84,72.25C25.52,69.85 28.71,67.25 30.38,63.99C32.09,60.62 33.36,57.33 34.29,53.62C34.49,52.85 34.53,50.19 35.25,49.92Z" />
+
+</vector>
