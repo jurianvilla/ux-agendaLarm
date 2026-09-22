@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-07 · Resumen de mañana (una pantalla = un layout, igual que M-04). -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/raiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/superficie">
+
+        <!-- Fondo decorativo z3 (mismo arte y desfase que en M-04) -->
+        <ImageView
+            android:id="@+id/fondo_decorativo"
+            android:layout_width="@dimen/fondo_z3_ancho"
+            android:layout_height="@dimen/fondo_z3_alto"
+            android:layout_marginStart="@dimen/fondo_z3_desfase_inicio"
+            android:layout_marginTop="@dimen/fondo_z3_desfase_superior"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:src="@drawable/fondo_z3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/include_encabezado_pantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:acceso="@{@string/m07_acceso}"
+            app:codigo="@{@string/m07_codigo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titulo="@{@string/m07_titulo}" />
+
+        <!-- Grupo anclado bajo el encabezado: título, lista de compromisos y botón -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contenido"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/margen_pantalla"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado"
+            app:layout_constraintWidth_max="@dimen/ancho_max_contenido">
+
+            <TextView
+                android:id="@+id/texto_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margen_pantalla"
+                android:layout_marginTop="@dimen/resumen_titulo_margen_superior"
+                android:text="@string/resumen_manana_titulo"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.TituloApp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lista_compromisos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/resumen_lista_margen_superior"
+                android:clipToPadding="false"
+                android:overScrollMode="ifContentScrolls"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/texto_titulo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_ver_alarmas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margen_pantalla"
+                android:layout_marginTop="@dimen/resumen_boton_margen_superior"
+                android:layout_marginEnd="@dimen/margen_pantalla"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lista_compromisos"
+                tools:targetApi="28"
+                tools:text="3 compromisos programados" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

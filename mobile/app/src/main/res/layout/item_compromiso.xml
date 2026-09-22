@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de compromiso de M-07: mismo estilo de tarjeta que item_alarma.xml, sin interruptor. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="compromiso"
+            type="com.agendalarm.app.ui.resumenmanana.CompromisoUi" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margen_tarjeta"
+        android:layout_marginEnd="@dimen/margen_tarjeta"
+        android:layout_marginBottom="@dimen/espaciado_tarjetas">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/tarjeta_alarma_altura">
+
+            <TextView
+                android:id="@+id/texto_titulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/tarjeta_alarma_padding_inicio"
+                android:layout_marginTop="@dimen/tarjeta_alarma_margen_superior"
+                android:layout_marginEnd="@dimen/tarjeta_alarma_padding_inicio"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{compromiso.titulo}"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.TarjetaTitulo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Clase Bases de Datos" />
+
+            <TextView
+                android:id="@+id/texto_detalle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tarjeta_alarma_espacio_detalle"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{compromiso.detalle}"
+                android:textAppearance="@style/TextAppearance.AgendaLarm.Detalle"
+                app:layout_constraintEnd_toEndOf="@id/texto_titulo"
+                app:layout_constraintStart_toStartOf="@id/texto_titulo"
+                app:layout_constraintTop_toBottomOf="@id/texto_titulo"
+                tools:text="08:30 · Universidad" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

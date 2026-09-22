@@ -24,6 +24,16 @@
     <string name="dia_anterior_descripcion">Día anterior</string>
     <string name="dia_siguiente_descripcion">Día siguiente</string>
 
+    <!-- M-07 · Resumen de mañana (los compromisos son datos de muestra: ver ResumenMananaRepositorioMuestra.kt) -->
+    <string name="m07_titulo">Resumen de mañana</string>
+    <string name="m07_acceso">Requiere autenticación</string>
+    <string name="m07_codigo">M7</string>
+    <string name="resumen_manana_titulo">Mañana</string>
+    <plurals name="compromisos_programados">
+        <item quantity="one">%d compromiso programado</item>
+        <item quantity="other">%d compromisos programados</item>
+    </plurals>
+
     <!-- M-06 · Detalle de la alarma (los datos son de muestra: ver DetalleAlarmaMuestra.kt) -->
     <string name="m06_titulo">Detalle de la alarma</string>
     <string name="m06_acceso">Requiere autenticación</string>

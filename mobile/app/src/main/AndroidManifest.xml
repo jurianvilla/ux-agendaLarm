@@ -21,10 +21,16 @@
             </intent-filter>
         </activity>
 
-        <!-- M-04 · Alarmas del día: aún no la abre ninguna pantalla (llega desde M-07, ver src/debug). -->
+        <!-- M-07 · Resumen de mañana: se abre al avanzar de día desde M-05. -->
+        <activity
+            android:name=".ui.resumenmanana.M07ResumenMananaActivity"
+            android:exported="false" />
+
+        <!-- M-04 · Alarmas del día: se abre desde el botón de M-07. -->
         <activity
             android:name=".ui.alarmasdia.M04AlarmasDelDiaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.resumenmanana.M07ResumenMananaActivity" />
 
         <!-- M-06 · Detalle de la alarma: se abre desde las tarjetas de M-04 (no es un punto de entrada). -->
         <activity
