@@ -42,7 +42,7 @@
                 android:paddingStart="@{opcion.activa ? @dimen/opcion_icono_margen_inicio_activa : @dimen/opcion_icono_margen_inicio_reposo}"
                 android:paddingEnd="0dp"
                 android:paddingTop="@{opcion.activa ? @dimen/opcion_icono_margen_superior_activa : @dimen/opcion_icono_margen_superior_reposo}"
-                android:src="@drawable/icono_metodo"
+                android:src="@{opcion.activa ? @drawable/icono_metodo_activo : @drawable/icono_metodo}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

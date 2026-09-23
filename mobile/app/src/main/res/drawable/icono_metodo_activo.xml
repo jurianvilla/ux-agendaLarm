@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-09 · Marcador de icono de la opción activa: relleno índigo -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/texto_marca" />
+    <size
+        android:width="@dimen/opcion_icono_tamano"
+        android:height="@dimen/opcion_icono_tamano" />
+</shape>
