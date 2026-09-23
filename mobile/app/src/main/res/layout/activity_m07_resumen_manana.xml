@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- M-07 · Resumen de mañana (una pantalla = un layout, igual que M-04). -->
+<!-- M-07 · Resumen de mañana. -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -48,15 +48,17 @@
             app:layout_constraintWidth_max="@dimen/ancho_max_contenido">
 
             <TextView
-                android:id="@+id/texto_titulo"
+                android:id="@+id/texto_manana"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:accessibilityHeading="true"
                 android:layout_marginStart="@dimen/margen_pantalla"
                 android:layout_marginTop="@dimen/resumen_titulo_margen_superior"
                 android:text="@string/resumen_manana_titulo"
                 android:textAppearance="@style/TextAppearance.AgendaLarm.TituloApp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:targetApi="28" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista_compromisos"
@@ -68,7 +70,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/texto_titulo" />
+                app:layout_constraintTop_toBottomOf="@id/texto_manana" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/boton_ver_alarmas"
