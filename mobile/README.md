@@ -27,12 +27,12 @@ Las pantallas reproducen los mockups de `S6_Mockups_Movil_AgendaLarm.pdf` (390 �
 | Código | Pantalla | Clase | Acceso | Responsable |
 | --- | --- | --- | --- | --- |
 | M-04 | Alarmas del día | `M04AlarmasDelDiaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
-| M-05 | Alarmas del día · estado vacío | `M05AlarmasDiaVacioActivity` | Estado vacío | Juan Sebastián Vega Guarín |
+| M-05 | Alarmas del día · estado vacío | `M05AlarmasDiaVacioActivity` | Estado vacío | Julio César Urian Villamil |
 | M-06 | Detalle de la alarma | `M06DetalleAlarmaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
-| M-07 | Resumen de mañana | `M07ResumenMananaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
+| M-07 | Resumen de mañana | `M07ResumenMananaActivity` | Requiere autenticación | Julio César Urian Villamil |
 | M-09 | ¿Cómo quieres confirmar que despertaste? | `M09MetodoConfirmacionActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
 | M-11 | Levántate para apagar la alarma | `M11LevantateApagarActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
-| M-12 | Alarma cumplida | `M12AlarmaCumplidaActivity` | Estado del sistema | Julio Urian |
+| M-12 | Alarma cumplida | `M12AlarmaCumplidaActivity` | Estado del sistema | Julio César Urian Villamil |
 
 Cada pantalla lleva en su franja superior el nombre, el tipo de acceso y el código del mockup (por ejemplo «M11»), tal como aparece en el documento de diseño.
 
@@ -51,7 +51,7 @@ Pantalla principal de consulta diaria, con compromisos para el día. El encabeza
 Pantalla de arranque de la aplicación: mismo encabezado que M-04 pero sin compromisos para el día consultado. Muestra una ilustración de una cama y los mensajes «No tienes compromisos hoy.» y «¡Buen descanso!».
 
 - Dos zonas táctiles invisibles a los lados del contenido cambian de día: la izquierda («día anterior») no navega, el mockup no tiene una pantalla para ese caso; la derecha («día siguiente») abre M-07.
-ya
+
 ### M-06 · Detalle de la alarma
 
 Información completa del compromiso que origina una alarma: ilustración de una campana, nombre del compromiso, hora, lugar, *Hora de salida estimada* y *Margen calculado*, con las acciones **Editar Alarma** y **Eliminar Alarma**.

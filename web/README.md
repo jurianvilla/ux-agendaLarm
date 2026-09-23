@@ -102,6 +102,7 @@ Los archivos siguen el patrón `W-##-nombre.html` (número de dos cifras y guion
 | --- | --- |
 | `data-nav="archivo.html"` | Navega a otra pantalla |
 | `data-vista` · `data-mostrar-vista="id"` | Muestra una vista dentro de la misma pantalla y oculta las demás |
+| `data-foco-vista` | Recibe el foco al mostrarse su vista, para que el lector de pantalla anuncie el cambio (W-09, W-10) |
 | `data-abrir="#id"` · `data-cerrar` | Abre y cierra un `<dialog>` |
 | `data-quitar-fila` | Descarta la fila (`<li>`) que lo contiene |
 | `data-editar` | Alterna la edición en línea del texto de una fila |
