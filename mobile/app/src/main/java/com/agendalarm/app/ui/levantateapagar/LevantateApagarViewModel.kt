@@ -11,8 +11,14 @@ import androidx.lifecycle.ViewModel
  */
 class LevantateApagarViewModel : ViewModel() {
 
-    val estado: LiveData<LevantateApagarUiState> =
-        MutableLiveData(LevantateApagarUiState(progreso = PROGRESO_MUESTRA))
+    private val _estado = MutableLiveData(LevantateApagarUiState(progreso = PROGRESO_MUESTRA))
+    val estado: LiveData<LevantateApagarUiState> = _estado
+
+    /** Demo: la Activity lo llama a intervalos fijos hasta completar la barra. */
+    fun avanzar() {
+        val actual = _estado.value ?: return
+        if (!actual.completo) _estado.value = actual.avanzado()
+    }
 
     companion object {
         /** Avance que muestra el mockup. */

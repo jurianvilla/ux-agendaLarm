@@ -1,6 +1,7 @@
 package com.agendalarm.app.ui.levantateapagar
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertThrows
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -31,5 +32,19 @@ class LevantateApagarUiStateTest {
     @Test
     fun `el avance de muestra cabe en el rango del estado`() {
         assertTrue(LevantateApagarViewModel.PROGRESO_MUESTRA in LevantateApagarUiState.RANGO_PROGRESO)
+    }
+
+    @Test
+    fun `avanzar suma un punto`() {
+        assertEquals(51, LevantateApagarUiState(progreso = 50).avanzado().progreso)
+    }
+
+    @Test
+    fun `el avance no pasa de 100 y ahi queda completo`() {
+        val lleno = LevantateApagarUiState(progreso = 100)
+
+        assertTrue(lleno.completo)
+        assertEquals(100, lleno.avanzado().progreso)
+        assertFalse(LevantateApagarUiState(progreso = 99).completo)
     }
 }

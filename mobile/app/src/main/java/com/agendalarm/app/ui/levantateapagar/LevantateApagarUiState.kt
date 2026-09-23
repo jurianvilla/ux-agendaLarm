@@ -11,6 +11,11 @@ data class LevantateApagarUiState(
         require(progreso in RANGO_PROGRESO) { "El progreso debe estar entre 0 y 100 y es $progreso" }
     }
 
+    val completo: Boolean get() = progreso == RANGO_PROGRESO.last
+
+    /** Un punto más de avance, sin pasar de 100. */
+    fun avanzado(): LevantateApagarUiState = copy(progreso = (progreso + 1).coerceAtMost(RANGO_PROGRESO.last))
+
     companion object {
         val RANGO_PROGRESO = 0..100
     }

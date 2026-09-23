@@ -6,4 +6,6 @@
 <resources>
     <integer name="duracion_transicion">220</integer>   <!-- cambio de pantalla y cambios dentro de una pantalla -->
     <integer name="duracion_interruptor">150</integer>  <!-- .interruptor__pista { transition: 0.15s } en web -->
+    <integer name="duracion_demo_levantate">3000</integer>  <!-- M-11: de 50 % a 100 % -->
+    <integer name="duracion_demo_cumplida">1000</integer>   <!-- M-12: antes de volver a M-09 -->
 </resources>

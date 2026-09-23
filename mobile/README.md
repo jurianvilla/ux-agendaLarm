@@ -36,7 +36,7 @@ Las pantallas reproducen los mockups de `S6_Mockups_Movil_AgendaLarm.pdf` (390 �
 
 Cada pantalla lleva en su franja superior el nombre, el tipo de acceso y el código del mockup (por ejemplo «M11»), tal como aparece en el documento de diseño.
 
-**Flujo de navegación:** M-05 (pantalla de arranque) → toca la mitad derecha de la pantalla («día siguiente») → M-07 → botón «Ver alarmas» → M-04 → toca una tarjeta → M-06 → botón «Editar Alarma» → M-09 → elige «Ponerte de pie y sostener el teléfono» → M-11 (Atrás va devolviendo: M-11 a M-09, M-09 a M-06 y M-06 a M-04). La mitad izquierda de M-05 («día anterior») no navega: el mockup no tiene una pantalla para ese caso. Con esto, las seis pantallas quedan enlazadas entre sí.
+**Flujo de navegación:** M-05 (pantalla de arranque) → toca la mitad derecha de la pantalla («día siguiente») → M-07 → botón «Ver alarmas» → M-04 → toca una tarjeta → M-06 → botón «Editar Alarma» → M-09 → elige «Ponerte de pie y sostener el teléfono» → M-11 → la barra se completa sola en 3 s → M-12 → al segundo vuelve a M-09 (Atrás va devolviendo: M-11 a M-09, M-09 a M-06 y M-06 a M-04). La mitad izquierda de M-05 («día anterior») no navega: el mockup no tiene una pantalla para ese caso. Con esto, las siete pantallas quedan enlazadas entre sí.
 
 ### M-04 · Alarmas del día
 
@@ -83,6 +83,7 @@ Selección del método con el que se confirma el despertar: **Ponerte de pie y s
 Confirmación del despertar mediante un movimiento sostenido: la pantalla pide «Mantente de pie unos segundos para confirmar que despertaste», ilustra el gesto con una persona caminando y muestra el avance con una barra de progreso y su porcentaje (50 % en el prototipo).
 
 - Se abre al elegir «Ponerte de pie y sostener el teléfono» en M-09; Atrás vuelve a M-09.
+- Demo: la barra avanza sola de 50 % a 100 % en 3 segundos (un punto cada 60 ms; se pausa si la app pasa a segundo plano) y al completarse abre M-12. Las duraciones están en `res/values/animaciones.xml`.
 - La barra es un `ProgressBar` con extremos redondos; el relleno se dibuja dentro de un `<scale>` para que conserve su forma redondeada por ambos lados. La barra y el texto «50%» salen del mismo valor del estado (`LevantateApagarUiState.progreso`, de 0 a 100).
 - La ilustración es un `VectorDrawable` propio (`ilustracion_gesto.xml`: cuerpo, cabeza y cuatro rayas de velocidad).
 - El contenido (ilustración, instrucción, barra y porcentaje) ocupa una columna de 342 dp de ancho, tal como está en el mockup, y se desplaza si no cabe en pantalla.
@@ -91,6 +92,7 @@ Confirmación del despertar mediante un movimiento sostenido: la pantalla pide �
 
 Estado del sistema que confirma el despertar: marca de confirmación verde, el mensaje «¡Buen día! Alarma cumplida» y la hora efectivamente registrada: la del reloj del dispositivo en el momento en que se abre la pantalla.
 
+- Se abre al completarse la barra de M-11 y, tras 1 segundo, vuelve a M-09 (la misma instancia, con el método elegido).
 - La marca es un `VectorDrawable` propio (`marca_confirmacion.xml`: aro, franja blanca, disco y visto).
 - La hora sale del estado (`AlarmaCumplidaUiState.horaRegistrada`, en formato «HH:mm» de 24 horas); se toma una sola vez, así que no cambia al rotar. TalkBack la anuncia como «Despertar registrado a las 07:03» (con la hora que corresponda).
 
@@ -152,7 +154,7 @@ mobile/
         │       ├── drawable/                 # fondo_z3 · ilustracion_cama · ilustracion_campana · ilustracion_gesto
         │       │                             # marca_confirmacion · barra_progreso · ic_mas_opciones · punto_lugar
         │       │                             # icono_metodo · interruptor_pista · interruptor_pulgar · campo_fondo
-        │       ├── drawable-nodpi/           # ic_launcher_foreground.png
+        │       ├── drawable-nodpi/           # ic_launcher_foreground.png · ic_launcher_monochrome.png
         │       ├── mipmap-anydpi/            # ic_launcher.xml (ícono adaptable)
         │       ├── color/                    # colores por estado de los botones (sel_*)
         │       ├── font/                     # Inter Regular, Medium, SemiBold, Bold e inter.xml
@@ -252,7 +254,7 @@ adb emu kill
 | M-06 · Detalle de la alarma | Tocar una tarjeta de M-04 |
 | M-09 · Método de confirmación | Tocar «Editar Alarma» en M-06 |
 | M-11 · Levántate para apagar la alarma | Elegir «Ponerte de pie y sostener el teléfono» en M-09 |
-| M-12 · Alarma cumplida | Pendiente de conectar desde M-11 |
+| M-12 · Alarma cumplida | Esperar 3 s en M-11 (vuelve sola a M-09 tras 1 s) |
 
 ### Ver las pantallas en el tamaño del diseño (390 × 844 dp)
 

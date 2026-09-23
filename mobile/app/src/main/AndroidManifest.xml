@@ -50,10 +50,11 @@
             android:exported="false"
             android:parentActivityName=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity" />
 
-        <!-- M-12 · Alarma cumplida: pendiente de conectar desde M-11. -->
+        <!-- M-12 · Alarma cumplida: se abre al completar la barra de M-11 y vuelve sola a M-09. -->
         <activity
             android:name=".ui.alarmacumplida.M12AlarmaCumplidaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity" />
     </application>
 
 </manifest>
