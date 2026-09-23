@@ -49,6 +49,11 @@
             android:name=".ui.levantateapagar.M11LevantateApagarActivity"
             android:exported="false"
             android:parentActivityName=".ui.metodoconfirmacion.M09MetodoConfirmacionActivity" />
+
+        <!-- M-12 · Alarma cumplida: pendiente de conectar desde M-11. -->
+        <activity
+            android:name=".ui.alarmacumplida.M12AlarmaCumplidaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

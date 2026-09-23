@@ -62,6 +62,9 @@
     <color name="gesto_cuerpo">#3D4753</color>
     <color name="gesto_estela">#2A77C1</color>
 
+    <!-- Marca de confirmación de M-12 -->
+    <color name="marca_cumplida">#10C611</color>
+
     <!-- Fondo del ícono de la app -->
     <color name="ic_launcher_background">@color/superficie</color>
 

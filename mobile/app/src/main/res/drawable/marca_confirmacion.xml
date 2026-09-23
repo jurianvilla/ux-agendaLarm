@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-12 · Marca de confirmación -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="79dp"
+    android:height="79dp"
+    android:viewportWidth="79"
+    android:viewportHeight="79">
+
+    <!-- Aro exterior -->
+    <path
+        android:pathData="M1,39.5a38.5,38.5 0 1,0 77,0a38.5,38.5 0 1,0 -77,0z"
+        android:strokeColor="@color/marca_cumplida"
+        android:strokeWidth="2" />
+
+    <!-- Franja blanca -->
+    <path
+        android:fillColor="@color/blanco"
+        android:pathData="M2,39.5a37.5,37.5 0 1,0 75,0a37.5,37.5 0 1,0 -75,0z" />
+
+    <!-- Disco -->
+    <path
+        android:fillColor="@color/marca_cumplida"
+        android:pathData="M4.25,39.5a35.25,35.25 0 1,0 70.5,0a35.25,35.25 0 1,0 -70.5,0z" />
+
+    <!-- Visto -->
+    <path
+        android:fillColor="@color/blanco"
+        android:pathData="M61.8,18.2Q64.5,17.2 65.2,20.5L62.2,25.8L58.2,30.2L54.2,34.8L50.2,39.2L46.2,43.8L42.8,48.2L39.8,52.8L36.2,57.2L33.8,60.2Q31.2,63.5 27.8,60.2L24.2,57.2L20.2,52.8L16.8,48.2L14.8,45.2Q13.2,43.5 14.8,40.8L16.8,37.8Q20,34.8 22.2,37.8L24.8,40.8L27.2,43.8L28.8,45.2Q30.3,46.6 31.8,45.2L35.2,42.2L38.2,39.2L41.2,36.2L44.2,33.2L47.2,30.2L50.8,27.2L54.2,24.2L57.8,21.2Z" />
+
+</vector>

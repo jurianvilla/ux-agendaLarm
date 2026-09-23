@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- M-12 · Alarma cumplida. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="estado"
+            type="com.agendalarm.app.ui.alarmacumplida.AlarmaCumplidaUiState" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/raiz"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/superficie">
+
+        <!-- Fondo decorativo z3 -->
+        <ImageView
+            android:id="@+id/fondo_decorativo"
+            android:layout_width="@dimen/fondo_z3_ancho"
+            android:layout_height="@dimen/fondo_z3_alto"
+            android:layout_marginStart="@dimen/cumplida_fondo_desfase_inicio"
+            android:layout_marginTop="@dimen/cumplida_fondo_desfase_superior"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
+            android:src="@drawable/fondo_z3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado" />
+
+        <include
+            android:id="@+id/encabezado"
+            layout="@layout/include_encabezado_pantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:acceso="@{@string/m12_acceso}"
+            app:codigo="@{@string/m12_codigo}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titulo="@{@string/m12_titulo}" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/contenido"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/encabezado"
+            app:layout_constraintWidth_max="@dimen/ancho_max_contenido">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margen_pantalla">
+
+                <ImageView
+                    android:id="@+id/marca"
+                    android:layout_width="@dimen/cumplida_marca_tamano"
+                    android:layout_height="@dimen/cumplida_marca_tamano"
+                    android:layout_marginTop="@dimen/cumplida_marca_margen_superior"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/marca_confirmacion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mensaje"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margen_pantalla"
+                    android:layout_marginTop="@dimen/cumplida_mensaje_margen_superior"
+                    android:layout_marginEnd="@dimen/margen_pantalla"
+                    android:gravity="center_horizontal"
+                    android:text="@string/cumplida_mensaje"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.Titulo"
+                    android:textColor="@color/exito"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/marca" />
+
+                <TextView
+                    android:id="@+id/hora_registrada"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margen_pantalla"
+                    android:layout_marginTop="@dimen/cumplida_hora_margen_superior"
+                    android:layout_marginEnd="@dimen/margen_pantalla"
+                    android:contentDescription="@{@string/cumplida_hora_descripcion(estado.horaRegistrada)}"
+                    android:gravity="center_horizontal"
+                    android:text="@{estado.horaRegistrada}"
+                    android:textAppearance="@style/TextAppearance.AgendaLarm.Registro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mensaje"
+                    tools:text="07:03" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

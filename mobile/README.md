@@ -32,6 +32,7 @@ Las pantallas reproducen los mockups de `S6_Mockups_Movil_AgendaLarm.pdf` (390 �
 | M-07 | Resumen de mañana | `M07ResumenMananaActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
 | M-09 | ¿Cómo quieres confirmar que despertaste? | `M09MetodoConfirmacionActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
 | M-11 | Levántate para apagar la alarma | `M11LevantateApagarActivity` | Requiere autenticación | Juan Sebastián Vega Guarín |
+| M-12 | Alarma cumplida | `M12AlarmaCumplidaActivity` | Estado del sistema | Julio Urian |
 
 Cada pantalla lleva en su franja superior el nombre, el tipo de acceso y el código del mockup (por ejemplo «M11»), tal como aparece en el documento de diseño.
 
@@ -86,6 +87,13 @@ Confirmación del despertar mediante un movimiento sostenido: la pantalla pide �
 - La ilustración es un `VectorDrawable` propio (`ilustracion_gesto.xml`: cuerpo, cabeza y cuatro rayas de velocidad).
 - El contenido (ilustración, instrucción, barra y porcentaje) ocupa una columna de 342 dp de ancho, tal como está en el mockup, y se desplaza si no cabe en pantalla.
 
+### M-12 · Alarma cumplida
+
+Estado del sistema que confirma el despertar: marca de confirmación verde, el mensaje «¡Buen día! Alarma cumplida» y la hora efectivamente registrada: la del reloj del dispositivo en el momento en que se abre la pantalla.
+
+- La marca es un `VectorDrawable` propio (`marca_confirmacion.xml`: aro, franja blanca, disco y visto).
+- La hora sale del estado (`AlarmaCumplidaUiState.horaRegistrada`, en formato «HH:mm» de 24 horas); se toma una sola vez, así que no cambia al rotar. TalkBack la anuncia como «Despertar registrado a las 07:03» (con la hora que corresponda).
+
 ## Tecnologías y versiones
 
 | Tecnología | Versión |
@@ -131,24 +139,25 @@ mobile/
         │   │   ├── detallealarma/            # M-06: Activity, ViewModel, UiState, datos de muestra
         │   │   ├── resumenmanana/            # M-07: Activity, ViewModel, UiState, Adapter, repositorio de muestra
         │   │   ├── metodoconfirmacion/       # M-09: Activity, ViewModel, UiState, Adapter
-        │   │   └── levantateapagar/          # M-11: Activity, ViewModel, UiState
+        │   │   ├── levantateapagar/          # M-11: Activity, ViewModel, UiState
+        │   │   └── alarmacumplida/           # M-12: Activity, ViewModel, UiState
         │   └── res/
         │       ├── layout/                   # activity_m04… · activity_m05… · activity_m06… · activity_m07…
-        │       │                             # activity_m09… · activity_m11…
+        │       │                             # activity_m09… · activity_m11… · activity_m12…
         │       │                             # include_encabezado_pantalla · include_dato_etiquetado
         │       │                             # item_alarma · item_compromiso · item_seccion · item_nota
         │       │                             # item_introduccion · item_opcion_metodo
         │       ├── values/                   # colors_paleta · colors · dimens · styles_texto · styles_componentes
         │       │                             # themes · animaciones · strings
         │       ├── drawable/                 # fondo_z3 · ilustracion_cama · ilustracion_campana · ilustracion_gesto
-        │       │                             # barra_progreso · ic_mas_opciones · punto_lugar · icono_metodo
-        │       │                             # interruptor_pista · interruptor_pulgar · campo_fondo
+        │       │                             # marca_confirmacion · barra_progreso · ic_mas_opciones · punto_lugar
+        │       │                             # icono_metodo · interruptor_pista · interruptor_pulgar · campo_fondo
         │       ├── drawable-nodpi/           # ic_launcher_foreground.png
         │       ├── mipmap-anydpi/            # ic_launcher.xml (ícono adaptable)
         │       ├── color/                    # colores por estado de los botones (sel_*)
         │       ├── font/                     # Inter Regular, Medium, SemiBold, Bold e inter.xml
         │       ├── anim/ · interpolator/ · transition/   # movimiento entre pantallas y dentro de ellas
-        └── test/java/com/agendalarm/app/ui/  # pruebas unitarias: detallealarma · metodoconfirmacion · levantateapagar
+        └── test/java/com/agendalarm/app/ui/  # pruebas unitarias: detallealarma · metodoconfirmacion · levantateapagar · alarmacumplida
 ```
 
 ## Arquitectura y convenciones
@@ -179,6 +188,7 @@ Los estilos viven en `app/src/main/res/values/` y se aplican solos por el tema.
 | `OpcionTitulo` · `EstadoActivo` | 16 sp SemiBold · 22 sp Medium | Selector de opción (M-09) |
 | `Etiqueta` · `EtiquetaDestacada` · `EtiquetaDato` | 13 sp | Etiquetas de datos y campos |
 | `Progreso` | 13 sp, Regular | Porcentaje bajo la barra (M-11) |
+| `Registro` | 19 sp, Regular | Hora registrada (M-12) |
 | `Detalle` · `Micro` | 12 · 11 sp, Regular | Notas, acceso y código de la franja |
 | `Boton` | 14 sp, SemiBold | Botones |
 | `Reloj` · `ValorGrande` · `Valor` | 66 · 34 · 24 sp | Cifras |
@@ -242,6 +252,7 @@ adb emu kill
 | M-06 · Detalle de la alarma | Tocar una tarjeta de M-04 |
 | M-09 · Método de confirmación | Tocar «Editar Alarma» en M-06 |
 | M-11 · Levántate para apagar la alarma | Elegir «Ponerte de pie y sostener el teléfono» en M-09 |
+| M-12 · Alarma cumplida | Pendiente de conectar desde M-11 |
 
 ### Ver las pantallas en el tamaño del diseño (390 × 844 dp)
 

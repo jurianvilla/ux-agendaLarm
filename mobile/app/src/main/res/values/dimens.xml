@@ -147,4 +147,12 @@
     <dimen name="levantate_barra_margen_superior">36dp</dimen>       <!-- bajo la instrucción -->
     <dimen name="levantate_progreso_margen_superior">22.6dp</dimen>  <!-- bajo la barra -->
     <dimen name="levantate_margen_inferior">24dp</dimen>
+
+    <!-- Alarma cumplida (M-12) -->
+    <dimen name="cumplida_fondo_desfase_inicio">1dp</dimen>
+    <dimen name="cumplida_fondo_desfase_superior">200dp</dimen>     <!-- bajo el encabezado -->
+    <dimen name="cumplida_marca_tamano">79dp</dimen>
+    <dimen name="cumplida_marca_margen_superior">177dp</dimen>     <!-- bajo el encabezado -->
+    <dimen name="cumplida_mensaje_margen_superior">49.6dp</dimen>  <!-- bajo la marca -->
+    <dimen name="cumplida_hora_margen_superior">19.3dp</dimen>     <!-- bajo el mensaje -->
 </resources>

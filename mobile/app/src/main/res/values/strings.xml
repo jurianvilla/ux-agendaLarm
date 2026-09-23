@@ -61,4 +61,11 @@
     <string name="levantate_instruccion">Mantente de pie unos segundos para confirmar que despertaste</string>
     <string name="levantate_progreso">%1$d%%</string>
     <string name="levantate_progreso_descripcion">Progreso para apagar la alarma</string>
+
+    <!-- M-12 · Alarma cumplida -->
+    <string name="m12_titulo">Alarma cumplida</string>
+    <string name="m12_acceso">Estado del sistema</string>
+    <string name="m12_codigo">M12</string>
+    <string name="cumplida_mensaje">¡Buen día! Alarma cumplida</string>
+    <string name="cumplida_hora_descripcion">Despertar registrado a las %1$s</string>
 </resources>

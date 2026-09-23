@@ -83,6 +83,10 @@
     <style name="TextAppearance.AgendaLarm.Progreso" parent="TextAppearance.AgendaLarm">     <!-- M-11 porcentaje bajo la barra: «50%» -->
         <item name="android:textSize">13sp</item>
     </style>
+    <style name="TextAppearance.AgendaLarm.Registro" parent="TextAppearance.AgendaLarm">     <!-- M-12 hora registrada -->
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/texto_secundario</item>
+    </style>
     <style name="TextAppearance.AgendaLarm.Detalle" parent="TextAppearance.AgendaLarm">      <!-- «07:00 · Hora de inicio», nota al pie -->
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/texto_secundario</item>
