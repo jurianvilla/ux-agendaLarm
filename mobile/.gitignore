@@ -14,6 +14,8 @@ gradle-app.setting
 /daemon/
 /native/
 /wrapper/
+/android/
+/kotlin-profile/
 
 # Configuración local (contiene rutas del SDK, credenciales, etc.)
 local.properties
