@@ -62,6 +62,9 @@
     <color name="gesto_cuerpo">#3D4753</color>
     <color name="gesto_estela">#2A77C1</color>
 
+    <!-- Ilustración de la cama de M-05 -->
+    <color name="ilustracion_cama">#000000</color>
+
     <!-- Marca de confirmación de M-12 -->
     <color name="marca_cumplida">#10C611</color>
 

@@ -76,12 +76,14 @@
                 android:id="@+id/boton_ver_alarmas"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margen_pantalla"
+                android:layout_marginStart="@dimen/resumen_boton_margen_lateral"
                 android:layout_marginTop="@dimen/resumen_boton_margen_superior"
-                android:layout_marginEnd="@dimen/margen_pantalla"
+                android:layout_marginEnd="@dimen/resumen_boton_margen_lateral"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:cornerRadius="@dimen/resumen_boton_radio"
                 app:layout_constraintTop_toBottomOf="@id/lista_compromisos"
+                app:strokeWidth="0dp"
                 tools:targetApi="28"
                 tools:text="3 compromisos programados" />
 

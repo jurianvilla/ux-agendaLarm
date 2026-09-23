@@ -68,13 +68,15 @@
     <!-- Alarmas del día · estado vacío (M-05): posiciones medidas sobre el mockup -->
     <dimen name="dia_vacio_ilustracion_tamano">109dp</dimen>
     <dimen name="dia_vacio_ilustracion_margen_superior">56dp</dimen>  <!-- bajo el encabezado -->
-    <dimen name="dia_vacio_espacio_mensaje">104dp</dimen>             <!-- bajo la ilustración -->
-    <dimen name="dia_vacio_espacio_mensaje_secundario">8dp</dimen>    <!-- bajo el mensaje principal -->
+    <dimen name="dia_vacio_espacio_mensaje">105.4dp</dimen>             <!-- bajo la ilustración -->
+    <dimen name="dia_vacio_espacio_mensaje_secundario">11.5dp</dimen>    <!-- bajo el mensaje principal -->
 
     <!-- Resumen de mañana (M-07): título + lista de tarjetas + botón, mismo espaciado de tarjeta que M-04 -->
-    <dimen name="resumen_titulo_margen_superior">32dp</dimen>     <!-- bajo el encabezado -->
-    <dimen name="resumen_lista_margen_superior">24dp</dimen>      <!-- bajo el título -->
-    <dimen name="resumen_boton_margen_superior">24dp</dimen>      <!-- bajo la lista -->
+    <dimen name="resumen_titulo_margen_superior">38dp</dimen>     <!-- bajo el encabezado -->
+    <dimen name="resumen_lista_margen_superior">22.4dp</dimen>      <!-- bajo el título -->
+    <dimen name="resumen_boton_margen_superior">25dp</dimen>      <!-- bajo la lista -->
+    <dimen name="resumen_boton_radio">12dp</dimen>
+    <dimen name="resumen_boton_margen_lateral">25dp</dimen>
 
     <!--
       Detalle de la alarma (M-06). Distancias entre cajas de texto (sin relleno de fuente), calculadas desde la
