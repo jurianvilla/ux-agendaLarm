@@ -12,7 +12,9 @@ Prototipo web de **AgendaLarm · Servicio de gestión de alarmas**: las pantalla
 | **Curso** | Diseño de Experiencia de Usuario para el Desarrollo de Software |
 | **Docente** | Sergio Acosta |
 | **Integrantes** | Juan Sebastián Vega Guarín · Julio César Urian Villamil |
+| **Entregable** | Maquetación en código de la aplicación web (prototipo navegable) |
 | **Herramienta de diseño** | Figma |
+| **Editor de código** | Visual Studio Code |
 | **Ciudad y fecha** | Bogotá D.C., septiembre de 2026 |
 
 ## Pantallas
@@ -111,12 +113,19 @@ Los archivos siguen el patrón `W-##-nombre.html` (número de dos cifras y guion
 
 ## Despliegue y visualización
 
+### Requisitos
+
+- Google Chrome o Microsoft Edge 126 o superior (con otros navegadores funciona, pero sin la animación entre pantallas).
+- Python 3 para servir la carpeta en local (opción 2). Sirve cualquier otro servidor de archivos estáticos.
+
+### Cómo abrirlo
+
 1. **Abrir directamente.** Abrir `W-05-panel-principal.html` en el navegador (doble clic o *Archivo > Abrir archivo*) y navegar desde ahí.
 2. **Servir en local** (necesario para que la cámara de W-10 funcione, porque exige `localhost` o HTTPS):
 
 ```
 cd web
-python3 -m http.server 8000
+python3 -m http.server 8000     # en Windows: py -m http.server 8000
 ```
 
 y abrir `http://localhost:8000/W-05-panel-principal.html`. Con cualquier otro servidor de archivos estáticos el resultado es el mismo.
