@@ -1,6 +1,6 @@
 # AgendaLarm — Móvil
 
-Aplicación Android nativa de **AgendaLarm · Servicio de gestión de alarmas**, escrita en Kotlin con layouts XML y Material 3. Reúne las pantallas de uso diario de las alarmas: consulta del día (con o sin compromisos), resumen de mañana, detalle de una alarma, elección del método para confirmar el despertar y confirmación de pie con barra de progreso.
+Aplicación Android nativa de **AgendaLarm · Servicio de gestión de alarmas**, escrita en Kotlin con layouts XML y Material 3. Reúne las pantallas de uso diario de las alarmas: consulta del día (con o sin compromisos), resumen de mañana, detalle de una alarma, elección del método para confirmar el despertar, confirmación de pie con barra de progreso y alarma cumplida.
 
 ## Datos del proyecto
 
@@ -12,7 +12,7 @@ Aplicación Android nativa de **AgendaLarm · Servicio de gestión de alarmas**,
 | **Curso** | Diseño de Experiencia de Usuario para el Desarrollo de Software |
 | **Docente** | Sergio Acosta |
 | **Integrantes** | Juan Sebastián Vega Guarín · Julio César Urian Villamil |
-| **Entregable** | Mockups de aplicación móvil y componentes del Design System |
+| **Entregable** | Maquetación en código nativo de la aplicación móvil (prototipo navegable) |
 | **Herramienta de diseño** | Figma |
 | **Ciudad y fecha** | Bogotá D.C., septiembre de 2026 |
 
@@ -36,14 +36,14 @@ Las pantallas reproducen los mockups de `S6_Mockups_Movil_AgendaLarm.pdf` (390 �
 
 Cada pantalla lleva en su franja superior el nombre, el tipo de acceso y el código del mockup (por ejemplo «M11»), tal como aparece en el documento de diseño.
 
-**Flujo de navegación:** M-05 (pantalla de arranque) → toca la mitad derecha de la pantalla («día siguiente») → M-07 → botón «Ver alarmas» → M-04 → toca una tarjeta → M-06 → botón «Editar Alarma» → M-09 → elige «Ponerte de pie y sostener el teléfono» → M-11 → la barra se completa sola en 3 s → M-12 → al segundo vuelve a M-09 (Atrás va devolviendo: M-11 a M-09, M-09 a M-06 y M-06 a M-04). La mitad izquierda de M-05 («día anterior») no navega: el mockup no tiene una pantalla para ese caso. Con esto, las siete pantallas quedan enlazadas entre sí.
+**Flujo de navegación:** M-05 (pantalla de arranque) → toca la mitad derecha de la pantalla («día siguiente») → M-07 → botón «3 compromisos programados» → M-04 → toca una tarjeta → M-06 → botón «Editar Alarma» → M-09 → elige «Ponerte de pie y sostener el teléfono» → M-11 → la barra se completa sola en 3 s → M-12 → al segundo vuelve a M-09 (Atrás va devolviendo: M-11 a M-09, M-09 a M-06 y M-06 a M-04). La mitad izquierda de M-05 («día anterior») no navega: el mockup no tiene una pantalla para ese caso. Con esto, las siete pantallas quedan enlazadas entre sí.
 
 ### M-04 · Alarmas del día
 
 Pantalla principal de consulta diaria, con compromisos para el día. El encabezado indica la fecha y el número de compromisos («Hoy, martes 12 · 4 compromisos»). Debajo hay una tarjeta por alarma con el compromiso que la origina (título, hora y lugar) y un interruptor para activarla o desactivarla, y al final la nota «Cada alarma se origina en un compromiso de tu horario.».
 
 - Alarmas de muestra: *Despertar* (07:00), *Clase Bases de Datos* (08:30, Universidad), *Reunión equipo* (11:00, Trabajo) y *Tutoría* (15:30, Universidad, desactivada).
-- Se abre desde el botón «Ver alarmas» de M-07. Tocar una tarjeta abre el detalle de esa alarma (M-06); tocar el interruptor sólo cambia el estado de la alarma.
+- Se abre desde el botón «3 compromisos programados» de M-07. Tocar una tarjeta abre el detalle de esa alarma (M-06); tocar el interruptor sólo cambia el estado de la alarma.
 - Título, tarjetas y nota forman una sola lista que se desplaza junta. El estado de los interruptores se conserva al rotar el dispositivo y al volver desde M-06.
 
 ### M-05 · Alarmas del día · estado vacío
@@ -51,8 +51,7 @@ Pantalla principal de consulta diaria, con compromisos para el día. El encabeza
 Pantalla de arranque de la aplicación: mismo encabezado que M-04 pero sin compromisos para el día consultado. Muestra una ilustración de una cama y los mensajes «No tienes compromisos hoy.» y «¡Buen descanso!».
 
 - Dos zonas táctiles invisibles a los lados del contenido cambian de día: la izquierda («día anterior») no navega, el mockup no tiene una pantalla para ese caso; la derecha («día siguiente») abre M-07.
-- Es la única `Activity` exportada como `LAUNCHER` en el manifiesto; M-04 dejó de ser la pantalla de arranque al construir esta pantalla.
-
+ya
 ### M-06 · Detalle de la alarma
 
 Información completa del compromiso que origina una alarma: ilustración de una campana, nombre del compromiso, hora, lugar, *Hora de salida estimada* y *Margen calculado*, con las acciones **Editar Alarma** y **Eliminar Alarma**.
@@ -65,7 +64,7 @@ Información completa del compromiso que origina una alarma: ilustración de una
 
 Adelanto de los compromisos del día siguiente: una lista de tarjetas (título, hora y lugar de cada compromiso) y, debajo, un botón con la cantidad programada («3 compromisos programados»).
 
-- Se abre al tocar la mitad derecha de M-05 («día siguiente»); el botón «Ver alarmas» lleva a M-04.
+- Se abre al tocar la mitad derecha de M-05 («día siguiente»); ese botón lleva a M-04.
 - Compromisos de muestra: *Clase Bases de Datos* (08:30, Universidad), *Reunión equipo* (11:00, Trabajo) y *Tutoría* (15:30, Universidad).
 - Primera pantalla que separa los datos de muestra detrás de una interfaz (`ResumenMananaRepositorio` / `ResumenMananaRepositorioMuestra`), sustituible por una fuente real sin tocar el ViewModel.
 
@@ -223,6 +222,17 @@ cd mobile
 
 Para instalar el APK en un celular sin Gradle: `adb install -r app/build/outputs/apk/debug/app-debug.apk`.
 
+### APK de entrega (release)
+
+```
+cd mobile
+./gradlew assembleRelease      # genera app/build/outputs/apk/release/app-release.apk
+```
+
+El APK de release se firma con la clave de depuración de Android (`signingConfig = signingConfigs.getByName("debug")` en `app/build.gradle.kts`), así que se instala directamente en cualquier celular: con `adb install -r app/build/outputs/apk/release/app-release.apk`, o copiando el archivo al celular y abriéndolo (hay que permitir la instalación de apps de origen desconocido). Es la firma adecuada para un prototipo de curso; no sirve para publicar en Google Play.
+
+Si ya hay instalada una versión compilada en otro computador, Android rechaza la actualización porque la clave de depuración cambia de un equipo a otro: desinstalar primero con `adb uninstall com.agendalarm.app`.
+
 ### Ejecutar en un emulador
 
 ```
@@ -250,7 +260,7 @@ adb emu kill
 | --- | --- |
 | M-05 · Alarmas del día · estado vacío | Es la pantalla de arranque: abrir la aplicación desde el lanzador |
 | M-07 · Resumen de mañana | Tocar la mitad derecha de la pantalla en M-05 («día siguiente») |
-| M-04 · Alarmas del día | Tocar «Ver alarmas» en M-07 |
+| M-04 · Alarmas del día | Tocar el botón «3 compromisos programados» en M-07 |
 | M-06 · Detalle de la alarma | Tocar una tarjeta de M-04 |
 | M-09 · Método de confirmación | Tocar «Editar Alarma» en M-06 |
 | M-11 · Levántate para apagar la alarma | Elegir «Ponerte de pie y sostener el teléfono» en M-09 |

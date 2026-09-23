@@ -20,6 +20,8 @@ android {
 
     buildTypes {
         release {
+            // APK de entrega instalable (prototipo de curso)
+            signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
